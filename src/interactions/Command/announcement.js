@@ -5,25 +5,25 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('announcement')
-        .setDescription('Manage the server announcements')
+        .setDescription('Gestisci gli annunci')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the announcement category commands')
+                .setDescription('❓')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('create')
-                .setDescription('Make an announcement')
-                .addChannelOption(option => option.setName('channel').setDescription('Select a channel').setRequired(true).addChannelTypes(ChannelType.GuildText).addChannelTypes(ChannelType.GuildNews))
-                .addStringOption(option => option.setName('message').setDescription('Your announcement message').setRequired(true)),
+                .setDescription('Crea annuncio')
+                .addChannelOption(option => option.setName('channel').setDescription('Seleziona un canale').setRequired(true).addChannelTypes(ChannelType.GuildText).addChannelTypes(ChannelType.GuildNews))
+                .addStringOption(option => option.setName('message').setDescription('Il tuo annuncio').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('edit')
-                .setDescription('Edit an announcement')
-                .addStringOption(option => option.setName('id').setDescription('ID of the announcement you want to change').setRequired(true))
-                .addStringOption(option => option.setName('message').setDescription('Your announcement message').setRequired(true)),
+                .setDescription('Modifica annuncio')
+                .addStringOption(option => option.setName('id').setDescription('ID annuncio da modificare').setRequired(true))
+                .addStringOption(option => option.setName('message').setDescription('Modifica annuncio').setRequired(true)),
         )
     ,
 

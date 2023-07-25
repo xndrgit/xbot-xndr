@@ -2,6 +2,9 @@ module.exports = async (client, interaction, args) => {
     var gmt = new Date().toLocaleString("en-US", {
         timeZone: "Europe/London",
     });
+    var cetOslo = new Date().toLocaleString("en-US", {
+        timeZone: "Europe/Oslo",
+    });
     var est = new Date().toLocaleString("en-US", {
         timeZone: "America/New_York",
     });
@@ -17,17 +20,33 @@ module.exports = async (client, interaction, args) => {
     var awst = new Date().toLocaleString("en-US", {
         timeZone: "Australia/Perth",
     });
-    var kst = new Date().toLocaleString("en-US", {timeZone: "Asia/Seoul"});
+    var kst = new Date().toLocaleString("en-US", {
+        timeZone: "Asia/Seoul"
+    });
     var ist = new Date().toLocaleString("en-US", {
         timeZone: "Asia/Calcutta",
     });
+    var cetRome = new Date().toLocaleString("en-US", {
+        timeZone: "Europe/Rome",
+    });
+    var jst = new Date().toLocaleString("en-US", {
+        timeZone: "Asia/Tokyo",
+    });
+    var cstBeijing = new Date().toLocaleString("en-US", {
+        timeZone: "Asia/Shanghai",
+    });
 
     client.embed({
-        title: `⏰・World clock`,
+        title: `⏰・Orologio mondiale`,
         fields: [
             {
                 name: ":flag_eu:┇London (GMT)",
                 value: `${gmt}\n(GMT+0/GMT+1)`,
+                inline: true,
+            },
+            {
+                name: ":flag_no:┇Oslo (CET)",
+                value: `${cetOslo}\n(GMT+1)`,
                 inline: true,
             },
             {
@@ -36,7 +55,7 @@ module.exports = async (client, interaction, args) => {
                 inline: true,
             },
             {
-                name: ":flag_us:┇Los Angles (PST)",
+                name: ":flag_us:┇Los Angeles (PST)",
                 value: `${pst}\n(GMT-8)`,
                 inline: true,
             },
@@ -66,8 +85,18 @@ module.exports = async (client, interaction, args) => {
                 inline: true,
             },
             {
-                name: "\u200b",
-                value: `\u200b`,
+                name: ":flag_it:┇Rome (CET)",
+                value: `${cetRome}\n(GMT+1)`,
+                inline: true,
+            },
+            {
+                name: ":flag_jp:┇Tokyo (JST)",
+                value: `${jst}\n(GMT+9)`,
+                inline: true,
+            },
+            {
+                name: ":flag_cn:┇Beijing (CST)",
+                value: `${cstBeijing}\n(GMT+8)`,
                 inline: true,
             },
         ],

@@ -9,12 +9,12 @@ module.exports = async (client, interaction, args) => {
     const guild = {Guild: interaction.guild.id};
 
     if (author.id == target.id) return client.errNormal({
-        error: "You cannot disown yourself",
+        error: "non puoi rinnegare te stess*",
         type: 'editreply'
     }, interaction);
 
     if (target.bot) return client.errNormal({
-        error: "You cannot disown a bot",
+        error: "non puoi rinnegare un bot",
         type: 'editreply'
     }, interaction);
 
@@ -23,8 +23,8 @@ module.exports = async (client, interaction, args) => {
             Schema.findOne({Guild: interaction.guild.id, User: data.Parent}, async (err, data2) => {
                 if (data2) {
                     client.embed({
-                        title: `👪・Disowned`,
-                        desc: `${author} has disowned <@!${data.Parent}>`,
+                        title: `👪・Rinnegato`,
+                        desc: `${author} ha rinnegato <@!${data.Parent}>`,
                         type: 'editreply'
                     }, interaction);
 
@@ -52,19 +52,19 @@ module.exports = async (client, interaction, args) => {
                         })
 
                         client.embed({
-                            title: `👪・Disowned`,
-                            desc: `${author} has disowned <@!${target.id}>`,
+                            title: `👪・Rinnegato`,
+                            desc: `${author} ha rinnegato <@!${target.id}>`,
                             type: 'editreply'
                         }, interaction);
                     } else {
                         client.errNormal({
-                            error: "You have no children/parents at the moment",
+                            error: "non hai figli/genitori al momento",
                             type: 'editreply'
                         }, interaction);
                     }
                 } else {
                     client.errNormal({
-                        error: "You have no children/parents at the moment",
+                        error: "non hai figli/genitori al momento",
                         type: 'editreply'
                     }, interaction);
                 }

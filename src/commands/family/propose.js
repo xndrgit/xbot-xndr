@@ -9,18 +9,18 @@ module.exports = async (client, interaction, args) => {
     const guild = {Guild: interaction.guild.id};
 
     if (author.id == target.id) return client.errNormal({
-        error: "You cannot marry yourself!",
+        error: "e come fai a sposare te stess*?",
         type: 'editreply'
     }, interaction);
 
     Schema.findOne({Guild: interaction.guild.id, Partner: author.id}, async (err, data) => {
         if (data) {
-            client.errNormal({error: "Someone in the couple is already married!", type: 'editreply'}, interaction);
+            client.errNormal({error: "qui qualcuno è già sposato!", type: 'editreply'}, interaction);
         } else {
             Schema.findOne({Guild: interaction.guild.id, Partner: target.id}, async (err, data) => {
                 if (data) {
                     client.errNormal({
-                        error: "Someone in the couple is already married!",
+                        error: "qui qualcuno è gia sposato!",
                         type: 'editreply'
                     }, interaction);
                 } else {
@@ -31,7 +31,7 @@ module.exports = async (client, interaction, args) => {
                     }, async (err, data) => {
                         if (data) {
                             client.errNormal({
-                                error: "You cannot marry a family member!",
+                                error: "incesto negato",
                                 type: 'editreply'
                             }, interaction);
                         } else {
@@ -42,7 +42,7 @@ module.exports = async (client, interaction, args) => {
                             }, async (err, data) => {
                                 if (data) {
                                     client.errNormal({
-                                        error: "You cannot marry a family member!",
+                                        error: "incesto negato",
                                         type: 'editreply'
                                     }, interaction);
                                 } else {
@@ -53,7 +53,7 @@ module.exports = async (client, interaction, args) => {
                                         if (data) {
                                             if (data.Children.includes(target.id)) {
                                                 client.errNormal({
-                                                    error: "You cannot marry a family member!",
+                                                    error: "incesto negato",
                                                     type: 'editreply'
                                                 }, interaction);
                                             } else {
@@ -77,18 +77,18 @@ module.exports = async (client, interaction, args) => {
             .addComponents(
                 new Discord.ButtonBuilder()
                     .setCustomId('propose_accept')
-                    .setEmoji('✅')
+                    .setEmoji('🤍')
                     .setStyle(Discord.ButtonStyle.Success),
 
                 new Discord.ButtonBuilder()
                     .setCustomId('propose_deny')
-                    .setEmoji('❌')
+                    .setEmoji('🪦')
                     .setStyle(Discord.ButtonStyle.Danger),
             );
 
         client.embed({
-            title: `👰・Marriage proposal`,
-            desc: `${author} has ${target} asked to propose him! \n${target} click on one of the buttons`,
+            title: `👰・Richiesta di matrimonio`,
+            desc: `${author} ha chiesto a ${target} di sposarl* \n${target} vuoi sposarl*?`,
             components: [row],
             content: `${target}`,
             type: 'editreply'
@@ -130,8 +130,8 @@ module.exports = async (client, interaction, args) => {
                 })
 
                 client.embed({
-                    title: `👰・Marriage proposal - Approved`,
-                    desc: `${author} and ${target} are now married! 👰🎉`,
+                    title: `👰・Richiesta matrimonio - Accettata`,
+                    desc: `${author} e ${target} si sono sposati! 👰🎉`,
                     components: [],
                     content: `${target}`,
                     type: 'editreply'
@@ -140,8 +140,8 @@ module.exports = async (client, interaction, args) => {
 
             if (i.customId == "propose_deny") {
                 client.embed({
-                    title: `👰・Marriage proposal - Denied`,
-                    desc: `${target} loves someone else and chose not to marry ${author}`,
+                    title: `👰・Richiesta matrimonio - Rifiutata`,
+                    desc: `${target} ama qualcun altro, sei stato rifiutato ${author}`,
                     components: [],
                     content: `${target}`,
                     type: 'editreply'
@@ -149,8 +149,8 @@ module.exports = async (client, interaction, args) => {
             }
         }).catch(() => {
             client.embed({
-                title: `👰・Marriage proposal - Denied`,
-                desc: `${target} has not answered anything! The wedding is canceled`,
+                title: `👰・Richiesta matrimonio - Rifiutata`,
+                desc: `${target} non risponde, probabilmente ama qualcun altro`,
                 components: [],
                 content: `${target}`,
                 type: 'editreply'

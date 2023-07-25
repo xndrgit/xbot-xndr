@@ -62,11 +62,11 @@ module.exports = async (client) => {
         //     value: `\`/economy help\``,
         //     inline: true
         // },
-        // {
-        //     name: `👪┆Family`,
-        //     value: `\`/family help\``,
-        //     inline: true
-        // },
+        {
+            name: `👪┆Family`,
+            value: `\`/family help\``,
+            inline: true
+        },
         {
             name: `😂┆Fun`,
             value: `\`/fun help\``,

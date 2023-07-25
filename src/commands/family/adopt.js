@@ -8,12 +8,12 @@ module.exports = async (client, interaction, args) => {
     const author = interaction.user;
 
     if (author.id == target.id) return client.errNormal({
-        error: "You cannot adopt yourself",
+        error: "non puoi adottare te stesso! ahaha",
         type: 'editreply'
     }, interaction);
 
     if (target.bot) return client.errNormal({
-        error: "You cannot adopt a bot",
+        error: "non puoi adottare un bot! ahaha",
         type: 'editreply'
     }, interaction);
 
@@ -23,7 +23,7 @@ module.exports = async (client, interaction, args) => {
 
     if (familyMember || familyMember2 || familyMember3) {
         return client.errNormal({
-            error: `You cannot adopt a family member!`,
+            error: `non puoi adottare un membro della famiglia! ahaha`,
             type: 'editreply'
         }, interaction);
     }
@@ -31,7 +31,7 @@ module.exports = async (client, interaction, args) => {
     const checkAdopt = await Schema.findOne({Guild: interaction.guild.id, Children: target.username});
     if (checkAdopt) {
         return client.errNormal({
-            error: `This user has already been adopted`,
+            error: `già adottato...`,
             type: 'editreply'
         }, interaction);
     }
@@ -40,18 +40,18 @@ module.exports = async (client, interaction, args) => {
         .addComponents(
             new Discord.ButtonBuilder()
                 .setCustomId('adopt_yes')
-                .setEmoji('✅')
+                .setEmoji('🤍')
                 .setStyle(Discord.ButtonStyle.Success),
 
             new Discord.ButtonBuilder()
                 .setCustomId('adopt_deny')
-                .setEmoji('❌')
+                .setEmoji('🪦')
                 .setStyle(Discord.ButtonStyle.Danger),
         );
 
     client.embed({
-        title: `👪・Adoption`,
-        desc: `${author} has ${target} asked to adopt him! \n${target} click on one of the buttons`,
+        title: `👪・Adozione`,
+        desc: `${author} has ${target} asked to adopt him! \n${target} clicca un bottone`,
         components: [row],
         content: `${target}`,
         type: 'editreply',
@@ -93,7 +93,7 @@ module.exports = async (client, interaction, args) => {
             })
 
             client.embed({
-                title: `👪・Adoption - Approved`,
+                title: `👪・Adozione - Approvata`,
                 desc: `${author} is now the proud parent of ${target}! 🎉`,
                 components: [],
                 type: 'editreply'
@@ -102,7 +102,7 @@ module.exports = async (client, interaction, args) => {
 
         if (i.customId == "adopt_deny") {
             client.embed({
-                title: `👪・Adoption - Denied`,
+                title: `👪・Adozione - Rifiutata`,
                 desc: `${target} don't want to be adopted by ${author}`,
                 components: [],
                 type: 'editreply'
@@ -110,7 +110,7 @@ module.exports = async (client, interaction, args) => {
         }
     }).catch(() => {
         client.embed({
-            title: `👪・Adoption - Denied`,
+            title: `👪・Adozione - Rifiutata`,
             desc: `${target} has not answered anything! The adoption is canceled`,
             components: [],
             type: 'editreply'

@@ -14,15 +14,15 @@ module.exports = async (client, interaction, args) => {
         fields: [
             {
                 name: `Partner`,
-                value: `${data && data.Partner ? `<@!${data.Partner}>` : `This user is not married`}`
+                value: `${data && data.Partner ? `<@!${data.Partner}>` : `Non è sposat*`}`
             },
             {
                 name: `Parent`,
-                value: `${data && data.Parent.length > 0 ? `${data.Parent.join(", ")}` : `This user has no parents`}`
+                value: `${data && data.Parent.length > 0 ? `${data.Parent.join(", ")}` : `Non ha genitori`}`
             },
             {
                 name: `Children`,
-                value: `${data && data.Children.length > 0 ? `${data.Children.join(", ")}` : `This user has no children`}`
+                value: `${data && data.Children.length > 0 ? `${data.Children.join(", ")}` : `Non ha figli`}`
             }
         ],
         type: 'editreply'

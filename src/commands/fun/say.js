@@ -10,10 +10,8 @@ module.exports = async (client, interaction, args) => {
 
     await interaction.channel.send({content: client.removeMentions(text)}).then(() => {
         client.succNormal({
-            text: `Message sent successfully`,
+            text: `Messaggio spedito`,
             type: 'ephemeraledit'
-        }, interaction)
-    })
+        }, interaction);
+    });
 }
-
- 

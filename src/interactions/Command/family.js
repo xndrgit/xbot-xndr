@@ -2,51 +2,51 @@ const { CommandInteraction, Client } = require('discord.js');
 const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
 
-const Schema = require("../../dev/public - projects/project-GhostHouse-discord.js-XanderWilde/src/database/models/music");
+const Schema = require("../../../../dev/public - projects/project-GhostHouse-discord.js-XanderWilde/src/database/models/music");
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('family')
-        .setDescription('Create a family in Bot')
+        .setDescription('Crea una famiglia')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the family category commands')
+                .setDescription('❓')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('adopt')
-                .setDescription('Adopt a member')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
+                .setDescription('Adotta')
+                .addUserOption(option => option.setName('user').setDescription('Seleziona un utente').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('delete')
-                .setDescription('Delete your family!'),
+                .setDescription('Elimina'),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('disown')
-                .setDescription('Disown one of your children or a parent')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
+                .setDescription('Rinnega')
+                .addUserOption(option => option.setName('user').setDescription('Seleziona un uente').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('divorce')
-                .setDescription('Divorce your partner')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
+                .setDescription('Divorzia')
+                .addUserOption(option => option.setName('user').setDescription('Seleziona un uente').setRequired(true)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('family')
-                .setDescription(`See who's in someone's family!`)
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(false)),
+                .setDescription(`Visualizza`)
+                .addUserOption(option => option.setName('user').setDescription('Seleziona un uente').setRequired(false)),
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('propose')
-                .setDescription('Marry a member')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true)),
+                .setDescription('Sposa')
+                .addUserOption(option => option.setName('user').setDescription('Seleziona un uente').setRequired(true)),
         ),
 
     /** 

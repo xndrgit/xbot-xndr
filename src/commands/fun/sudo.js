@@ -6,7 +6,7 @@ module.exports = async (client, interaction, args) => {
     const text = interaction.options.getString('text');
 
     if (text.length >= 2000) return client.errNormal({
-        error: "You may not use more than 2000 characters!",
+        error: "Non puoi superare i 2000 caratteri!",
         type: 'editreply'
     }, interaction);
 
@@ -18,7 +18,7 @@ module.exports = async (client, interaction, args) => {
         _webhook.delete();
 
         client.succNormal({
-            text: `The sudo message was sent!`,
+            text: `Messaggio spedito`,
             type: 'ephemeraledit'
         }, interaction);
     });

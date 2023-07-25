@@ -8,12 +8,12 @@ module.exports = async (client, interaction, args) => {
     const author = interaction.user;
 
     if (author.id == target.id) return client.errNormal({
-        error: "You cannot divorce yourself",
+        error: "e come fai a chiedere il divorzio a te stesso?",
         type: 'editreply'
     }, interaction);
 
     if (target.bot) return client.errNormal({
-        error: "You cannot divorce a bot",
+        error: "non puoi chiedere il divorzio ad un bot",
         type: 'editreply'
     }, interaction);
 
@@ -29,14 +29,14 @@ module.exports = async (client, interaction, args) => {
         data.save();
 
         client.embed({
-            title: `👰・Divorced`,
-            desc: `${author} and ${target} have been divorced`,
+            title: `👰・Divorziato`,
+            desc: `${author} e ${target} hanno divorziato`,
             type: 'editreply'
         }, interaction);
 
     } else {
         client.errNormal({
-            error: "You are not married at the moment",
+            error: "non hai partner al momento",
             type: 'editreply'
         }, interaction);
     }
