@@ -1,8 +1,8 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
 
-const Schema = require("../src/database/models/music");
+const Schema = require("../../dev/public - projects/project-GhostHouse-discord.js-XanderWilde/src/database/models/music");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -26,14 +26,14 @@ module.exports = {
         )
     ,
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         client.loadSubcommands(client, interaction, args);
     },
 };
