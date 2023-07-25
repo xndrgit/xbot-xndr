@@ -1,5 +1,5 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -68,14 +68,14 @@ module.exports = {
                 .addStringOption(option => option.setName("feedback").setDescription("Your feedback").setRequired(true))
         ),
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         client.loadSubcommands(client, interaction, args);
     },
 };

@@ -1,6 +1,6 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
-const {ChannelType} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const { ChannelType } = require('discord.js');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -65,22 +65,22 @@ module.exports = {
                         .setDescription('Ticket message type')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'open', value: 'open'},
-                            {name: 'closeDM', value: 'close'}
+                            { name: 'open', value: 'open' },
+                            { name: 'closeDM', value: 'close' }
                         )
                 )
                 .addStringOption(option => option.setName("message").setDescription("Enter a message for the ticket").setRequired(true))
         )
     ,
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         client.loadSubcommands(client, interaction, args);
     },
 };

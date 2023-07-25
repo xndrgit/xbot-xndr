@@ -1,7 +1,7 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
-const model = require('../src/database/models/badge');
+const model = require('../../dev/public - projects/project-GhostHouse-discord.js-XanderWilde/src/database/models/badge');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -12,28 +12,28 @@ module.exports = {
                 .setDescription('Select a message')
                 .setRequired(true)
                 .addChoices(
-                    {name: 'Information', value: 'information'},
-                    {name: 'Rules', value: 'rules'},
-                    {name: 'Applications', value: 'applications'},
-                    {name: 'Helpdesk', value: 'helpdesk'},
-                    {name: 'Network', value: 'network'},
-                    {name: 'Bot-Info', value: 'botinfo'},
-                    {name: 'Bot-Badges', value: 'badges'},
-                    {name: 'Bot-Béta', value: 'beta'},
-                    {name: 'Bot-Credits', value: 'credits'}
+                    { name: 'Information', value: 'information' },
+                    { name: 'Rules', value: 'rules' },
+                    { name: 'Applications', value: 'applications' },
+                    { name: 'Helpdesk', value: 'helpdesk' },
+                    { name: 'Network', value: 'network' },
+                    { name: 'Bot-Info', value: 'botinfo' },
+                    { name: 'Bot-Badges', value: 'badges' },
+                    { name: 'Bot-Béta', value: 'beta' },
+                    { name: 'Bot-Credits', value: 'credits' }
                 )
         )
     ,
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
-        model.findOne({User: interaction.user.id}, async (err, data) => {
+        await interaction.deferReply({ fetchReply: true });
+        model.findOne({ User: interaction.user.id }, async (err, data) => {
             if (data && data.FLAGS.includes("DEVELOPER")) {
 
                 const message = interaction.options.getString('message');
@@ -456,11 +456,9 @@ module.exports = {
                     })
 
                 }
-            } else {
-                return client.errNormal({
-                    text: "Only Bot 2 developers are allowed to do this",
-                    editreply: true
-                }, interaction);
+            }
+            else {
+                return client.errNormal({ text: "Only Bot 2 developers are allowed to do this", editreply: true }, interaction);
             }
         })
     },

@@ -1,5 +1,5 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 
@@ -14,7 +14,7 @@ module.exports = {
                 .setName('help')
                 .setDescription('Get information about the soundboard category commands')
         )
-
+        
         // Windows Sounds
         .addSubcommandGroup((group) =>
             group
@@ -212,14 +212,14 @@ module.exports = {
                 )
         ),
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         client.loadSubcommands(client, interaction, args);
     },
 };

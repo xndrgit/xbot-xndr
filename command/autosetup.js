@@ -1,5 +1,5 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -20,9 +20,9 @@ module.exports = {
                         .setDescription('The setup that you want')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Server logs', value: 'serverLogs'},
-                            {name: 'Level logs', value: 'levelLogs'},
-                            {name: 'Boost logs', value: 'boostLogs'}
+                            { name: 'Server logs', value: 'serverLogs' },
+                            { name: 'Level logs', value: 'levelLogs' },
+                            { name: 'Boost logs', value: 'boostLogs' }
                         )
                 )
         )
@@ -35,11 +35,11 @@ module.exports = {
                         .setDescription('The setup that you want')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Birthdays', value: 'birthdays'},
-                            {name: 'Chatbot', value: 'chatbot'},
-                            {name: 'Reviews', value: 'reviews'},
-                            {name: 'Suggestions', value: 'suggestions'},
-                            {name: 'Starboard', value: 'starboard'}
+                            { name: 'Birthdays', value: 'birthdays' },
+                            { name: 'Chatbot', value: 'chatbot' },
+                            { name: 'Reviews', value: 'reviews' },
+                            { name: 'Suggestions', value: 'suggestions' },
+                            { name: 'Starboard', value: 'starboard' }
                         )
                 )
         )
@@ -52,10 +52,10 @@ module.exports = {
                         .setDescription('The setup that you want')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Counting', value: 'counting'},
-                            {name: 'Guess the number', value: 'gtn'},
-                            {name: 'Guess the word', value: 'gtw'},
-                            {name: 'Word snake', value: 'wordsnake'}
+                            { name: 'Counting', value: 'counting' },
+                            { name: 'Guess the number', value: 'gtn' },
+                            { name: 'Guess the word', value: 'gtw' },
+                            { name: 'Word snake', value: 'wordsnake' }
                         )
                 )
         )
@@ -68,9 +68,9 @@ module.exports = {
                         .setDescription('The setup that you want')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Welcome channel', value: 'welcomechannel'},
-                            {name: 'Welcome role', value: 'welcomerole'},
-                            {name: 'Leave channnel', value: 'leavechannel'}
+                            { name: 'Welcome channel', value: 'welcomechannel' },
+                            { name: 'Welcome role', value: 'welcomerole' },
+                            { name: 'Leave channnel', value: 'leavechannel' }
                         )
                 )
         )
@@ -86,14 +86,14 @@ module.exports = {
         )
     ,
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         const perms = await client.checkUserPerms({
             flags: [Discord.PermissionsBitField.Flags.Administrator],
             perms: [Discord.PermissionsBitField.Flags.Administrator]

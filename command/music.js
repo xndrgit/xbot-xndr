@@ -1,5 +1,5 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -20,10 +20,10 @@ module.exports = {
                         .setDescription('The level of the bassboost')
                         .setRequired(true)
                         .addChoices(
-                            {name: '0', value: '0'},
-                            {name: '1', value: '1'},
-                            {name: '2', value: '2'},
-                            {name: '3', value: '3'}
+                            { name: '0', value: '0' },
+                            { name: '1', value: '1' },
+                            { name: '2', value: '2' },
+                            { name: '3', value: '3' }
                         )
                 )
         )
@@ -114,14 +114,14 @@ module.exports = {
                 .addNumberOption(option => option.setName('amount').setDescription('New volume number'))
         ),
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         client.checkBotPerms({
             flags: [Discord.PermissionsBitField.Flags.Connect, Discord.PermissionsBitField.Flags.Speak],
             perms: [Discord.PermissionsBitField.Flags.Connect, Discord.PermissionsBitField.Flags.Speak]

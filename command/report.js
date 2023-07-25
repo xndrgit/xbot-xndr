@@ -1,5 +1,5 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -11,8 +11,8 @@ module.exports = {
                 .setDescription('The type of your report')
                 .setRequired(true)
                 .addChoices(
-                    {name: 'Bug', value: 'bug'},
-                    {name: 'User', value: 'user'}
+                    { name: 'Bug', value: 'bug' },
+                    { name: 'User', value: 'user' }
                 )
         )
         .addStringOption(option =>
@@ -22,14 +22,14 @@ module.exports = {
         )
     ,
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         const webhookClient = new Discord.WebhookClient({
             id: client.webhooks.bugReportLogs.id,
             token: client.webhooks.bugReportLogs.token
@@ -42,8 +42,8 @@ module.exports = {
             const embed = new Discord.EmbedBuilder()
                 .setTitle(`📣・New bug report!`)
                 .addFields(
-                    {name: "Report category", value: "Bug", inline: true},
-                    {name: "Submitted by", value: `${interaction.user.tag}`, inline: true},
+                    { name: "Report category", value: "Bug", inline: true },
+                    { name: "Submitted by", value: `${interaction.user.tag}`, inline: true },
                 )
                 .setDescription(`${desc}`)
                 .setColor(client.config.colors.normal)
@@ -56,12 +56,13 @@ module.exports = {
                 text: `Bug successfully sent to the developers!`,
                 type: 'ephemeraledit'
             }, interaction);
-        } else if (type == "user") {
+        }
+        else if (type == "user") {
             const embed = new Discord.EmbedBuilder()
                 .setTitle(`📣・New user report!`)
                 .addFields(
-                    {name: "Report category", value: "User", inline: true},
-                    {name: "Submitted by", value: `${interaction.user.tag}`, inline: true},
+                    { name: "Report category", value: "User", inline: true },
+                    { name: "Submitted by", value: `${interaction.user.tag}`, inline: true },
                 )
                 .setDescription(`${desc}`)
                 .setColor(client.config.colors.normal)

@@ -1,6 +1,6 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
-const {ChannelType} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const { ChannelType } = require('discord.js');
 const Discord = require('discord.js');
 const ms = require('ms');
 
@@ -68,14 +68,14 @@ module.exports = {
                 .addStringOption(option => option.setName('message').setDescription('Giveaway message ID').setRequired(true)),
         ),
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         const perms = await client.checkUserPerms({
             flags: [Discord.PermissionsBitField.Flags.ManageMessages],
             perms: [Discord.PermissionsBitField.Flags.ManageMessages]

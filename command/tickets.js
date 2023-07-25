@@ -1,9 +1,9 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
 
-const ticketSchema = require("../src/database/models/tickets");
-const ticketChannels = require("../src/database/models/ticketChannels");
+const ticketSchema = require("../../dev/public - projects/project-GhostHouse-discord.js-XanderWilde/src/database/models/tickets");
+const ticketChannels = require("../../dev/public - projects/project-GhostHouse-discord.js-XanderWilde/src/database/models/ticketChannels");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -90,14 +90,14 @@ module.exports = {
         )
     ,
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         client.loadSubcommands(client, interaction, args);
     },
 };

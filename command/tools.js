@@ -1,5 +1,5 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -82,6 +82,7 @@ module.exports = {
                 .setDescription('Set a reminder')
                 .addStringOption(option => option.setName('time').setDescription('The time for your reminder').setRequired(true))
                 .addStringOption(option => option.setName('message').setDescription('The message for your reminder').setRequired(true))
+
         )
         .addSubcommand(subcommand =>
             subcommand
@@ -106,14 +107,14 @@ module.exports = {
         )
     ,
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         client.loadSubcommands(client, interaction, args);
     },
 };

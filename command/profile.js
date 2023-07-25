@@ -1,5 +1,5 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
 const ms = require('ms');
 
@@ -20,24 +20,28 @@ module.exports = {
             subcommand
                 .setName('delete')
                 .setDescription('Delete your profile')
-        ).addSubcommand(subcommand =>
+        ).
+        addSubcommand(subcommand =>
             subcommand
                 .setName('profile')
                 .setDescription('See your profile')
                 .addUserOption((option) =>
                     option.setName('user').setDescription('The user you want the profile from').setRequired(false),
                 )
-        ).addSubcommand(subcommand =>
+        ).
+        addSubcommand(subcommand =>
             subcommand
                 .setName('aboutme')
                 .setDescription('Set your about me')
                 .addStringOption(option => option.setName('text').setDescription('Enter a about me').setRequired(true))
-        ).addSubcommand(subcommand =>
+        ).
+        addSubcommand(subcommand =>
             subcommand
                 .setName('age')
                 .setDescription('Set your age')
                 .addNumberOption(option => option.setName('number').setDescription('Enter a number').setRequired(true))
-        ).addSubcommand(subcommand =>
+        ).
+        addSubcommand(subcommand =>
             subcommand
                 .setName('bday')
                 .setDescription('Set your bday')
@@ -60,7 +64,8 @@ module.exports = {
                         .setDescription("The actor you want te remove")
                         .addStringOption(option => option.setName('actor').setDescription('The actor you want to remove').setRequired(true)),
                 )
-        ).addSubcommandGroup((group) =>
+        ).
+        addSubcommandGroup((group) =>
             group
                 .setName('artist')
                 .setDescription('Set your favorite artist')
@@ -76,11 +81,13 @@ module.exports = {
                         .setDescription("The artist you want te remove")
                         .addStringOption(option => option.setName('artist').setDescription('The artist you want to remove').setRequired(true)),
                 )
-        ).addSubcommand(subcommand =>
+        ).
+        addSubcommand(subcommand =>
             subcommand
                 .setName('color')
                 .setDescription('Set your favorite color')
                 .addStringOption(option => option.setName('color').setDescription('The color you want to set').setRequired(true)),
+
         ).addSubcommandGroup((group) =>
             group
                 .setName('food')
@@ -145,10 +152,12 @@ module.exports = {
                         .setDescription("The song you want te remove")
                         .addStringOption(option => option.setName('song').setDescription('The song you want to remove').setRequired(true)),
                 )
-        ).addSubcommand(subcommand =>
+        ).
+        addSubcommand(subcommand =>
             subcommand
                 .setName('gender')
                 .setDescription('Set your gender')
+
         ).addSubcommandGroup((group) =>
             group
                 .setName('hobbies')
@@ -165,26 +174,28 @@ module.exports = {
                         .setDescription("The hobby you want te remove")
                         .addStringOption(option => option.setName('hobby').setDescription('The hobby you want to remove').setRequired(true)),
                 )
-        ).addSubcommand(subcommand =>
+        ).
+        addSubcommand(subcommand =>
             subcommand
                 .setName('origin')
                 .setDescription('Set your origin')
                 .addStringOption(option => option.setName('country').setDescription('Enter a country').setRequired(true))
-        ).addSubcommand(subcommand =>
+        ).
+        addSubcommand(subcommand =>
             subcommand
                 .setName('status')
                 .setDescription('Set your status')
                 .addStringOption(option => option.setName('text').setDescription('Enter a status').setRequired(true))
         ),
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         client.loadSubcommands(client, interaction, args);
     },
 };

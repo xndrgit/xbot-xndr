@@ -1,5 +1,5 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -17,6 +17,7 @@ module.exports = {
                 .setDescription('Add a role item to the economy store')
                 .addRoleOption(option => option.setName('role').setDescription('Select a role').setRequired(true))
                 .addNumberOption(option => option.setName('amount').setDescription('Enter a amount').setRequired(true))
+
         )
         .addSubcommand(subcommand =>
             subcommand
@@ -40,6 +41,7 @@ module.exports = {
             subcommand
                 .setName('buy')
                 .setDescription('Buy items in the Bot store')
+
         )
         .addSubcommand(subcommand =>
             subcommand
@@ -155,14 +157,14 @@ module.exports = {
         )
     ,
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         client.loadSubcommands(client, interaction, args);
     },
 };

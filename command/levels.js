@@ -1,7 +1,7 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
-const Schema = require("../src/database/models/functions");
+const Schema = require("../../dev/public - projects/project-GhostHouse-discord.js-XanderWilde/src/database/models/functions");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -57,20 +57,20 @@ module.exports = {
         )
     ,
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        const guild = await Schema.findOne({Guild: interaction.guild.id});
+        const guild = await Schema.findOne({ Guild: interaction.guild.id });
         if (!guild.Levels) return client.errNormal({
             error: `The level system is disabled!`,
             type: 'ephemeral'
         }, interaction);
 
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         client.loadSubcommands(client, interaction, args);
     },
 };

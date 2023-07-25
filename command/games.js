@@ -1,5 +1,5 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
         .setDescription('Play games in Bot')
         .addSubcommand(subcommand =>
             subcommand
-                .setName('help')
+                .setName('help') 
                 .setDescription('Get information about the games category commands')
         )
         .addSubcommand(subcommand =>
@@ -42,9 +42,9 @@ module.exports = {
                         .setDescription('Choose what you want')
                         .setRequired(true)
                         .addChoices(
-                            {name: '🪨 Rock', value: 'rock'},
-                            {name: '📃 Paper', value: 'paper'},
-                            {name: '✂️ Scissors', value: 'scissors'}
+                            { name: '🪨 Rock', value: 'rock' },
+                            { name: '📃 Paper', value: 'paper' },
+                            { name: '✂️ Scissors', value: 'scissors' }
                         )
                 )
         )
@@ -74,14 +74,14 @@ module.exports = {
                 .setDescription('Play Would You Rather'),
         ),
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         client.loadSubcommands(client, interaction, args);
     },
 };

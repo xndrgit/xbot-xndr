@@ -1,6 +1,6 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
-const {ChannelType} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const { ChannelType } = require('discord.js');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -37,9 +37,9 @@ module.exports = {
                         .setDescription('The setup that you want')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Server logs', value: 'serverLogs'},
-                            {name: 'Level logs', value: 'levelLogs'},
-                            {name: 'Boost logs', value: 'boostLogs'}
+                            { name: 'Server logs', value: 'serverLogs' },
+                            { name: 'Level logs', value: 'levelLogs' },
+                            { name: 'Boost logs', value: 'boostLogs' }
                         )
                 )
                 .addChannelOption(option => option.setName('channel').setDescription('The channel for the logs').setRequired(true).addChannelTypes(ChannelType.GuildText))
@@ -53,11 +53,11 @@ module.exports = {
                         .setDescription('The setup that you want')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Birthdays', value: 'birthdays'},
-                            {name: 'Chatbot', value: 'chatbot'},
-                            {name: 'Reviews', value: 'reviews'},
-                            {name: 'Suggestions', value: 'suggestions'},
-                            {name: 'Starboard', value: 'starboard'}
+                            { name: 'Birthdays', value: 'birthdays' },
+                            { name: 'Chatbot', value: 'chatbot' },
+                            { name: 'Reviews', value: 'reviews' },
+                            { name: 'Suggestions', value: 'suggestions' },
+                            { name: 'Starboard', value: 'starboard' }
                         )
                 )
                 .addChannelOption(option => option.setName('channel').setDescription('The channel for the fun').setRequired(true).addChannelTypes(ChannelType.GuildText))
@@ -71,10 +71,10 @@ module.exports = {
                         .setDescription('The setup that you want')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Counting', value: 'counting'},
-                            {name: 'Guess the number', value: 'gtn'},
-                            {name: 'Guess the word', value: 'gtw'},
-                            {name: 'Word snake', value: 'wordsnake'}
+                            { name: 'Counting', value: 'counting' },
+                            { name: 'Guess the number', value: 'gtn' },
+                            { name: 'Guess the word', value: 'gtw' },
+                            { name: 'Word snake', value: 'wordsnake' }
                         )
                 )
                 .addChannelOption(option => option.setName('channel').setDescription('The channel for the game').setRequired(true).addChannelTypes(ChannelType.GuildText))
@@ -88,8 +88,8 @@ module.exports = {
                         .setDescription('The setup that you want')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Welcome channel', value: 'welcomechannel'},
-                            {name: 'Leave channnel', value: 'leavechannel'}
+                            { name: 'Welcome channel', value: 'welcomechannel' },
+                            { name: 'Leave channnel', value: 'leavechannel' }
                         )
                 )
                 .addChannelOption(option => option.setName('channel').setDescription('The channel that you want').setRequired(true).addChannelTypes(ChannelType.GuildText))
@@ -116,35 +116,35 @@ module.exports = {
                         .setDescription('The setup that you want')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Tickets', value: 'tickets'},
-                            {name: 'Custom voice', value: 'customvoice'},
-                            {name: 'Server logs', value: 'serverlogs'},
-                            {name: 'Level logs', value: 'levellogs'},
-                            {name: 'Boost logs', value: 'boostlogs'},
-                            {name: 'Birthdays', value: 'birthdays'},
-                            {name: 'Chatbot', value: 'chatbot'},
-                            {name: 'Reviews', value: 'reviews'},
-                            {name: 'Suggestions', value: 'suggestions'},
-                            {name: 'Counting', value: 'counting'},
-                            {name: 'Guess the number', value: 'gtn'},
-                            {name: 'Guess the word', value: 'gtw'},
-                            {name: 'Welcome channel', value: 'welcomechannel'},
-                            {name: 'Leave channel', value: 'leavechannel'},
-                            {name: 'Welcome role', value: 'welcomerole'},
-                            {name: 'Word snake', value: 'wordsnake'}
+                            { name: 'Tickets', value: 'tickets' },
+                            { name: 'Custom voice', value: 'customvoice' },
+                            { name: 'Server logs', value: 'serverlogs' },
+                            { name: 'Level logs', value: 'levellogs' },
+                            { name: 'Boost logs', value: 'boostlogs' },
+                            { name: 'Birthdays', value: 'birthdays' },
+                            { name: 'Chatbot', value: 'chatbot' },
+                            { name: 'Reviews', value: 'reviews' },
+                            { name: 'Suggestions', value: 'suggestions' },
+                            { name: 'Counting', value: 'counting' },
+                            { name: 'Guess the number', value: 'gtn' },
+                            { name: 'Guess the word', value: 'gtw' },
+                            { name: 'Welcome channel', value: 'welcomechannel' },
+                            { name: 'Leave channel', value: 'leavechannel' },
+                            { name: 'Welcome role', value: 'welcomerole' },
+                            { name: 'Word snake', value: 'wordsnake' }
                         )
                 )
         )
     ,
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         const perms = await client.checkUserPerms({
             flags: [Discord.PermissionsBitField.Flags.Administrator],
             perms: [Discord.PermissionsBitField.Flags.Administrator]

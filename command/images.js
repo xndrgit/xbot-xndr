@@ -1,6 +1,6 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
-const {ChannelType} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const { ChannelType } = require('discord.js');
 
 module.exports = {
 
@@ -21,11 +21,13 @@ module.exports = {
                 .addSubcommand((subcommand) =>
                     subcommand.setName('clyde').setDescription('Get a custom clyde message')
                         .addStringOption(option => option.setName('text').setDescription('Enter a text').setRequired(true))
+
                 )
                 .addSubcommand((subcommand) =>
                     subcommand.setName('drake').setDescription('Create a drake meme')
                         .addStringOption(option => option.setName('text1').setDescription('Enter a text').setRequired(true))
                         .addStringOption(option => option.setName('text2').setDescription('Enter a text').setRequired(true)),
+
                 )
                 .addSubcommand((subcommand) =>
                     subcommand.setName('meme').setDescription('Get a random meme'),
@@ -34,6 +36,7 @@ module.exports = {
                     subcommand.setName('pooh').setDescription('Create a pooh meme')
                         .addStringOption(option => option.setName('text1').setDescription('Enter a text').setRequired(true))
                         .addStringOption(option => option.setName('text2').setDescription('Enter a text').setRequired(true)),
+
                 )
                 .addSubcommand((subcommand) =>
                     subcommand.setName('trumptweet').setDescription('Display\'s a custom tweet from Donald Trump with the message provided')
@@ -46,6 +49,7 @@ module.exports = {
                 .addSubcommand((subcommand) =>
                     subcommand.setName('wasted').setDescription('GTA wasted overlay'),
                 )
+
         )
 
         // Animal Images
@@ -214,6 +218,7 @@ module.exports = {
                         .addUserOption((option) =>
                             option.setName('user3').setDescription('The third podium user').setRequired(true),
                         )
+
                 )
                 .addSubcommand((subcommand) =>
                     subcommand
@@ -265,14 +270,14 @@ module.exports = {
                 )
         ),
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         client.loadSubcommands(client, interaction, args);
     },
 };

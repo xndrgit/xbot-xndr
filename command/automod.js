@@ -1,6 +1,6 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
-const {ChannelType} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const { ChannelType } = require('discord.js');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -39,8 +39,8 @@ module.exports = {
                         .setDescription('Che vuoi fare con il canale?')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Aggiungi', value: 'add'},
-                            {name: 'Rimuovi', value: 'remove'}
+                            { name: 'Aggiungi', value: 'add' },
+                            { name: 'Rimuovi', value: 'remove' }
                         )
                 )
                 .addChannelOption(option => option.setName('channel').setDescription('Seleziona un canale').setRequired(true).addChannelTypes(ChannelType.GuildText))
@@ -69,14 +69,14 @@ module.exports = {
         )
     ,
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        await interaction.deferReply({fetchReply: true});
+        await interaction.deferReply({ fetchReply: true });
         const perms = await client.checkUserPerms({
             flags: [Discord.PermissionsBitField.Flags.ManageMessages],
             perms: [Discord.PermissionsBitField.Flags.ManageMessages]

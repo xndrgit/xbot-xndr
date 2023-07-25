@@ -1,8 +1,8 @@
-const {CommandInteraction, Client} = require('discord.js');
-const {SlashCommandBuilder} = require('discord.js');
+const { CommandInteraction, Client } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const Discord = require('discord.js');
 
-const model = require('../src/database/models/badge');
+const model = require('../../dev/public - projects/project-GhostHouse-discord.js-XanderWilde/src/database/models/badge');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -43,8 +43,8 @@ module.exports = {
                         .setDescription('The type of credits')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Add', value: 'add'},
-                            {name: 'Remove', value: 'remove'}
+                            { name: 'Add', value: 'add' },
+                            { name: 'Remove', value: 'remove' }
                         )
                 )
                 .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
@@ -59,13 +59,13 @@ module.exports = {
                         .setDescription('Select a message')
                         .setRequired(true)
                         .addChoices(
-                            {name: 'Information', value: 'information'},
-                            {name: 'Rules', value: 'rules'},
-                            {name: 'Applications', value: 'applications'},
-                            {name: 'Booster perks', value: 'boosterperks'},
-                            {name: 'Links', value: 'links'},
-                            {name: 'Rewards', value: 'rewards'},
-                            {name: 'Our bots', value: 'ourbots'}
+                            { name: 'Information', value: 'information' },
+                            { name: 'Rules', value: 'rules' },
+                            { name: 'Applications', value: 'applications' },
+                            { name: 'Booster perks', value: 'boosterperks' },
+                            { name: 'Links', value: 'links' },
+                            { name: 'Rewards', value: 'rewards' },
+                            { name: 'Our bots', value: 'ourbots' }
                         )
                 )
         )
@@ -76,16 +76,16 @@ module.exports = {
         )
     ,
 
-    /**
+    /** 
      * @param {Client} client
      * @param {CommandInteraction} interaction
      * @param {String[]} args
      */
 
     run: async (client, interaction, args) => {
-        model.findOne({User: interaction.user.id}, async (err, data) => {
+        model.findOne({ User: interaction.user.id }, async (err, data) => {
             if (data && data.FLAGS.includes("DEVELOPER")) {
-                await interaction.deferReply({fetchReply: true});
+                await interaction.deferReply({ fetchReply: true });
                 client.loadSubcommands(client, interaction, args);
             } else {
                 return client.errNormal({
