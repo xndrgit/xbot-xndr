@@ -25,7 +25,6 @@ module.exports = async (client, interaction, args) => {
                 cards: [],
                 score: 0,
             };
-
             function getCardsValue(a) {
                 var cardArray = [],
                     sum = 0,
@@ -86,7 +85,6 @@ module.exports = async (client, interaction, args) => {
             };
             deck.initialize();
             deck.shuffle();
-
             async function bet(outcome) {
                 if (outcome === "win") {
                     data.Money += money;
@@ -293,9 +291,7 @@ module.exports = async (client, interaction, args) => {
                 }
                 endGame();
             }
-
             newGame();
-
             async function loop() {
                 if (gameOver) return;
 

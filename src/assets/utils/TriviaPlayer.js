@@ -219,7 +219,7 @@ class TriviaPlayer {
                         desc: `The song was:  ${song} \n\n${getLeaderBoard(Array.from(sortedScoreMap.entries()))}`,
                         edit: true
                     }, this.textChannel)
-                    return;
+
                 });
             }
         });

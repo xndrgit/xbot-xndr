@@ -9,20 +9,20 @@ module.exports = async (client, interaction, args) => {
     const data = await Schema.findOne({Guild: interaction.guild.id, User: target.id});
 
     client.embed({
-        title: `👪・${target.username}'s Family`,
+        title: `👪・${target.username} la mia famiglia`,
         thumbnail: target.avatarURL({size: 1024}),
         fields: [
             {
                 name: `Partner`,
-                value: `${data && data.Partner ? `<@!${data.Partner}>` : `Non è sposat*`}`
+                value: `${data && data.Partner ? `<@!${data.Partner}>` : `Non sono sposat*`}`
             },
             {
-                name: `Parent`,
-                value: `${data && data.Parent.length > 0 ? `${data.Parent.join(", ")}` : `Non ha genitori`}`
+                name: `Genitori`,
+                value: `${data && data.Parent.length > 0 ? `${data.Parent.join(", ")}` : `Non ho genitori`}`
             },
             {
-                name: `Children`,
-                value: `${data && data.Children.length > 0 ? `${data.Children.join(", ")}` : `Non ha figli`}`
+                name: `Figli`,
+                value: `${data && data.Children.length > 0 ? `${data.Children.join(", ")}` : `Non ho figli`}`
             }
         ],
         type: 'editreply'

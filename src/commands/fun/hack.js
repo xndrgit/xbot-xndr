@@ -27,21 +27,21 @@ module.exports = async (client, interaction, args) => {
         type: 'editreply'
     }, interaction).then(msg => {
 
-        wait(340);
+        wait(140);
         client.embed({
             title: '💻・Hacking',
             desc: `Searching for user information..`,
             type: 'edit',
         }, msg).then(i => {
 
-            wait(340);
+            wait(133);
             client.embed({
                 title: '💻・Hacking',
                 desc: `Searching for IP address...`,
                 type: 'edit',
             }, msg).then(i => {
 
-                wait(340);
+                wait(140);
                 client.embed({
                     title: '💻・Hacking',
                     desc: `The users ip address was found!`,
@@ -55,7 +55,7 @@ module.exports = async (client, interaction, args) => {
                     type: 'edit',
                 }, msg).then(i => {
 
-                    wait(260);
+                    wait(60);
                     client.embed({
                         title: '💻・Hacking',
                         desc: `Searching for Discord login...`,
@@ -79,14 +79,14 @@ module.exports = async (client, interaction, args) => {
                             type: 'edit',
                         }, msg).then(i => {
 
-                            wait(100);
+                            wait(200);
                             client.embed({
                                 title: '💻・Hacking',
                                 desc: `Search for Discord token...`,
                                 type: 'edit'
                             }, msg).then(i => {
 
-                                wait(400);
+                                wait(200);
                                 fetch(`https://some-random-api.com/bottoken?${user.id}`).then((res) => res.json()).catch({}).then(async (json) => {
                                     client.embed({
                                         title: '💻・Hacking',
@@ -101,21 +101,21 @@ module.exports = async (client, interaction, args) => {
                                         type: 'edit',
                                     }, msg).then(i => {
 
-                                        wait(340);
+                                        wait(140);
                                         client.embed({
                                             title: '💻・Hacking',
                                             desc: `Reporting account to Discord for breaking TOS...`,
                                             type: 'edit',
                                         }, msg).then(i => {
 
-                                            wait(380);
+                                            wait(180);
                                             client.succNormal({
                                                 text: `${user} is succesfully hacked. All the user's information was send to your dm`,
                                                 type: 'edit'
                                             }, msg);
                                             client.embed({
-                                                title: 'Scherzavo ;p',
-                                                image: "https://media.tenor.com/LkQzw7k5DV4AAAAd/anime-hacking.gif",
+                                                title: '😂・Pranked',
+                                                image: "https://media1.tenor.com/images/05006ed09075a0d6965383797c3cea00/tenor.gif?itemid=17987788",
                                             }, interaction.user)
                                         })
                                     })

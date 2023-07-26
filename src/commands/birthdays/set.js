@@ -22,12 +22,12 @@ module.exports = async (client, interaction, args) => {
     const month = interaction.options.getNumber('month');
 
     if (!day || day > 31) return client.errNormal({
-        error: "formato del giorno errato!",
+        error: "Wrong day format!",
         type: 'editreply'
     }, interaction);
 
     if (!month || month > 12) return client.errNormal({
-        error: "formato del mese errato!",
+        error: "Wrong month format!",
         type: 'editreply'
     }, interaction);
 
@@ -49,10 +49,10 @@ module.exports = async (client, interaction, args) => {
     })
 
     client.succNormal({
-        text: `Compleanno inserito con successo!`,
+        text: `Birthday has been set successfully`,
         fields: [
             {
-                name: `${client.emotes.normal.birthday}┆Compleanno`,
+                name: `${client.emotes.normal.birthday}┆Birthday`,
                 value: `${birthdayString}`
             }
         ],

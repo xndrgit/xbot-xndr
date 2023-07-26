@@ -29,7 +29,7 @@ module.exports = async (client) => {
 
             data.lastWord = word;
             data.save();
-            return;
+
           }
           else {
             return message.react(client.emotes.normal.error);

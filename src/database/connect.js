@@ -25,7 +25,7 @@ async function connect() {
         console.log(chalk.red("Exiting..."))
         process.exit(1)
     });
-    return;
+
 }
 
 module.exports = connect

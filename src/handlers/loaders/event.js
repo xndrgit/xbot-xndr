@@ -22,7 +22,7 @@ module.exports = (client) => {
             }else {
             client.on(Discord.Events[eventUpperCase], event.bind(null, client)).setMaxListeners(0);
             }
-        };
+        }
     });
 }
 

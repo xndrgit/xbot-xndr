@@ -108,7 +108,7 @@ module.exports = (client) => {
                                     try{
                                         msg.delete();
                                     } catch (e) {
-                                        return;
+
                                     }
                                 }, 5000)
                             }
@@ -127,7 +127,7 @@ module.exports = (client) => {
                                     try {
                                         msg.delete();
                                     } catch (e) {
-                                        return;
+
                                     }
                                 }, 5000)
                             }
@@ -157,7 +157,7 @@ module.exports = (client) => {
                                     try {
                                         msg.delete();
                                     } catch (e) {
-                                        return;
+
                                     }
                                 }, 5000)
                             }
@@ -176,7 +176,7 @@ module.exports = (client) => {
                                     try {
                                         msg.delete();
                                     } catch (e) {
-                                        return;
+
                                     }
                                 }, 5000)
                             }

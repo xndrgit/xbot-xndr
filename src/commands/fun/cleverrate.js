@@ -1,10 +1,11 @@
+
 module.exports = async (client, interaction, args) => {
 
-    var result = Math.floor(Math.random() * 21) * 5 + 100;
+    var result = Math.ceil(Math.random() * 100);
 
     client.embed({
-        title: `💡・IQ Test`,
-        desc: `il tuo IQ è di **${result}** !`,
+        title: `💡・Clever Rate`,
+        desc: `You are ${result}% clever!`,
         type: 'editreply'
     }, interaction)
 }
