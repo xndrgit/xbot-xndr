@@ -7,11 +7,11 @@ module.exports = async (client) => {
             value: `\`/activities\``,
             inline: true
         },
-        // {
-        //     name: `🚫┆AFK`,
-        //     value: `\`/afk help\``,
-        //     inline: true
-        // },
+        {
+            name: `🚫┆AFK`,
+            value: `\`/afk help\``,
+            inline: true
+        },
         {
             name: `📣┆Annunci`,
             value: `\`/announcement help\``,
@@ -77,11 +77,11 @@ module.exports = async (client) => {
         //     value: `\`/games help\``,
         //     inline: true
         // },
-        // {
-        //     name: `🥳┆Giveaway`,
-        //     value: `\`/giveaway help\``,
-        //     inline: true
-        // },
+        {
+            name: `🥳┆Giveaway`,
+            value: `\`/giveaway help\``,
+            inline: true
+        },
         // {
         //     name: `⚙️┆Guild settings`,
         //     value: `\`/guild help\``,

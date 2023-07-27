@@ -12,13 +12,13 @@ module.exports = async (client, interaction, args) => {
         prize: `${client.emotes.normal.gift} - ${prize}`,
         lastChance: {
             enabled: true,
-            content: `${client.emotes.normal.error} **LAST CHANCE TO ENTER !** ${client.emotes.normal.error}`,
+            content: `${client.emotes.normal.error} **ULTIMA POSSIBILITÀ PER PARTECIPARE!** ${client.emotes.normal.error}`,
             threshold: 5000,
             embedColor: '#FF0000'
         },
         pauseOptions: {
             isPaused: true,
-            content: '⚠️ **THIS GIVEAWAY IS PAUSED !** ⚠️',
+            content: '⚠️ **QUESTO GIVEAWAY È IN PAUSA!** ⚠️',
             unPauseAfter: null,
             embedColor: '#FFFF00'
         },
@@ -28,31 +28,29 @@ module.exports = async (client, interaction, args) => {
         isDrop: true,
         messages: {
             giveaway: `${client.emotes.normal.party} **GIVEAWAY** ${client.emotes.normal.party}`,
-            giveawayEnded: `${client.emotes.normal.party} **GIVEAWAY ENDED** ${client.emotes.normal.party}`,
-            drawing: `${client.emotes.normal.clock} - Ends at: **{timestamp}**!`,
-            dropMessage: `Be the first to react with 🥳`,
-            winMessage: "Congratulations {winners}! You just won the **{this.prize}** !",
+            giveawayEnded: `${client.emotes.normal.party} **GIVEAWAY TERMINATO** ${client.emotes.normal.party}`,
+            drawing: `${client.emotes.normal.clock} - Termina il: **{timestamp}**!`,
+            dropMessage: `Sii il primo a reagire con 🥳`,
+            winMessage: "Congratulazioni {winners}! Hai appena vinto **{this.prize}** !",
             embedFooter: "Giveaway!",
             embedColor: client.config.colors.normal,
-            noWinner: "Giveaway canceled, not enough participants. \n",
-            hostedBy: `${client.emotes.normal.party} - Hosted by: {this.hostedBy}`,
-            winners: `🏆 - Winner(s)`,
-            endedAt: "Ends at:",
+            noWinner: "Giveaway cancellato, non ci sono stati abbastanza partecipanti. \n",
+            hostedBy: `${client.emotes.normal.party} - Organizzato da: {this.hostedBy}`,
+            winners: `🏆 - Vincitore/i`,
+            endedAt: "Termina il:",
             units: {
-                seconds: "seconds",
-                minutes: "minutes",
-                hours: "hours",
-                days: "days",
+                seconds: "secondi",
+                minutes: "minuti",
+                hours: "ore",
+                days: "giorni",
                 pluralS: false
             },
         },
 
     }).then((gData) => {
         client.succNormal({
-            text: `Giveaway started in ${gchannel}`,
+            text: `Giveaway avviato in ${gchannel}`,
             type: 'ephemeraledit'
         }, interaction);
     });
 }
-
- 

@@ -58,11 +58,11 @@ console.log(`\u001b[0m`);
 manager.on('shardCreate', shard => {
     let embed = new Discord.EmbedBuilder()
         // toTranslate
-        .setTitle(`🆙・Lancio X`)
+        .setTitle(`✖️・Lancio X`)
         .setDescription(`X è stato appena lanciato`)
         .setFields([
             {
-                name: "🆔┆ID",
+                name: "🪪┆ID",
                 value: `${shard.id + 1}/${manager.totalShards}`,
                 inline: true
             },

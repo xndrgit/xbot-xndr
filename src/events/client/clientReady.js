@@ -14,10 +14,10 @@ module.exports = async (client) => {
 
     let embed = new Discord.EmbedBuilder()
         // toTranslate
-        .setTitle(`🆙・Avvio X`)
+        .setTitle(`✖️・Avvio X`)
         .setDescription(`X è stato avviato`)
         .addFields(
-            {name: "🆔┆ID", value: `${client.shard.ids[0] + 1}/${client.options.shardCount}`, inline: true},
+            {name: "🪪┆ID", value: `${client.shard.ids[0] + 1}/${client.options.shardCount}`, inline: true},
             {name: "📃┆Stato", value: `Pronto`, inline: true},
         )
         .setColor(client.config.colors.normal)

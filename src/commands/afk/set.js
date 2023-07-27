@@ -3,12 +3,12 @@ const Discord = require('discord.js');
 const Schema = require('../../database/models/afk');
 
 module.exports = async (client, interaction, args) => {
-    const reason = interaction.options.getString('reason') || `Not specified`;
+    const reason = interaction.options.getString('reason') || `Non specificato`;
 
     Schema.findOne({Guild: interaction.guild.id, User: interaction.user.id}, async (err, data) => {
         if (data) {
             return client.errNormal({
-                error: `You're already afk!`,
+                error: `Sei già AFK!`,
                 type: 'editreply'
             }, interaction);
         } else {
@@ -24,15 +24,13 @@ module.exports = async (client, interaction, args) => {
             }
 
             client.succNormal({
-                text: `Your AFK has been set up successfully`,
+                text: `Il tuo stato AFK è stato impostato con successo`,
                 type: 'ephemeraledit'
             }, interaction);
 
             client.embed({
-                desc: `${interaction.user} is now afk! **Reason:** ${reason}`
+                desc: `${interaction.user} è ora AFK! **Motivo:** ${reason}`
             }, interaction.channel)
         }
     })
 }
-
- 

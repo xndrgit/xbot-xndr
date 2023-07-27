@@ -5,7 +5,7 @@ module.exports = async (client, interaction, args) => {
     const messageID = interaction.options.getString('message');
     const giveaway = client.giveawaysManager.giveaways.find((g) => g.guildId === interaction.guildId && g.messageId === messageID);
     if (!giveaway) return client.errNormal({
-        error: "This message ID is not from this guild",
+        error: "questo ID messaggio non appartiene a questo server",
         type: 'editreply'
     }, interaction)
     client.giveawaysManager.edit(messageID, {
@@ -13,15 +13,13 @@ module.exports = async (client, interaction, args) => {
     }).then(() => {
         const numberOfSecondsMax = client.giveawaysManager.options.updateCountdownEvery / 1000;
         client.succNormal({
-            text: `Giveaway will updated in less than ${numberOfSecondsMax} seconds`,
+            text: `Il giveaway verrà aggiornato tra meno di ${numberOfSecondsMax} secondi`,
             type: 'editreply'
         }, interaction);
     }).catch((err) => {
         client.errNormal({
-            error: `I can't find the giveaway for ${messageID}!`,
+            error: `non ho trovato il giveaway per l'ID messaggio ${messageID}!`,
             type: 'editreply'
         }, interaction)
     });
 }
-
- 
