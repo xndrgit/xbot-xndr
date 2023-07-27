@@ -18,8 +18,7 @@ module.exports = async (client, interaction, args) => {
                 }, interaction)
 
             }).catch({})
-    }
-    catch {
+    } catch {
     }
 
 }

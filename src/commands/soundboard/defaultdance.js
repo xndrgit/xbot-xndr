@@ -1,4 +1,3 @@
-
 module.exports = async (client, interaction, args) => {
 
     if (!interaction.member.voice.channel) return client.errNormal({

@@ -1,4 +1,3 @@
-
 module.exports = async (client, interaction, args) => {
     const user = interaction.options.getUser('user') || interaction.user;
 

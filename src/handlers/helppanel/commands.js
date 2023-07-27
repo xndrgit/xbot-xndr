@@ -12,11 +12,11 @@ module.exports = async (client) => {
         //     value: `\`/afk help\``,
         //     inline: true
         // },
-        // {
-        //     name: `📣┆Announcement`,
-        //     value: `\`/announcement help\``,
-        //     inline: true
-        // },
+        {
+            name: `📣┆Announcement`,
+            value: `\`/announcement help\``,
+            inline: true
+        },
         // {
         //     name: `👮‍♂️┆Auto mod`,
         //     value: `\`/automod help\``,
@@ -27,11 +27,11 @@ module.exports = async (client) => {
         //     value: `\`/autosetup help\``,
         //     inline: true
         // },
-        // {
-        //     name: `🎂┆Birthday`,
-        //     value: `\`/birthdays help\``,
-        //     inline: true
-        // },
+        {
+            name: `🎂┆Birthday`,
+            value: `\`/birthdays help\``,
+            inline: true
+        },
         // {
         //     name: `🤖┆Bot`,
         //     value: `\`/bot help\``,
@@ -62,16 +62,16 @@ module.exports = async (client) => {
         //     value: `\`/economy help\``,
         //     inline: true
         // },
-        // {
-        //     name: `👪┆Family`,
-        //     value: `\`/family help\``,
-        //     inline: true
-        // },
-        // {
-        //     name: `😂┆Fun`,
-        //     value: `\`/fun help\``,
-        //     inline: true
-        // },
+        {
+            name: `👪┆Family`,
+            value: `\`/family help\``,
+            inline: true
+        },
+        {
+            name: `😂┆Fun`,
+            value: `\`/fun help\``,
+            inline: true
+        },
         // {
         //     name: `🎮┆Games`,
         //     value: `\`/games help\``,
@@ -92,11 +92,16 @@ module.exports = async (client) => {
         //     value: `\`/images help\``,
         //     inline: true
         // },
-        // {
-        //     name: `📨┆Invites`,
-        //     value: `\`/invites help\``,
-        //     inline: true
-        // },
+        {
+            name: `📨┆Invite`,
+            value: `\`/invite\``,
+            inline: true
+        },
+        {
+            name: `📨┆Invites`,
+            value: `\`/invites help\``,
+            inline: true
+        },
         // {
         //     name: `🆙┆Leveling`,
         //     value: `\`/levels help\``,
@@ -122,11 +127,11 @@ module.exports = async (client) => {
             value: `\`/notepad help\``,
             inline: true
         },
-        // {
-        //     name: `👤┆Profile`,
-        //     value: `\`/profile help\``,
-        //     inline: true
-        // },
+        {
+            name: `👤┆Profile`,
+            value: `\`/profile help\``,
+            inline: true
+        },
         // {
         //     name: `📻┆Radio`,
         //     value: `\`/radio help\``,

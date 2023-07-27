@@ -4,36 +4,36 @@ const Schema = require("../../database/models/birthday");
 
 module.exports = async (client, interaction, args) => {
     const months = {
-        1: "January",
-        2: "February",
-        3: "March",
-        4: "April",
-        5: "May",
-        6: "June",
-        7: "July",
-        8: "August",
-        9: "September",
-        10: "October",
-        11: "November",
-        12: "December"
+        1: "Gennaio",
+        2: "Febbraio",
+        3: "Marzo",
+        4: "Aprile",
+        5: "Maggio",
+        6: "Giugno",
+        7: "Luglio",
+        8: "Agosto",
+        9: "Settembre",
+        10: "Ottobre",
+        11: "Novembre",
+        12: "Dicembre"
     };
 
     const day = interaction.options.getNumber('day');
     const month = interaction.options.getNumber('month');
 
     if (!day || day > 31) return client.errNormal({
-        error: "Wrong day format!",
+        error: "formato del giorno errato!",
         type: 'editreply'
     }, interaction);
 
     if (!month || month > 12) return client.errNormal({
-        error: "Wrong month format!",
+        error: "formato del mese errato!",
         type: 'editreply'
     }, interaction);
 
     const convertedDay = suffixes(day);
     const convertedMonth = months[month];
-    const birthdayString = `${convertedDay} of ${convertedMonth}`;
+    const birthdayString = `${convertedDay} di ${convertedMonth}`;
 
     Schema.findOne({Guild: interaction.guild.id, User: interaction.user.id}, async (err, data) => {
         if (data) {
@@ -49,10 +49,10 @@ module.exports = async (client, interaction, args) => {
     })
 
     client.succNormal({
-        text: `Birthday has been set successfully`,
+        text: `Compleanno inserito con successo!`,
         fields: [
             {
-                name: `${client.emotes.normal.birthday}┆Birthday`,
+                name: `${client.emotes.normal.birthday}┆Compleanno`,
                 value: `${birthdayString}`
             }
         ],

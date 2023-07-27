@@ -28,23 +28,23 @@ module.exports = (client) => {
         }
 
         const months = {
-            1: "January",
-            2: "February",
-            3: "March",
-            4: "April",
-            5: "May",
-            6: "June",
-            7: "July",
-            8: "August",
-            9: "September",
-            10: "October",
-            11: "November",
-            12: "December"
+            1: "Gennaio",
+            2: "Febbraio",
+            3: "Marzo",
+            4: "Aprile",
+            5: "Maggio",
+            6: "Giugno",
+            7: "Luglio",
+            8: "Agosto",
+            9: "Settembre",
+            10: "Ottobre",
+            11: "Novembre",
+            12: "Dicembre"
         };
 
         const convertedDay = suffixes(day);
         const convertedMonth = months[month];
-        const birthdayString = `${convertedDay} of ${convertedMonth}`;
+        const birthdayString = `${convertedDay} di ${convertedMonth}`;
 
         const results = await Schema.find({ Birthday: birthdayString })
 
@@ -58,9 +58,9 @@ module.exports = (client) => {
                         if (data) {
                             const channel = finalGuild.channels.cache.get(data.Channel);
                             
-                            client.embed({ 
-                                title: `${client.emotes.normal.birthday}・Birthday`,
-                                desc: `Happy birthday to <@!${User}>!`
+                            client.embed({
+                                title: `${client.emotes.normal.birthday}・Compleanno`,
+                                desc: `Augurii <@!${User}>!`
                             }, channel)
                         }
                     })
