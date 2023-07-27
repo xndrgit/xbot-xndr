@@ -2,13 +2,14 @@ const Discord = require('discord.js');
 const chalk = require('chalk');
 require('dotenv').config('./.env');
 const axios = require('axios');
-// Check if is up to date
+
 const { version } = require('.././package.json');
 axios.get('https://api.github.com/repos/CorwinDev/Discord-Bot/releases/latest').then(res => {
     if (res.data.tag_name !== version) {
         console.log(chalk.red.bgYellow(`Your bot is not up to date! Please update to the latest version!`, version + ' -> ' + res.data.tag_name));
     }
 }).catch(err => {
+    console.log(err);
     console.log(chalk.red.bgYellow(`Failed to check if bot is up to date!`));
 });
 
@@ -47,7 +48,7 @@ if (process.env.TOPGG_TOKEN) {
 console.clear();
 console.log(chalk.blue(chalk.bold(`System`)), (chalk.white(`>>`)), (chalk.green(`Starting up`)), (chalk.white(`...`)))
 console.log(`\u001b[0m`)
-console.log(chalk.red(`© XndrWilde | 2023 - ${new Date().getFullYear()}`))
+console.log(chalk.red(`© XndrWilde ${new Date().getFullYear()}`))
 console.log(chalk.red(`All rights reserved`))
 console.log(`\u001b[0m`)
 console.log(`\u001b[0m`)
@@ -57,8 +58,8 @@ console.log(`\u001b[0m`);
 manager.on('shardCreate', shard => {
     let embed = new Discord.EmbedBuilder()
         // toTranslate
-        .setTitle(`🆙・Lancio xndr`)
-        .setDescription(`Uno xndr è stato appena lanciato`)
+        .setTitle(`🆙・Lancio X`)
+        .setDescription(`X è stato appena lanciato`)
         .setFields([
             {
                 name: "🆔┆ID",
@@ -117,6 +118,7 @@ manager.on('shardCreate', shard => {
     });
 
     shard.on("shardDisconnect", (event) => {
+        console.log(event);
         const embed = new Discord.EmbedBuilder()
             .setTitle(`🚨・Shard ${shard.id + 1}/${manager.totalShards} disconnected`)
             .setDescription("Dumping socket close event...")

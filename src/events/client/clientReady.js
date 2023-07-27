@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const chalk = require('chalk');
-const { random } = require('mathjs');
+// const { random } = require('mathjs');
 
 module.exports = async (client) => {
     const startLogs = new Discord.WebhookClient({
@@ -14,8 +14,8 @@ module.exports = async (client) => {
 
     let embed = new Discord.EmbedBuilder()
         // toTranslate
-        .setTitle(`🆙・Xndr avviato`)
-        .setDescription(`Uno xndr è stato avviato`)
+        .setTitle(`🆙・Avvio X`)
+        .setDescription(`X è stato avviato`)
         .addFields(
             {name: "🆔┆ID", value: `${client.shard.ids[0] + 1}/${client.options.shardCount}`, inline: true},
             {name: "📃┆Stato", value: `Pronto`, inline: true},
