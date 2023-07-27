@@ -1,11 +1,11 @@
 const Schema = require('../../database/models/profile');
 
-module.exports = async (client, interaction, args) => {
+module.exports = async (client, interaction) => {
 
     const country = interaction.options.getString('country');
 
     if (country.length > 50) return client.errNormal({
-        error: "Your origin cannot be longer than 50 characters",
+        error: "il tuo Paese di origine non può superare i 50 caratteri",
         type: 'editreply'
     }, interaction);
 
@@ -15,9 +15,9 @@ module.exports = async (client, interaction, args) => {
             data.save();
 
             client.succNormal({
-                text: "Your origin is set",
+                text: "La tua origine è stata impostata",
                 fields: [{
-                    name: "🌍┆Country",
+                    name: "🌍┆Paese",
                     value: `\`\`\`${country}\`\`\``,
                     inline: true,
                 }],
@@ -25,11 +25,9 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         } else {
             return client.errNormal({
-                error: "No profile found! Open a profile with createprofile",
+                error: "nessun profilo trovato! apri un profilo con il comando createprofile",
                 type: 'editreply'
             }, interaction);
         }
     })
 }
-
- 

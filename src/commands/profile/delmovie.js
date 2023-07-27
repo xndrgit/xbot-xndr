@@ -1,6 +1,6 @@
 const Schema = require('../../database/models/profile');
 
-module.exports = async (client, interaction, args) => {
+module.exports = async (client, interaction) => {
 
     const movie = interaction.options.getString('movie');
     const user = {User: interaction.user.id}
@@ -11,7 +11,7 @@ module.exports = async (client, interaction, args) => {
             if (data && data.Movies) {
                 if (!data.Movies.includes(movie)) {
                     return client.errNormal({
-                        error: `That movie doesn't exist in the database!`,
+                        error: `quel film non esiste nel database!`,
                         type: 'editreply'
                     }, interaction);
                 }
@@ -23,9 +23,9 @@ module.exports = async (client, interaction, args) => {
                 });
             }
             client.succNormal({
-                text: "Removed your movie",
+                text: "Film rimosso",
                 fields: [{
-                    name: "🎬┆Movies",
+                    name: "🎬┆Film",
                     value: `\`\`\`${movie}\`\`\``,
                     inline: true,
                 }],
@@ -33,12 +33,10 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         } else {
             return client.errNormal({
-                error: "No profile found! Open a profile with createprofile",
+                error: "nessun profilo trovato! apri un profilo con createprofile",
                 type: 'editreply'
             }, interaction);
         }
     })
 
 }
-
- 

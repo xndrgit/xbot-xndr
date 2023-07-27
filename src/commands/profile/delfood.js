@@ -1,6 +1,6 @@
 const Schema = require('../../database/models/profile');
 
-module.exports = async (client, interaction, args) => {
+module.exports = async (client, interaction) => {
 
     const food = interaction.options.getString('food');
     const user = {User: interaction.user.id}
@@ -11,7 +11,7 @@ module.exports = async (client, interaction, args) => {
             if (data && data.Food) {
                 if (!data.Food.includes(food)) {
                     return client.errNormal({
-                        error: `That food doesn't exist in the database!`,
+                        error: `quel cibo non esiste nel database!`,
                         type: 'editreply'
                     }, interaction);
                 }
@@ -23,9 +23,9 @@ module.exports = async (client, interaction, args) => {
                 });
             }
             client.succNormal({
-                text: "Removed your food",
+                text: "Cibo rimosso",
                 fields: [{
-                    name: "🥐┆Food",
+                    name: "🥐┆Cibo",
                     value: `\`\`\`${food}\`\`\``,
                     inline: true,
                 }],
@@ -33,12 +33,10 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         } else {
             return client.errNormal({
-                error: "No profile found! Open a profile with createprofile",
+                error: "nessun profilo trovato! apri un profilo con createprofile",
                 type: 'editreply'
             }, interaction);
         }
     })
 
 }
-
- 

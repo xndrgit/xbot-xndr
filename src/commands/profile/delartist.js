@@ -1,6 +1,6 @@
 const Schema = require('../../database/models/profile');
 
-module.exports = async (client, interaction, args) => {
+module.exports = async (client, interaction) => {
 
     const artist = interaction.options.getString('artist');
     const user = {User: interaction.user.id}
@@ -11,7 +11,7 @@ module.exports = async (client, interaction, args) => {
             if (data && data.Artists) {
                 if (!data.Artists.includes(artist)) {
                     return client.errNormal({
-                        error: `That artist doesn't exist in the database!`,
+                        error: `quell'artista non esiste nel database!`,
                         type: 'editreply'
                     }, interaction);
                 }
@@ -23,9 +23,9 @@ module.exports = async (client, interaction, args) => {
                 });
             }
             client.succNormal({
-                text: "Removed your artist",
+                text: "Artista rimosso",
                 fields: [{
-                    name: "🎤┆Artist",
+                    name: "🎤┆Artista",
                     value: `\`\`\`${artist}\`\`\``,
                     inline: true,
                 }],
@@ -33,12 +33,10 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         } else {
             return client.errNormal({
-                error: "No profile found! Open a profile with createprofile",
+                error: "nessun profilo trovato! apri un profilo con createprofile",
                 type: 'editreply'
             }, interaction);
         }
     })
 
 }
-
- 

@@ -1,6 +1,6 @@
 const Schema = require('../../database/models/profile');
 
-module.exports = async (client, interaction, args) => {
+module.exports = async (client, interaction) => {
 
     const pet = interaction.options.getString('pet');
     const user = {User: interaction.user.id}
@@ -11,7 +11,7 @@ module.exports = async (client, interaction, args) => {
             if (data && data.Pets) {
                 if (!data.Pets.includes(pet)) {
                     return client.errNormal({
-                        error: `That pet doesn't exist in the database!`,
+                        error: `quell'animale domestico non esiste nel database!`,
                         type: 'editreply'
                     }, interaction);
                 }
@@ -23,9 +23,9 @@ module.exports = async (client, interaction, args) => {
                 });
             }
             client.succNormal({
-                text: "Removed your pet",
+                text: "Animale domestico rimosso",
                 fields: [{
-                    name: "🐶┆Pet",
+                    name: "🐶┆Animale domestico",
                     value: `\`\`\`${pet}\`\`\``,
                     inline: true,
                 }],
@@ -33,12 +33,10 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         } else {
             return client.errNormal({
-                error: "No profile found! Open a profile with createprofile",
+                error: "nessun profilo trovato! Apri un profilo con createprofile",
                 type: 'editreply'
             }, interaction);
         }
     })
 
 }
-
- 

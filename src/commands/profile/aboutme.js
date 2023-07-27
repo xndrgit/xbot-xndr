@@ -1,11 +1,11 @@
 const Schema = require('../../database/models/profile');
 
-module.exports = async (client, interaction, args) => {
+module.exports = async (client, interaction) => {
 
     const aboutme = interaction.options.getString('text');
 
     if (aboutme.length > 1024) return client.errNormal({
-        error: "Your about me cannot be longer than 1024 characters",
+        error: "la tua info non può essere più lunga di 1024 caratteri",
         type: 'editreply'
     }, interaction);
 
@@ -15,9 +15,9 @@ module.exports = async (client, interaction, args) => {
             data.save();
 
             client.succNormal({
-                text: "Your about me is set",
+                text: "La tua info è stata impostata",
                 fields: [{
-                    name: "📘┆About Me",
+                    name: "📘┆Info",
                     value: `\`\`\`${aboutme}\`\`\``,
                     inline: true,
                 }],
@@ -25,11 +25,9 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         } else {
             return client.errNormal({
-                error: "No profile found! Open a profile with createprofile",
+                error: "nessun profilo trovato! apri un profilo con createprofile",
                 type: 'editreply'
             }, interaction);
         }
     })
 }
-
- 

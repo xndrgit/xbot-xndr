@@ -1,6 +1,6 @@
 const Schema = require('../../database/models/profile');
 
-module.exports = async (client, interaction, args) => {
+module.exports = async (client, interaction) => {
 
     const hobby = interaction.options.getString('hobby');
     const user = {User: interaction.user.id}
@@ -11,7 +11,7 @@ module.exports = async (client, interaction, args) => {
             if (data && data.Hobbys) {
                 if (!data.Hobbys.includes(hobby)) {
                     return client.errNormal({
-                        error: `That hobby doesn't exist in the database!`,
+                        error: `quel hobby non esiste nel database!`,
                         type: 'editreply'
                     }, interaction);
                 }
@@ -23,7 +23,7 @@ module.exports = async (client, interaction, args) => {
                 });
             }
             client.succNormal({
-                text: "Removed your hobby",
+                text: "Hobby rimosso",
                 fields: [{
                     name: "⚽┆Hobby",
                     value: `\`\`\`${hobby}\`\`\``,
@@ -33,12 +33,10 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         } else {
             return client.errNormal({
-                error: "No profile found! Open a profile with createprofile",
+                error: "nessun profilo trovato! apri un profilo con createprofile",
                 type: 'editreply'
             }, interaction);
         }
     })
 
 }
-
- 

@@ -2,7 +2,7 @@ const model = require('../../database/models/badge');
 const Schema = require('../../database/models/profile');
 const CreditsSchema = require("../../database/models/votecredits");
 
-module.exports = async (client, interaction, args) => {
+module.exports = async (client, interaction) => {
 
     const badgeFlags = {
         DEVELOPER: client.emotes.badges.developer,
@@ -13,7 +13,6 @@ module.exports = async (client, interaction, args) => {
         PREMIUM: client.emotes.badges.premium,
         SUPPORTER: client.emotes.badges.supporter,
         TEAM: client.emotes.badges.team,
-        BOOSTER: client.emotes.badges.booster,
         PARTNER: client.emotes.badges.partner,
         VOTER: client.emotes.badges.voter,
         SUPPORT: client.emotes.badges.support,
@@ -63,11 +62,11 @@ module.exports = async (client, interaction, args) => {
             const userFlags = user.flags ? user.flags.toArray() : [];
 
             client.embed({
-                title: `${client.user.username}・Profile`,
+                title: `${client.user.username}・Profilo`,
                 desc: '_____',
                 thumbnail: user.avatarURL({dynamic: true}),
                 fields: [{
-                    name: "👤┆User",
+                    name: "👤┆Utente",
                     value: user.username,
                     inline: true
                 },
@@ -83,93 +82,93 @@ module.exports = async (client, interaction, args) => {
                     },
                     {
                         name: "👨‍👩‍👦┆Gender",
-                        value: `${data.Gender || 'Not set'}`,
+                        value: `${data.Gender || 'Non impostato'}`,
                         inline: true
                     },
                     {
-                        name: "🔢┆Age",
-                        value: `${data.Age || 'Not set'}`,
+                        name: "🔢┆Età",
+                        value: `${data.Age || 'Non impostato'}`,
                         inline: true
                     },
                     {
-                        name: "🎂┆Birthday",
-                        value: `${data.Birthday || 'Not set'}`,
+                        name: "🎂┆Compleanno",
+                        value: `${data.Birthday || 'Non impostato'}`,
                         inline: true
                     },
                     {
-                        name: "🎨┆Favorite color",
-                        value: `${data.Color || 'Not set'}`,
+                        name: "🎨┆Colore prefe",
+                        value: `${data.Color || 'Non impostato'}`,
                         inline: true
                     },
                     {
-                        name: "🐶┆Favorite pets",
-                        value: `${data.Pets.join(', ') || 'Not set'}`,
+                        name: "🐶┆Animale prefe",
+                        value: `${data.Pets.join(', ') || 'Non impostato'}`,
                         inline: true
                     },
                     {
-                        name: "🍕┆Favorite food",
-                        value: `${data.Food.join(', ') || 'Not set'}`,
+                        name: "🍕┆Cibo prefe",
+                        value: `${data.Food.join(', ') || 'Non impostato'}`,
                         inline: true
                     },
                     {
-                        name: "🎶┆Favorite songs",
-                        value: `${data.Songs.join(', ') || 'Not set'}`,
+                        name: "🎶┆Canzone prefe",
+                        value: `${data.Songs.join(', ') || 'Non impostato'}`,
                         inline: true
                     },
                     {
-                        name: "🎤┆Favorite artists",
-                        value: `${data.Artists.join(', ') || 'Not set'}`,
+                        name: "🎤┆Artista prefe",
+                        value: `${data.Artists.join(', ') || 'Non impostato'}`,
                         inline: true
                     },
                     {
-                        name: "🎬┆Favorite movies",
-                        value: `${data.Movies.join(', ') || 'Not set'}`,
+                        name: "🎬┆Film prefe",
+                        value: `${data.Movies.join(', ') || 'Non impostato'}`,
                         inline: true
                     },
                     {
-                        name: "👨‍🎤┆Favorite actors",
-                        value: `${data.Actors.join(', ') || 'Not set'}`,
+                        name: "👨‍🎤┆Attore prefe",
+                        value: `${data.Actors.join(', ') || 'Non impostato'}`,
+                        inline: true
+                    },
+                    // {
+                    //     name: "🏴┆Origin",
+                    //     value: `${data.Orgin || 'Not set'}`,
+                    //     inline: true
+                    // },
+                    {
+                        name: "🎮┆Hobby Prefe",
+                        value: `${data.Hobbys.join(', ') || 'Non impostato'}`,
                         inline: true
                     },
                     {
-                        name: "🏴┆Origin",
-                        value: `${data.Orgin || 'Not set'}`,
-                        inline: true
-                    },
-                    {
-                        name: "🎮┆Hobby's",
-                        value: `${data.Hobbys.join(', ') || 'Not set'}`,
-                        inline: true
-                    },
-                    {
-                        name: "😛┆Status",
-                        value: `${data.Status || 'Not set'}`,
+                        name: "😛┆Stato",
+                        value: `${data.Status || 'Non impostato'}`,
                         inline: true
                     },
                     {
                         name: "📛┆Bot Badges",
-                        value: `${Badges.FLAGS ? Badges.FLAGS.map(flag => badgeFlags[flag]).join(' ') : 'None'}`,
+                        value: `${Badges.FLAGS ? Badges.FLAGS.map(flag => badgeFlags[flag]).join(' ') : 'Nulla'}`,
                         inline: true
                     },
                     {
                         name: "🏷️┆Discord Badges",
-                        value: `${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None' || 'None'}`,
+                        value: `${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'Nulla' || 'Nulla'}`,
                         inline: true
                     },
                     {
                         name: "💳┆Dcredits",
-                        value: `${credits || 'None'}`,
+                        value: `${credits || 'Nulla'}`,
                         inline: true
                     },
                     {
-                        name: "ℹ️┆About me",
-                        value: `${data.Aboutme || 'Not set'}`,
+                        name: "ℹ️┆Info",
+                        value: `${data.Aboutme || 'Non impostato'}`,
                         inline: false
                     },], type: 'editreply'
             }, interaction);
         } else {
             return client.errNormal({
-                error: "No profile found! Open a profile with /profile create",
+                error: "profilo non trovato! apri un profilo con /profile create",
                 type: 'editreply'
             }, interaction);
         }

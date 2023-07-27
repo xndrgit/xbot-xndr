@@ -1,14 +1,14 @@
 const Schema = require('../../database/models/profile');
 const isHexcolor = require('is-hexcolor');
 
-module.exports = async (client, interaction, args) => {
+module.exports = async (client, interaction) => {
 
     const color = interaction.options.getString('color');
 
     Schema.findOne({User: interaction.user.id}, async (err, data) => {
         if (data) {
             if (!isHexcolor(color)) return client.errNormal({
-                error: "You did not specify an hex color! Example: #ff0000",
+                error: "non hai specificato un colore esadecimale! esempio: #ff0000",
                 type: 'editreply'
             }, interaction);
 
@@ -16,9 +16,9 @@ module.exports = async (client, interaction, args) => {
             data.save();
 
             client.succNormal({
-                text: "Your favorite color is set",
+                text: "Il tuo colore preferito è stato impostato",
                 fields: [{
-                    name: "🎨┆Color",
+                    name: "🎨┆Colore",
                     value: `\`\`\`${color}\`\`\``,
                     inline: true,
                 }],
@@ -26,11 +26,9 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         } else {
             return client.errNormal({
-                error: "No profile found! Open a profile with createprofile",
+                error: "nessun profilo trovato! apri un profilo con createprofile",
                 type: 'editreply'
             }, interaction);
         }
     })
 }
-
- 
