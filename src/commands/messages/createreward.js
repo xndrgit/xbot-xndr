@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-
 const Schema = require("../../database/models/messageRewards");
 
 module.exports = async (client, interaction, args) => {
@@ -9,14 +8,14 @@ module.exports = async (client, interaction, args) => {
     const perms = await client.checkUserPerms({
         flags: [Discord.PermissionsBitField.Flags.ManageMessages],
         perms: [Discord.PermissionsBitField.Flags.ManageMessages]
-    }, interaction)
+    }, interaction);
 
-    if (perms == false) return;
+    if (perms === false) return;
 
     Schema.findOne({Guild: interaction.guild.id, Messages: messages}, async (err, data) => {
         if (data) {
             return client.errNormal({
-                error: "This message amount already has a reward!",
+                error: "questa quantità di messaggi ha già un premio associato!",
                 type: 'editreply'
             }, interaction);
         } else {
@@ -27,10 +26,10 @@ module.exports = async (client, interaction, args) => {
             }).save();
 
             client.succNormal({
-                text: `Message reward created`,
+                text: `Premio messaggio creato`,
                 fields: [
                     {
-                        name: "📘┆Role",
+                        name: "📘┆Ruolo",
                         value: `${role}`,
                         inline: true,
                     }
@@ -38,7 +37,5 @@ module.exports = async (client, interaction, args) => {
                 type: 'editreply'
             }, interaction);
         }
-    })
-}
-
- 
+    });
+};

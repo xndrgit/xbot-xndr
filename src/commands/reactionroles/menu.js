@@ -11,7 +11,7 @@ module.exports = async (client, interaction, args) => {
 
     Schema.findOne({Guild: interaction.guild.id, Category: category}, async (err, data) => {
         if (!data) return client.errNormal({
-            error: `No data found!`,
+            error: `nessun dato trovato!`,
             type: 'editreply'
         }, interaction);
 
@@ -25,7 +25,7 @@ module.exports = async (client, interaction, args) => {
 
         const menu = new Discord.StringSelectMenuBuilder()
             .setCustomId('reaction_select')
-            .setPlaceholder('❌┇Nothing selected')
+            .setPlaceholder('❌┇Nessuna selezione')
             .setMinValues(1)
 
         var labels = [];
@@ -36,7 +36,7 @@ module.exports = async (client, interaction, args) => {
 
             const generated = {
                 label: `${role.name}`,
-                description: `Add or remove the role ${role.name}`,
+                description: `Aggiungi o rimuovi il ruolo ${role.name}`,
                 emoji: data.Roles[value][1].raw,
                 value: data.Roles[value][1].raw,
             }
@@ -50,13 +50,13 @@ module.exports = async (client, interaction, args) => {
             .addComponents(menu)
 
         client.embed({
-            title: `${upper}・Roles`,
-            desc: `_____ \n\nChoose your roles in the menu! \n\n${map}`,
+            title: `${upper}・Ruoli`,
+            desc: `_____ \n\nScegli i tuoi ruoli nel menu! \n\n${map}`,
             components: [row]
         }, channel).then(async (msg) => {
             if (!msg) {
                 client.errNormal({
-                    error: "I couldn't send the message!\nMake sure I have the correct permissions!",
+                    error: "non sono riuscito a inviare il messaggio!\nassicurati di avere le autorizzazioni corrette!",
                     type: 'editreply'
                 }, interaction);
                 return;
@@ -66,10 +66,8 @@ module.exports = async (client, interaction, args) => {
         })
 
         client.succNormal({
-            text: "Reaction panel successfully created!",
+            text: "Pannello di reazione creato con successo!",
             type: 'ephemeraledit'
         }, interaction);
     })
 }
-
- 

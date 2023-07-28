@@ -8,22 +8,22 @@ module.exports = async (client, interaction, args) => {
     });
 
     let channel = interaction.member.voice ? interaction.member.voice.channel : null;
-    if (!channel) return client.errNormal({error: `The channel does not exist!`, type: 'editreply'}, interaction);
+    if (!channel) return client.errNormal({error: `il canale non esiste!`, type: 'editreply'}, interaction);
 
     client.radioStop(channel);
 
     var remove = await Schema.deleteOne({Guild: interaction.guild.id});
 
     client.embed({
-        title: `📻・Radio stopped`,
-        desc: `Radio has stopped successfully \nTo make the bot join do: \`rplay\``,
+        title: `📻・Radio interrotta`,
+        desc: `La radio è stata interrotta con successo. Per far entrare il bot nel canale usa: \`rplay\``,
         fields: [{
-            name: "👤┆Stopped By",
+            name: "👤┆Interrotta da",
             value: `${interaction.user} (${interaction.user.tag})`,
             inline: true
         },
             {
-                name: "📺┆Channel",
+                name: "📺┆Canale",
                 value: `${channel} (${channel.name})`,
                 inline: true
             }
@@ -32,19 +32,17 @@ module.exports = async (client, interaction, args) => {
     }, interaction)
 
     let embed = new Discord.EmbedBuilder()
-        .setTitle(`📻・Radio stopped`)
-        .setDescription(`_______________ \n\nRadio has stopped successfully`)
+        .setTitle(`📻・Radio interrotta`)
+        .setDescription(`_______________ \n\nLa radio è stata interrotta con successo`)
         .addFields(
-            {name: "👤┆Stopped By", value: `${interaction.user} (${interaction.user.tag})`, inline: true},
-            {name: "📺┆Channel", value: `${channel} (${channel.name})`, inline: true},
-            {name: "⚙️┆Guild", value: `${interaction.guild.name} (${interaction.guild.id})`, inline: true},
+            {name: "👤┆Interrotta da", value: `${interaction.user} (${interaction.user.tag})`, inline: true},
+            {name: "📺┆Canale", value: `${channel} (${channel.name})`, inline: true},
+            {name: "⚙️┆Server", value: `${interaction.guild.name} (${interaction.guild.id})`, inline: true},
         )
         .setColor(client.config.colors.normal)
         .setTimestamp();
     webhookClientLogs.send({
-        username: 'Bot Logs',
+        username: 'Log del Bot',
         embeds: [embed],
     });
 }
-
- 

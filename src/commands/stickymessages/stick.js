@@ -6,7 +6,7 @@ module.exports = async (client, interaction, args) => {
     const channel = interaction.options.getChannel('channel');
     const content = interaction.options.getString('message');
 
-    const embed = new Discord.EmbedBuilder()
+    const embed = new Discord.MessageEmbed()
         .setDescription(`${content}`)
         .setColor(client.config.colors.normal);
     channel.send({embeds: [embed]}).then(msg => {
@@ -27,10 +27,10 @@ module.exports = async (client, interaction, args) => {
         })
 
         client.succNormal({
-            text: "Sticky message created",
+            text: "Messaggio appiccicoso creato",
             fields: [
                 {
-                    name: `💬┆Message`,
+                    name: `💬┆Messaggio`,
                     value: `${content}`
                 }
             ],
@@ -38,5 +38,3 @@ module.exports = async (client, interaction, args) => {
         }, interaction)
     })
 }
-
- 

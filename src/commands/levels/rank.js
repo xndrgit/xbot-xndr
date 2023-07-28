@@ -11,13 +11,13 @@ module.exports = async (client, interaction, args) => {
         const target = interaction.options.getUser('user') || interaction.user;
         const user = await client.fetchLevels(target.id, interaction.guild.id);
         if (!user || !user.xp) return client.errNormal({
-            error: "This user has no levels!",
+            error: "questo utente non ha livelli!",
             type: 'editreply'
         }, interaction);
         let xpRequired = client.xpFor(user.level + 1);
 
         const rankCard = new Canvacord.Rank()
-            .setAvatar(target.displayAvatarURL({dynamic: false, extension: 'png'}))
+            .setAvatar(target.displayAvatarURL({dynamic: false, format: 'png'}))
             .setRequiredXP(xpRequired)
             .setCurrentXP(user.xp)
             .setLevel(user.level)
@@ -34,9 +34,8 @@ module.exports = async (client, interaction, args) => {
             });
     } else {
         client.errNormal({
-            error: "Levels are disabled in this guild!",
+            error: "i livelli sono disabilitati in questo server!",
             type: 'editreply'
         }, interaction);
     }
 }
-

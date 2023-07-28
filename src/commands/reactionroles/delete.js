@@ -7,17 +7,15 @@ module.exports = async (client, interaction, args) => {
 
     Schema.findOne({Guild: interaction.guild.id, Category: category}, async (err, data) => {
         if (!data) return client.errNormal({
-            error: `No data found!`,
+            error: `nessun dato trovato!`,
             type: 'editreply'
         }, interaction);
 
         var remove = await Schema.deleteOne({Guild: interaction.guild.id, Category: category});
 
         client.succNormal({
-            text: `**${category}** successfully deleted!`,
+            text: `**${category}** eliminato con successo!`,
             type: 'editreply'
         }, interaction);
-    })
-}
-
- 
+    });
+};

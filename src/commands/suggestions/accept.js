@@ -14,14 +14,14 @@ module.exports = async (client, interaction, args) => {
 
     const data = await Schema.findOne({Guild: interaction.guild.id});
     if (data) {
-        const suggestionchannel = interaction.guild.channels.cache.get(data.Channel);
-        const suggestEmbed = await suggestionchannel.messages.fetch(messageID);
+        const suggestionChannel = interaction.guild.channels.cache.get(data.Channel);
+        const suggestEmbed = await suggestionChannel.messages.fetch(messageID);
         const embedData = suggestEmbed.embeds[0];
 
         client.embed({
-            title: `${client.emotes.normal.check}・Suggestion accepted`,
+            title: `${client.emotes.normal.check}・Suggerimento accettato`,
             desc: `\`\`\`${embedData.description}\`\`\``,
-            color: client.config.colors.succes,
+            color: client.config.colors.success,
             author: {
                 name: embedData.author.name,
                 iconURL: embedData.author.iconURL
@@ -34,11 +34,11 @@ module.exports = async (client, interaction, args) => {
 
             if (user) {
                 client.embed({
-                    title: `${client.emotes.normal.check}・Suggestion accepted`,
-                    desc: `Your suggestion in ${interaction.guild.name} has been accepted by a moderator!`,
+                    title: `${client.emotes.normal.check}・Suggerimento accettato`,
+                    desc: `Il tuo suggerimento in ${interaction.guild.name} è stato accettato da un moderatore!`,
                     fields: [
                         {
-                            name: `💬┆Suggestion`,
+                            name: `💬┆Suggerimento`,
                             value: `${embedData.description}`
                         }
                     ],
@@ -48,10 +48,10 @@ module.exports = async (client, interaction, args) => {
         }
 
         client.succNormal({
-            text: "Suggestion successfully accepted",
+            text: "Suggerimento accettato con successo",
             fields: [
                 {
-                    name: `💬┆Suggestion`,
+                    name: `💬┆Suggerimento`,
                     value: `${embedData.description}`
                 }
             ],
@@ -59,10 +59,8 @@ module.exports = async (client, interaction, args) => {
         }, interaction);
     } else {
         client.errNormal({
-            error: `No suggestion channel set! Please do the setup`,
+            error: `nessun canale per i suggerimenti impostato! per favore, esegui la configurazione`,
             type: 'editreply'
         }, interaction);
     }
 }
-
- 

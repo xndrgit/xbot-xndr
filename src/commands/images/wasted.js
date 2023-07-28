@@ -6,7 +6,7 @@ module.exports = async (client, interaction, args) => {
     })}`
 
     client.embed({
-        title: `🖼・Generated image`,
+        title: `🖼・Immagine generata`,
         image: link,
         type: 'editreply'
     }, interaction)

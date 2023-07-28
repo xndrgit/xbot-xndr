@@ -18,19 +18,19 @@ module.exports = async (client, interaction, args) => {
             const data = await Schema.findOne({Guild: interaction.guild.id})
 
             if (data) {
-                data.openTicket = "Thanks for creating a ticket! \nSupport will be with you shortly \n\n🔒 - Close ticket \n✋ - Claim ticket \n📝 - Save transcript \n🔔 - Send a notification";
+                data.openTicket = "Grazie per aver aperto un ticket! \nIl supporto sarà presto con te \n\n🔒 - Chiudi il ticket \n✋ - Rivendica il ticket \n📝 - Salva la trascrizione \n🔔 - Invia una notifica";
                 data.save();
 
                 client.succNormal({
-                    text: `The ticket message has been set successfully`,
+                    text: `Il messaggio di apertura del ticket è stato impostato con successo`,
                     fields: [
                         {
-                            name: `📘┆Message type`,
+                            name: `📘┆Tipo di messaggio`,
                             value: `${type}`,
                             inline: true
                         },
                         {
-                            name: `💬┆Message`,
+                            name: `💬┆Messaggio`,
                             value: `${data.openTicket}`,
                             inline: true
                         },
@@ -39,7 +39,7 @@ module.exports = async (client, interaction, args) => {
                 }, interaction)
             } else {
                 client.errNormal({
-                    error: `No ticket message data found!`,
+                    error: `nessun dato del messaggio di ticket trovato!`,
                     type: 'editreply'
                 }, interaction)
             }
@@ -60,15 +60,15 @@ module.exports = async (client, interaction, args) => {
         })
 
         client.succNormal({
-            text: `The ticket message has been set successfully`,
+            text: `Il messaggio di apertura del ticket è stato impostato con successo`,
             fields: [
                 {
-                    name: `📘┆Message type`,
+                    name: `📘┆Tipo di messaggio`,
                     value: `${type}`,
                     inline: true
                 },
                 {
-                    name: `💬┆Message`,
+                    name: `💬┆Messaggio`,
                     value: `${message}`,
                     inline: true
                 },
@@ -80,19 +80,19 @@ module.exports = async (client, interaction, args) => {
             const data = await Schema.findOne({Guild: interaction.guild.id})
 
             if (data) {
-                data.dmMessage = "Here is the transcript for your ticket, please keep this if you ever want to refer to it!";
+                data.dmMessage = "Ecco la trascrizione del tuo ticket, tienila se vuoi consultarlo in futuro!";
                 data.save();
 
                 client.succNormal({
-                    text: `The ticket message has been set successfully`,
+                    text: `Il messaggio di chiusura del ticket è stato impostato con successo`,
                     fields: [
                         {
-                            name: `📘┆Message type`,
+                            name: `📘┆Tipo di messaggio`,
                             value: `${type}`,
                             inline: true
                         },
                         {
-                            name: `💬┆Message`,
+                            name: `💬┆Messaggio`,
                             value: `${data.dmMessage}`,
                             inline: true
                         },
@@ -101,7 +101,7 @@ module.exports = async (client, interaction, args) => {
                 }, interaction)
             } else {
                 client.errNormal({
-                    error: `No ticket message data found!`,
+                    error: `nessun dato del messaggio di ticket trovato!`,
                     type: 'editreply'
                 }, interaction)
             }
@@ -122,15 +122,15 @@ module.exports = async (client, interaction, args) => {
         })
 
         client.succNormal({
-            text: `The ticket message has been set successfully`,
+            text: `Il messaggio di chiusura del ticket è stato impostato con successo`,
             fields: [
                 {
-                    name: `📘┆Message type`,
+                    name: `📘┆Tipo di messaggio`,
                     value: `${type}`,
                     inline: true
                 },
                 {
-                    name: `💬┆Message`,
+                    name: `💬┆Messaggio`,
                     value: `${message}`,
                     inline: true
                 },
@@ -139,5 +139,3 @@ module.exports = async (client, interaction, args) => {
         }, interaction)
     }
 }
-
- 

@@ -24,9 +24,7 @@ module.exports = async (client, interaction, args) => {
     }
 
     client.succNormal({
-        text: `Levels is now **${boolean ? 'enabled' : 'disabled'}** in this guild`,
+        text: `I livelli sono ora **${boolean ? 'abilitati' : 'disabilitati'}** in questo server`,
         type: 'editreply'
     }, interaction);
 }
-
- 

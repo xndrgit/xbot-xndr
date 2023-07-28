@@ -10,7 +10,7 @@ module.exports = async (client, interaction, args) => {
     const perms = await client.checkUserPerms({
         flags: [Discord.PermissionsBitField.Flags.ManageMessages],
         perms: [Discord.PermissionsBitField.Flags.ManageMessages]
-    }, interaction)
+    }, interaction);
 
     if (perms == false) return;
 
@@ -21,15 +21,15 @@ module.exports = async (client, interaction, args) => {
         const user = await client.setLevel(target.id, interaction.guild.id, level);
 
         client.succNormal({
-            text: `Level has been modified successfully`,
+            text: `Il livello è stato modificato con successo`,
             fields: [
                 {
-                    name: "🆕┆New Level",
+                    name: "🆕┆Nuovo Livello",
                     value: `${user.level}`,
                     inline: true,
                 },
                 {
-                    name: "👤┆User",
+                    name: "👤┆Utente",
                     value: `${target} (${target.tag})`,
                     inline: true,
                 }
@@ -38,10 +38,8 @@ module.exports = async (client, interaction, args) => {
         }, interaction);
     } else {
         client.errNormal({
-            error: "Levels are disabled in this guild!",
+            error: "i livelli sono disabilitati in questo server!",
             type: 'editreply'
         }, interaction);
     }
 }
-
- 

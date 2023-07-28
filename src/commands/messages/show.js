@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-
 const Schema = require("../../database/models/messages");
 
 module.exports = async (client, interaction, args) => {
@@ -8,18 +7,16 @@ module.exports = async (client, interaction, args) => {
     Schema.findOne({Guild: interaction.guild.id, User: user.id}, async (err, data) => {
         if (data) {
             client.embed({
-                title: "💬・Messages",
-                desc: `**${user.tag}** has \`${data.Messages}\` messages`,
+                title: "💬・Messaggi",
+                desc: `**${user.tag}** ha inviato \`${data.Messages}\` messaggi`,
                 type: 'editreply'
-            }, interaction)
+            }, interaction);
         } else {
             client.embed({
-                title: "💬・Messages",
-                desc: `**${user.tag}** has \`0\` messages`,
+                title: "💬・Messaggi",
+                desc: `**${user.tag}** non ha inviato alcun messaggio`,
                 type: 'editreply'
-            }, interaction)
+            }, interaction);
         }
     });
-}
-
- 
+};

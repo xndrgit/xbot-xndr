@@ -14,15 +14,15 @@ module.exports = async (client, interaction, args) => {
 
     if (message.toUpperCase() == "HELP") {
         return client.embed({
-            title: `ℹ️・Level message options`,
-            desc: `These are the level message name options: \n
-            \`{user:username}\` - User's username
-            \`{user:discriminator}\` - User's discriminator
-            \`{user:tag}\` - User's tag
-            \`{user:mention}\` - Mention a user
+            title: `ℹ️・Opzioni del messaggio di livello`,
+            desc: `Queste sono le opzioni del messaggio di livello: \n
+            \`{user:username}\` - Nome utente dell'utente
+            \`{user:discriminator}\` - Discriminatore dell'utente
+            \`{user:tag}\` - Tag dell'utente
+            \`{user:mention}\` - Menzione dell'utente
 
-            \`{user:level}\` - Users's level
-            \`{user:xp}\` - Users's xp`,
+            \`{user:level}\` - Livello dell'utente
+            \`{user:xp}\` - Punti esperienza dell'utente`,
             type: 'editreply'
         }, interaction)
     }
@@ -32,7 +32,7 @@ module.exports = async (client, interaction, args) => {
             if (data) {
                 Schema.findOneAndDelete({Guild: interaction.guild.id}).then(() => {
                     client.succNormal({
-                        text: `Level message deleted!`,
+                        text: `Messaggio di livello eliminato!`,
                         type: 'editreply'
                     }, interaction);
                 })
@@ -51,10 +51,10 @@ module.exports = async (client, interaction, args) => {
             }
 
             client.succNormal({
-                text: `The level message has been set successfully`,
+                text: `Il messaggio di livello è stato impostato con successo`,
                 fields: [
                     {
-                        name: `💬┆Message`,
+                        name: `💬┆Messaggio`,
                         value: `${message}`,
                         inline: true
                     },
@@ -64,5 +64,3 @@ module.exports = async (client, interaction, args) => {
         })
     }
 }
-
- 

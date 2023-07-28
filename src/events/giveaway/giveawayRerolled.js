@@ -3,8 +3,8 @@ const Discord = require('discord.js');
 module.exports = (client, giveaway, winners) => {
     winners.forEach((member) => {
         client.embed({
-            title: `🎉・Giveaway ended`,
-            desc: `Congratulations ${member.user.username}! You won the giveaway!`,
+            title: `🎉・Giveaway terminato`,
+            desc: `Congratulazioni ${member.user.username}! Hai vinto il giveaway!`,
             fields: [
                 {
                     name: `🎁┆Prize`,

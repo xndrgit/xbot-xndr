@@ -14,12 +14,12 @@ module.exports = async (client, interaction, args) => {
 
     const data = await Schema.findOne({Guild: interaction.guild.id});
     if (data) {
-        const suggestionchannel = interaction.guild.channels.cache.get(data.Channel);
-        const suggestEmbed = await suggestionchannel.messages.fetch(messageID);
+        const suggestionChannel = interaction.guild.channels.cache.get(data.Channel);
+        const suggestEmbed = await suggestionChannel.messages.fetch(messageID);
         const embedData = suggestEmbed.embeds[0];
 
         client.embed({
-            title: `${client.emotes.normal.error}・Suggestion denied`,
+            title: `${client.emotes.normal.error}・Suggerimento rifiutato`,
             desc: `\`\`\`${embedData.description}\`\`\``,
             color: client.config.colors.error,
             author: {
@@ -34,11 +34,11 @@ module.exports = async (client, interaction, args) => {
 
             if (user) {
                 client.embed({
-                    title: `${client.emotes.normal.check}・Suggestion denied`,
-                    desc: `Your suggestion in ${interaction.guild.name} has been denied by a moderator!`,
+                    title: `${client.emotes.normal.check}・Suggerimento rifiutato`,
+                    desc: `Il tuo suggerimento in ${interaction.guild.name} è stato rifiutato da un moderatore!`,
                     fields: [
                         {
-                            name: `💬┆Suggestion`,
+                            name: `💬┆Suggerimento`,
                             value: `${embedData.description}`
                         }
                     ],
@@ -48,10 +48,10 @@ module.exports = async (client, interaction, args) => {
         }
 
         client.succNormal({
-            text: "Suggestion successfully denied",
+            text: "Suggerimento rifiutato con successo",
             fields: [
                 {
-                    name: `💬┆Suggestion`,
+                    name: `💬┆Suggerimento`,
                     value: `${embedData.description}`
                 }
             ],
@@ -59,10 +59,8 @@ module.exports = async (client, interaction, args) => {
         }, interaction);
     } else {
         client.errNormal({
-            error: `No suggestion channel set! Please do the setup`,
+            error: `nessun canale per i suggerimenti impostato! per favore, esegui la configurazione`,
             type: 'editreply'
         }, interaction);
     }
 }
-
- 

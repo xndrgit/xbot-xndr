@@ -14,22 +14,22 @@ module.exports = async (client, interaction, args) => {
 
     if (message.toUpperCase() == "HELP") {
         return client.embed({
-            title: `ℹ️・Welcome message options`,
-            desc: `Join message options: \n
-            \`{user:username}\` - User's username
-            \`{user:discriminator}\` - User's discriminator
-            \`{user:tag}\` - User's tag
-            \`{user:mention}\` - Mention a user
+            title: `ℹ️・Opzioni del messaggio di benvenuto`,
+            desc: `Opzioni del messaggio di benvenuto: \n
+            \`{user:username}\` - Nome utente dell'utente
+            \`{user:discriminator}\` - Discriminatore dell'utente
+            \`{user:tag}\` - Tag dell'utente
+            \`{user:mention}\` - Mention dell'utente
 
-            \`{inviter:username}\` - inviter's username
-            \`{inviter:discriminator}\` - inviter's discriminator
-            \`{inviter:tag}\` - inviter's tag
-            \`{inviter:mention}\` - inviter's mention
-            \`{inviter:invites}\` - inviter's invites
-            \`{inviter:invites:left}\` - inviter's left invites
+            \`{inviter:username}\` - Nome utente dell'invitante
+            \`{inviter:discriminator}\` - Discriminatore dell'invitante
+            \`{inviter:tag}\` - Tag dell'invitante
+            \`{inviter:mention}\` - Mention dell'invitante
+            \`{inviter:invites}\` - Inviti dell'invitante
+            \`{inviter:invites:left}\` - Inviti dell'invitante rimasti
                     
-            \`{guild:name}\` - Server name
-            \`{guild:members}\` - Server members count`,
+            \`{guild:name}\` - Nome del server
+            \`{guild:members}\` - Numero di membri del server`,
             type: 'editreply'
         }, interaction)
     }
@@ -41,7 +41,7 @@ module.exports = async (client, interaction, args) => {
                 data.save();
 
                 client.succNormal({
-                    text: `Welcome message deleted!`,
+                    text: `Messaggio di benvenuto eliminato!`,
                     type: 'editreply'
                 }, interaction);
             }
@@ -59,10 +59,10 @@ module.exports = async (client, interaction, args) => {
             }
 
             client.succNormal({
-                text: `The welcome message has been set successfully`,
+                text: `Il messaggio di benvenuto è stato impostato con successo`,
                 fields: [
                     {
-                        name: `💬┆Message`,
+                        name: `💬┆Messaggio`,
                         value: `${message}`,
                         inline: true
                     },
@@ -72,5 +72,3 @@ module.exports = async (client, interaction, args) => {
         })
     }
 }
-
- 

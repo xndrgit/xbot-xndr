@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-
 const Schema = require("../../database/models/messages");
 
 module.exports = async (client, interaction, args) => {
@@ -9,9 +8,9 @@ module.exports = async (client, interaction, args) => {
     const perms = await client.checkUserPerms({
         flags: [Discord.PermissionsBitField.Flags.ManageMessages],
         perms: [Discord.PermissionsBitField.Flags.ManageMessages]
-    }, interaction)
+    }, interaction);
 
-    if (perms == false) return;
+    if (perms === false) return;
 
     const data = await Schema.findOne({Guild: interaction.guild.id, User: user.id});
     if (data) {
@@ -26,16 +25,14 @@ module.exports = async (client, interaction, args) => {
     }
 
     client.succNormal({
-        text: `Added **${amount}** messages to ${user}`,
+        text: `Aggiunti **${amount}** messaggi a ${user}`,
         fields: [
             {
-                name: "💬┆Total messages",
+                name: "💬┆Totale messaggi",
                 value: `${data.Messages}`,
                 inline: true,
             }
         ],
         type: 'editreply'
     }, interaction);
-}
-
- 
+};

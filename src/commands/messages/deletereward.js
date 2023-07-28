@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-
 const Schema = require("../../database/models/messageRewards");
 
 module.exports = async (client, interaction, args) => {
@@ -8,32 +7,30 @@ module.exports = async (client, interaction, args) => {
     const perms = await client.checkUserPerms({
         flags: [Discord.PermissionsBitField.Flags.ManageMessages],
         perms: [Discord.PermissionsBitField.Flags.ManageMessages]
-    }, interaction)
+    }, interaction);
 
-    if (perms == false) return;
+    if (perms === false) return;
 
     Schema.findOne({Guild: interaction.guild.id, Messages: messages}, async (err, data) => {
         if (data) {
             Schema.findOneAndDelete({Guild: interaction.guild.id, Messages: messages}).then(() => {
                 client.succNormal({
-                    text: `Message reward removed`,
+                    text: `Premio messaggio rimosso`,
                     fields: [
                         {
-                            name: "💬┆Messages",
+                            name: "💬┆Messaggi",
                             value: `${messages}`,
                             inline: true,
                         }
                     ],
                     type: 'editreply'
                 }, interaction);
-            })
+            });
         } else {
             return client.errNormal({
-                error: "No message reward found at this message amount!",
+                error: "nessun premio messaggio trovato con questa quantità di messaggi!",
                 type: 'editreply'
             }, interaction);
         }
-    })
-}
-
- 
+    });
+};

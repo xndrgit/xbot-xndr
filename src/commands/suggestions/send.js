@@ -10,7 +10,7 @@ module.exports = async (client, interaction, args) => {
         const channel = interaction.guild.channels.cache.get(data.Channel);
 
         client.embed({
-            title: `💡・Suggestion`,
+            title: `💡・Suggerimento`,
             desc: `${suggestionQuery}`,
             author: {
                 name: interaction.user.tag,
@@ -18,15 +18,15 @@ module.exports = async (client, interaction, args) => {
             }
         }, channel).then((msg) => {
             client.succNormal({
-                text: `Suggestion successfully submitted!`,
+                text: `Suggerimento inviato con successo!`,
                 fields: [
                     {
-                        name: `💬┇Suggestion`,
+                        name: `💬┇Suggerimento`,
                         value: `${suggestionQuery}`,
                         inline: true
                     },
                     {
-                        name: `📘┇Channel`,
+                        name: `📘┇Canale`,
                         value: `<#${data.Channel}>`,
                         inline: true
                     }
@@ -38,16 +38,14 @@ module.exports = async (client, interaction, args) => {
             msg.react(client.emotes.normal.arrowDown);
         }).catch((e) => {
             return client.errNormal({
-                error: `No suggestion channel set! Please do the setup`,
+                error: `nessun canale per i suggerimenti impostato! per favore, esegui la configurazione`,
                 type: 'editreply'
             }, interaction)
         })
     } else {
         client.errNormal({
-            error: `No suggestion channel set! Please do the setup`,
+            error: `nessun canale per i suggerimenti impostato! per favore, esegui la configurazione`,
             type: 'editreply'
         }, interaction);
     }
 }
-
- 

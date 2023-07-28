@@ -13,7 +13,7 @@ module.exports = async (client) => {
             inline: true
         },
         {
-            name: `📣┆Annunci`,
+            name: `📣┆Announcement`,
             value: `\`/announcement help\``,
             inline: true
         },
@@ -28,7 +28,7 @@ module.exports = async (client) => {
         //     inline: true
         // },
         {
-            name: `🎂┆Compleanni`,
+            name: `🎂┆Birthday`,
             value: `\`/birthdays help\``,
             inline: true
         },
@@ -42,11 +42,11 @@ module.exports = async (client) => {
         //     value: `\`/casino help\``,
         //     inline: true
         // },
-        // {
-        //     name: `⚙┆Configuration`,
-        //     value: `\`/config help\``,
-        //     inline: true
-        // },
+        {
+            name: `⚙┆Configuration`,
+            value: `\`/config help\``,
+            inline: true
+        },
         // {
         //     name: `💻┆Custom commands`,
         //     value: `\`/custom-commands help\``,
@@ -63,12 +63,12 @@ module.exports = async (client) => {
         //     inline: true
         // },
         {
-            name: `👪┆Famiglia`,
+            name: `👪┆Family`,
             value: `\`/family help\``,
             inline: true
         },
         {
-            name: `🎈┆Svago`,
+            name: `😂┆Fun`,
             value: `\`/fun help\``,
             inline: true
         },
@@ -87,31 +87,31 @@ module.exports = async (client) => {
         //     value: `\`/guild help\``,
         //     inline: true
         // },
-        // {
-        //     name: `🖼┆Images`,
-        //     value: `\`/images help\``,
-        //     inline: true
-        // },
         {
-            name: `📨┆Invita`,
+            name: `🖼┆Images`,
+            value: `\`/images help\``,
+            inline: true
+        },
+        {
+            name: `📨┆Invite`,
             value: `\`/invite\``,
             inline: true
         },
         {
-            name: `📨┆Inviti`,
+            name: `📨┆Invites`,
             value: `\`/invites help\``,
             inline: true
         },
-        // {
-        //     name: `🆙┆Leveling`,
-        //     value: `\`/levels help\``,
-        //     inline: true
-        // },
-        // {
-        //     name: `💬┆Messages`,
-        //     value: `\`/messages help\``,
-        //     inline: true
-        // },
+        {
+            name: `🆙┆Leveling`,
+            value: `\`/levels help\``,
+            inline: true
+        },
+        {
+            name: `💬┆Messages`,
+            value: `\`/messages help\``,
+            inline: true
+        },
         // {
         //     name: `👔┆Moderation`,
         //     value: `\`/moderation help\``,
@@ -128,30 +128,30 @@ module.exports = async (client) => {
             inline: true
         },
         {
-            name: `👤┆Profilo`,
+            name: `👤┆Profile`,
             value: `\`/profile help\``,
             inline: true
         },
-        // {
-        //     name: `📻┆Radio`,
-        //     value: `\`/radio help\``,
-        //     inline: true
-        // },
-        // {
-        //     name: `😛┆Reaction roles`,
-        //     value: `\`/reactionroles help\``,
-        //     inline: true
-        // },
-        // {
-        //     name: `🔍┆Search`,
-        //     value: `\`/search help\``,
-        //     inline: true
-        // },
-        // {
-        //     name: `📊┆Server stats`,
-        //     value: `\`/serverstats help\``,
-        //     inline: true
-        // },
+        {
+            name: `📻┆Radio`,
+            value: `\`/radio help\``,
+            inline: true
+        },
+        {
+            name: `😛┆Reaction roles`,
+            value: `\`/reactionroles help\``,
+            inline: true
+        },
+        {
+            name: `🔍┆Search`,
+            value: `\`/search help\``,
+            inline: true
+        },
+        {
+            name: `📊┆Server stats`,
+            value: `\`/serverstats help\``,
+            inline: true
+        },
         // {
         //     name: `⚙️┆Setup`,
         //     value: `\`/setup help\``,
@@ -162,21 +162,21 @@ module.exports = async (client) => {
         //     value: `\`/soundboard help\``,
         //     inline: true
         // },
-        // {
-        //     name: `🗨️┆Sticky messages`,
-        //     value: `\`/stickymessages help\``,
-        //     inline: true
-        // },
-        // {
-        //     name: `💡┆Suggestions`,
-        //     value: `\`/sugestions help\``,
-        //     inline: true
-        // },
-        // {
-        //     name: `🤝┆Thanks`,
-        //     value: `\`/thanks help\``,
-        //     inline: true
-        // },
+        {
+            name: `🗨️┆Sticky messages`,
+            value: `\`/stickymessages help\``,
+            inline: true
+        },
+        {
+            name: `💡┆Suggestions`,
+            value: `\`/sugestions help\``,
+            inline: true
+        },
+        {
+            name: `🤝┆Thanks`,
+            value: `\`/thanks help\``,
+            inline: true
+        },
         // {
         //     name: `🎫┆Tickets`,
         //     value: `\`/tickets help\``,
@@ -197,8 +197,8 @@ module.exports = async (client) => {
     client.on(Discord.Events.InteractionCreate, async (interaction) => {
         if (!interaction.isStringSelectMenu()) return;
 
-        if (interaction.customId === "Bot-helppanel") {
-            if (interaction.values === "commands-Bothelp") {
+        if (interaction.customId == "Bot-helppanel") {
+            if (interaction.values == "commands-Bothelp") {
                 interaction.deferUpdate();
                 let page = 1;
 
@@ -260,35 +260,33 @@ module.exports = async (client) => {
 
                 client.embed({
                     title: `❓・Pannello`,
-                    desc: `Visualizza tutte le categorie \n\n[Git](https://github.com/XndrWilde) | [Invitami](${client.config.discord.botInvite})`,
+                    desc: `Visualizza tutte le categorie \n\n[Git](https://github.com/XanderWorld) | [Invitami](${client.config.discord.botInvite})`,
                     image: "https://cdn.discordapp.com/attachments/843487478881976381/874694194474668052/Bot_banner_invite.jpg",
                     fields: fields.slice(0, 24),
                     components: [row2, row],
                     type: 'edit'
                 }, interaction.message).then(msg => {
                     const filter = i => i.user.id === interaction.user.id;
-                    console.log(msg);
 
                     const collector = interaction.channel.createMessageComponentCollector({ filter, time: 100000 });
 
                     collector.on('collect', async i => {
-
-                        if (i.customId === "helpNext") {
-                            if (page === 1) {
+                        if (i.customId == "helpNext") {
+                            if (page == 1) {
                                 client.embed({
                                     title: `❓・Pannello`,
-                                    desc: `Visualizza tutte le categorie \n\n[Git](https://github.com/XndrWilde) | [Invitami](${client.config.discord.botInvite})`,
+                                    desc: `Visualizza tutte le categorie \n\n[Git](https://github.com/XanderWorld) | [Invitami](${client.config.discord.botInvite})`,
                                     fields: fields.slice(25, 49),
                                     components: [row2, row],
                                     type: 'update'
                                 }, i)
                                 page += 1;
                             }
-                        } else if (i.customId === "helpPrev") {
-                            if (page === 2) {
+                        } else if (i.customId == "helpPrev") {
+                            if (page == 2) {
                                 client.embed({
                                     title: `❓・Pannello`,
-                                    desc: `Visualizza tutte le categorie \n\n[Git](https://github.com/XndrWilde) | [Invitami](${client.config.discord.botInvite})`,
+                                    desc: `Visualizza tutte le categorie \n\n[Git](https://github.com/XanderWorld) | [Invitami](${client.config.discord.botInvite})`,
                                     fields: fields.slice(0, 24),
                                     components: [row2, row],
                                     type: 'update'

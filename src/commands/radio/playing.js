@@ -2,20 +2,20 @@ const Discord = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     client.embed({
-        title: `📻・Radio information`,
-        desc: `All info about the radio in this guild`,
+        title: `📻・Informazioni sulla radio`,
+        desc: `Tutte le informazioni sulla radio in questo server`,
         fields: [{
-            name: "👤┆Channel Listeners",
-            value: `${interaction.member.voice.channel.members.size} listeners`,
+            name: "👤┆Ascoltatori nel canale",
+            value: `${interaction.member.voice.channel.members.size} ascoltatori`,
             inline: true
         },
             {
-                name: "📺┆Connected channel",
+                name: "📺┆Canale connesso",
                 value: `${interaction.member.voice.channel} (${interaction.member.voice.channel.name})`,
                 inline: true
             },
             {
-                name: "🎶┆Radio Station",
+                name: "🎶┆Stazione radio",
                 value: `[Radio 538](https://www.538.nl/)`,
                 inline: true
             },
@@ -23,5 +23,3 @@ module.exports = async (client, interaction, args) => {
         type: 'editreply'
     }, interaction)
 }
-
- 
