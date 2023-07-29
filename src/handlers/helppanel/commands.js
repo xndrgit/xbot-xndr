@@ -157,11 +157,11 @@ module.exports = async (client) => {
         //     value: `\`/setup help\``,
         //     inline: true
         // },
-        // {
-        //     name: `🎛┆Soundboard`,
-        //     value: `\`/soundboard help\``,
-        //     inline: true
-        // },
+        {
+            name: `🎛┆Soundboard`,
+            value: `\`/soundboard help\``,
+            inline: true
+        },
         {
             name: `🗨️┆Sticky messages`,
             value: `\`/stickymessages help\``,

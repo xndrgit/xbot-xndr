@@ -1,16 +1,16 @@
 module.exports = async (client, interaction, args) => {
 
     if (!interaction.member.voice.channel) return client.errNormal({
-        error: `You're not in a voice channel!`,
+        error: `non sei in un canale vocale!`,
         type: 'editreply'
     }, interaction);
 
     if (interaction.guild.members.me.voice.channel && interaction.member.voice.channel.id !== interaction.guild.members.me.voice.channel.id) return client.errNormal({
-        error: `You are not in the same voice channel!`,
+        error: `non sei nello stesso canale vocale!`,
         type: 'editreply'
     }, interaction);
 
     client.soundboard(interaction.guild.id, interaction, "https://www.myinstants.com/media/sounds/discord-leave_soGsPwn.mp3");
 
-    client.succNormal({text: "Soundboard started! Playing **discord leave**", type: 'editreply'}, interaction);
+    client.succNormal({text: "Soundboard avviata! Riproducendo **uscita da Discord**", type: 'editreply'}, interaction);
 };
