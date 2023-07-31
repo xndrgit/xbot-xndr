@@ -2,7 +2,7 @@ const {CommandInteraction, Client} = require('discord.js');
 const {SlashCommandBuilder} = require('discord.js');
 const Discord = require('discord.js');
 
-const Schema = require("../../database/models/music");
+const Schema = require("../src/database/models/music");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,13 +11,13 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('❓')
+                .setDescription('AFK help')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('set')
-                .setDescription('Metti te stesso in stato AFK')
-                .addStringOption(option => option.setName('reason').setDescription('Il motivo del tuo stato AFK'))
+                .setDescription('Mettiti in AFK')
+                .addStringOption(option => option.setName('reason').setDescription('Motivo stato AFK'))
         )
         .addSubcommand(subcommand =>
             subcommand

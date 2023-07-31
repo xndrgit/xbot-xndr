@@ -20,16 +20,16 @@ module.exports = async (client, interaction, args) => {
         data.save();
     } else {
         return client.errNormal({
-            error: `No invite data found for ${user}`,
+            error: `nessun dato invito trovato per ${user}`,
             type: 'editreply'
         }, interaction);
     }
 
     client.succNormal({
-        text: `Removed **${amount}** invites from ${user}`,
+        text: `rimossi **${amount}** inviti da ${user}`,
         fields: [
             {
-                name: "📨┆Total invites",
+                name: "📨┆Inviti totali",
                 value: `${data.Invites}`,
                 inline: true,
             }
@@ -37,5 +37,3 @@ module.exports = async (client, interaction, args) => {
         type: 'editreply'
     }, interaction);
 }
-
- 

@@ -6,7 +6,7 @@ module.exports = async (client, interaction, args) => {
     const text = interaction.options.getString('text');
 
     if (text.length > 50) return client.errNormal({
-        error: "Your button text cannot be longer than 50 characters",
+        error: "il testo del tuo pulsante non può superare i 50 caratteri",
         type: 'editreply'
     }, interaction);
 
@@ -20,11 +20,9 @@ module.exports = async (client, interaction, args) => {
 
     client.embed({
         title: `🔗・${text}`,
-        desc: `Click the button to open the link!`,
+        desc: `Clicca sul pulsante per aprire il link!`,
         components: [row],
         type: 'editreply'
     }, interaction)
 
 }
-
- 

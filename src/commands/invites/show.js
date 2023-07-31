@@ -12,12 +12,12 @@ module.exports = async (client, interaction, args) => {
                 desc: `**${user.tag}** ha \`${data.Invites}\` inviti`,
                 fields: [
                     {
-                        name: "Total",
+                        name: "Totale",
                         value: `${data.Total}`,
                         inline: true
                     },
                     {
-                        name: "Left",
+                        name: "Rimasti",
                         value: `${data.Left}`,
                         inline: true
                     }
@@ -26,16 +26,16 @@ module.exports = async (client, interaction, args) => {
             }, interaction)
         } else {
             client.embed({
-                title: "📨・Invites",
-                desc: `**${user.tag}** has \`0\` invites`,
+                title: "📨・Inviti",
+                desc: `**${user.tag}** ha \`0\` inviti`,
                 fields: [
                     {
-                        name: "Total",
+                        name: "Totale",
                         value: `0`,
                         inline: true
                     },
                     {
-                        name: "Left",
+                        name: "Rimasti",
                         value: `0`,
                         inline: true
                     }
@@ -45,5 +45,3 @@ module.exports = async (client, interaction, args) => {
         }
     });
 }
-
- 

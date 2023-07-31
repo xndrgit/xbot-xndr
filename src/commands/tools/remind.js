@@ -15,13 +15,14 @@ module.exports = async (client, interaction, args) => {
         } else {
             return client.succNormal({
                 text: `Your reminder is set!`,
-                fields: [{
-                    name: `${client.emotes.normal.clock}┇End Time`,
-                    value: `${new Date(endtime).toLocaleTimeString()}`,
-                    inline: true,
-                },
+                fields: [
+                    //     {
+                    //     name: `${client.emotes.normal.clock}┇End Time`,
+                    //     value: `${new Date(endtime).toLocaleTimeString()}`,
+                    //     inline: true,
+                    // },
                     {
-                        name: `💭┇Reminder`,
+                        name: `📜┇Reminder`,
                         value: `${text}`,
                         inline: true,
                     }

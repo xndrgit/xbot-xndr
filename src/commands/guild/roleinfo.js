@@ -5,32 +5,30 @@ module.exports = async (client, interaction, args) => {
     const perms = role.permissions.toArray();
 
     client.embed({
-        title: `ℹ️・Role information`,
+        title: `ℹ️・Informazioni ruolo`,
         thumbnail: interaction.guild.iconURL({dynamic: true, size: 1024}),
-        desc: `Information about the role ${role}`,
+        desc: `Informazioni sul ruolo ${role}`,
         fields: [
             {
-                name: 'Role ID:',
+                name: 'ID ruolo:',
                 value: `${role.id}`,
                 inline: true
             },
             {
-                name: 'Role Name:',
+                name: 'Nome ruolo:',
                 value: `${role.name}`,
                 inline: true
             },
             {
-                name: 'Mentionable:',
-                value: `${role.mentionable ? 'Yes' : 'No'}`,
+                name: 'Menzionabile:',
+                value: `${role.mentionable ? 'Sì' : 'No'}`,
                 inline: true
             },
             {
-                name: 'Role Permissions:',
+                name: 'Permessi ruolo:',
                 value: `${perms.join(', ')}`
             }
         ],
         type: 'editreply'
     }, interaction)
 }
-
-   

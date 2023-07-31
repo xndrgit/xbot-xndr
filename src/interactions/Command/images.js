@@ -12,7 +12,7 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('❓')
+                .setDescription('Images help')
         )
         .addSubcommandGroup((group) =>
             group

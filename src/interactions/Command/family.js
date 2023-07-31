@@ -11,7 +11,7 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('❓')
+                .setDescription('Family help')
         )
         .addSubcommand(subcommand =>
             subcommand
@@ -38,15 +38,15 @@ module.exports = {
         )
         .addSubcommand(subcommand =>
             subcommand
-                .setName('family')
-                .setDescription(`Visualizza`)
-                .addUserOption(option => option.setName('user').setDescription('Seleziona un uente').setRequired(false)),
-        )
-        .addSubcommand(subcommand =>
-            subcommand
                 .setName('propose')
                 .setDescription('Sposa')
                 .addUserOption(option => option.setName('user').setDescription('Seleziona un uente').setRequired(true)),
+        )
+        .addSubcommand(subcommand =>
+            subcommand
+                .setName('family')
+                .setDescription(`Visualizza`)
+                .addUserOption(option => option.setName('user').setDescription('Seleziona un uente').setRequired(false)),
         ),
 
     /** 

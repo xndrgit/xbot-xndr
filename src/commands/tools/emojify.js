@@ -5,7 +5,7 @@ module.exports = async (client, interaction) => {
     const args = interaction.options.getString('text');
 
     if (args.length > 4096) return client.errNormal({
-        error: "Your emojify text cannot be longer than 4096 characters",
+        error: "il testo per l'emojify non può essere più lungo di 4096 caratteri",
         type: 'editreply'
     }, interaction);
 
@@ -44,4 +44,3 @@ module.exports = async (client, interaction) => {
 
 }
 
- 

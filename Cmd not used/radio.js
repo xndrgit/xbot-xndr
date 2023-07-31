@@ -2,7 +2,7 @@ const {CommandInteraction, Client} = require('discord.js');
 const {SlashCommandBuilder} = require('discord.js');
 const Discord = require('discord.js');
 
-const Schema = require("../../database/models/music");
+const Schema = require("../src/database/models/music");
 
 module.exports = {
     data: new SlashCommandBuilder()

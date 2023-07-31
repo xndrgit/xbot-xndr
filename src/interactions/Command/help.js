@@ -55,12 +55,12 @@ module.exports = {
         return client.embed({
             // toTranslate aiuto
             title: `❓・Pannello`,
-            desc: `Benvenuti nel mio pannello! Ti offro una piccola panoramica, per aiutarti!\nScegli nel menu sottostante`,
+            desc: `Benvenuti nel pannello! Ti offro una piccola panoramica, per aiutarti!\nScegli nel menu sottostante`,
             image: "https://cdn.discordapp.com/attachments/843487478881976381/874694194474668052/Bot_banner_invite.jpg",
             fields: [
                 {
                     name: `❌┆Non funziono?`,
-                    value: `Segnala il bug 🪲`
+                    value: `[Segnala il bug 🪲](https://github.com/XndrWilde/Xndr_Ghost/issues)`
                 },
                 {
                     name: `🔗┆Links`,

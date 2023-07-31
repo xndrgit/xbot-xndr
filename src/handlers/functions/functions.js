@@ -212,22 +212,22 @@ module.exports = async (client) => {
             }
         }).then(res => res.json())
             .then(invite => {
-                if (invite.error || !invite.code) return client.errNormal({ 
-                    error: `Could not start **${name}**!`, 
+                if (invite.error || !invite.code) return client.errNormal({
+                    error: `non sono riuscito ad avviare **${name}**!`,
                     type: 'editreply'
                 }, interaction);
 
                 const row = new Discord.ActionRowBuilder()
                     .addComponents(
                         new Discord.ButtonBuilder()
-                            .setLabel("Start activity")
+                            .setLabel("Avvia attività")
                             .setURL(`https://discord.gg/${invite.code}`)
                             .setStyle(Discord.ButtonStyle.Link),
                     );
 
                 client.embed({
-                    title: `${client.emotes.normal.tv}・Activities`,
-                    desc: `Click on the **button** to start **${name}** in **${channel.name}**`,
+                    title: `${client.emotes.normal.tv}・Attività`,
+                    desc: `Premi **Avvia attività** per avviare **${name}** in **${channel.name}**`,
                     components: [row],
                     type: 'editreply'
                 }, interaction)
@@ -235,7 +235,7 @@ module.exports = async (client) => {
             .catch(e => {
                 console.log(e)
                 client.errNormal({
-                    error: `Could not start **${name}**!`,
+                    error: `non sono riuscito ad avviare **${name}**!`,
                     type: 'editreply'
                 }, interaction);
             })

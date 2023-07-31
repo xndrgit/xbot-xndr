@@ -5,36 +5,36 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('invites')
-        .setDescription('View the invites system')
+        .setDescription('Inviti')
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('Get information about the invites category commands')
+                .setDescription('Inviti help')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('add')
-                .setDescription('Add invites to a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount of invites').setRequired(true))
+                .setDescription('Aggiungi inviti ad un utente')
+                .addUserOption(option => option.setName('user').setDescription('Seleziona un utente').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('Numero di inviti').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('remove')
-                .setDescription('Remove invites from a user')
-                .addUserOption(option => option.setName('user').setDescription('Select a user').setRequired(true))
-                .addNumberOption(option => option.setName('amount').setDescription('Enter a amount of invites').setRequired(true))
+                .setDescription('Rimuovi inviti ad un utente')
+                .addUserOption(option => option.setName('user').setDescription('Seleziona un utente').setRequired(true))
+                .addNumberOption(option => option.setName('amount').setDescription('Numero di inviti').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('show')
-                .setDescription('See your invites')
-                .addUserOption(option => option.setName('user').setDescription('Select a user'))
+                .setDescription('Mostra inviti')
+                .addUserOption(option => option.setName('user').setDescription('Seleziona un utente'))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('leaderboard')
-                .setDescription('See the invites leaderboard')
+                .setDescription('Classifica')
         )
     ,
 

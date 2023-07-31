@@ -114,14 +114,14 @@ module.exports = async (client, interaction, args) => {
     }
 
     await client.embed({
-        title: `🧮・Calculator`,
+        title: `🧮・Calcolatrice`,
         desc: stringify,
         components: row,
         type: 'editreply'
     }, interaction).then(msg => {
         function edit() {
             client.embed({
-                title: `🧮・Calculator`,
+                title: `🧮・Calcolatrice`,
                 desc: stringify,
                 components: row,
                 type: 'editreply'
@@ -140,7 +140,7 @@ module.exports = async (client, interaction, args) => {
             }
 
             client.embed({
-                title: `🧮・Calculator`,
+                title: `🧮・Calcolatrice`,
                 desc: stringify,
                 components: [rows],
                 type: 'editreply'
@@ -186,7 +186,7 @@ module.exports = async (client, interaction, args) => {
                         str = ' ';
                         stringify = '```\n' + str + '\n```';
                     } catch (e) {
-                        str = "The provided equation is invalid!";
+                        str = "Equazione invalida!";
                         stringify = '```\n' + str + '\n```';
                         edit();
                         str = ' ';
@@ -194,7 +194,7 @@ module.exports = async (client, interaction, args) => {
                     }
                 }
             } else if (btn.customId === 'calDC') {
-                str = "Calculator is disabled!";
+                str = "Calcolatrice disabilitata!";
                 stringify = '```\n' + str + '\n```';
                 edit();
                 calc.stop();
@@ -207,7 +207,7 @@ module.exports = async (client, interaction, args) => {
         });
 
         client.embed({
-            title: `🧮・Calculator`,
+            title: `🧮・Calcolatrice`,
             desc: stringify,
             components: row,
             type: 'editreply'

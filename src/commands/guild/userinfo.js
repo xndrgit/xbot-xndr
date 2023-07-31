@@ -6,7 +6,7 @@ const model = require('../../database/models/badge');
 module.exports = async (client, interaction, args) => {
     const member = await interaction.guild.members.fetch(interaction.options.getUser('user').id);
     if (!member) return client.errNormal({
-        error: "This user is not in this guild!",
+        error: "Questo utente non è in questa gilda!",
         type: 'editreply'
     }, interaction);
     const badgeFlags = {
@@ -26,22 +26,22 @@ module.exports = async (client, interaction, args) => {
     }
 
     const flags = {
-        ActiveDeveloper: "👨‍💻・Active Developer",
-        BugHunterLevel1: "🐛・Discord Bug Hunter",
-        BugHunterLevel2: "🐛・Discord Bug Hunter",
-        CertifiedModerator: "👮‍♂️・Certified Moderator",
-        HypeSquadOnlineHouse1: "🏠・House Bravery Member",
-        HypeSquadOnlineHouse2: "🏠・House Brilliance Member",
-        HypeSquadOnlineHouse3: "🏠・House Balance Member",
-        HypeSquadEvents: "🏠・HypeSquad Events",
-        PremiumEarlySupporter: "👑・Early Supporter",
+        ActiveDeveloper: "👨‍💻・Sviluppatore attivo",
+        BugHunterLevel1: "🐛・Cacciatore di bug Discord",
+        BugHunterLevel2: "🐛・Cacciatore di bug Discord",
+        CertifiedModerator: "👮‍♂️・Moderatore certificato",
+        HypeSquadOnlineHouse1: "🏠・Membro della Casa Coraggio",
+        HypeSquadOnlineHouse2: "🏠・Membro della Casa Brillantezza",
+        HypeSquadOnlineHouse3: "🏠・Membro della Casa Equilibrio",
+        HypeSquadEvents: "🏠・Eventi HypeSquad",
+        PremiumEarlySupporter: "👑・Supporter iniziale",
         Partner: "👑・Partner",
-        Quarantined: "🔒・Quarantined", // Not sure if this is still a thing
-        Spammer: "🔒・Spammer", // Not sure if this one works
-        Staff: "👨‍💼・Discord Staff",
-        TeamPseudoUser: "👨‍💼・Discord Team",
-        VerifiedBot: "🤖・Verified Bot",
-        VerifiedDeveloper: "👨‍💻・(early)Verified Bot Developer",
+        Quarantined: "🔒・In quarantena", // Non sono sicuro se questo esista ancora
+        Spammer: "🔒・Spammer", // Non sono sicuro se questo funzioni ancora
+        Staff: "👨‍💼・Staff Discord",
+        TeamPseudoUser: "👨‍💼・Team Discord",
+        VerifiedBot: "🤖・Bot verificato",
+        VerifiedDeveloper: "👨‍💻・Sviluppatore bot (early)verificato",
     }
 
     let Badges = await model.findOne({User: member.user.id});
@@ -53,8 +53,8 @@ module.exports = async (client, interaction, args) => {
     const userFlags = member.user.flags ? member.user.flags.toArray() : [];
 
     return client.embed({
-        title: `👤・User information`,
-        desc: `Information about ${member.user.username}`,
+        title: `👤・Informazioni utente`,
+        desc: `Informazioni su ${member.user.username}`,
         thumbnail: member.user.displayAvatarURL({dynamic: true, size: 1024}),
         image: member.user.bannerURL({dynamic: true, size: 1024}),
         fields: [
@@ -70,7 +70,7 @@ module.exports = async (client, interaction, args) => {
             },
             {
                 name: "Nickname",
-                value: `${member.nickname || 'No nickname'}`,
+                value: `${member.nickname || 'Nessun nickname'}`,
                 inline: true,
             },
             {
@@ -80,32 +80,30 @@ module.exports = async (client, interaction, args) => {
             },
             {
                 name: "Flags",
-                value: `${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None'}`,
+                value: `${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'Nessuno'}`,
                 inline: true,
             },
             {
-                name: "Badges",
-                value: `${Badges.FLAGS ? Badges.FLAGS.map(flag => badgeFlags[flag]).join(' ') : 'None'}`,
+                name: "Badge",
+                value: `${Badges.FLAGS ? Badges.FLAGS.map(flag => badgeFlags[flag]).join(' ') : 'Nessuno'}`,
                 inline: true,
             },
             {
-                name: "Discord joined at",
+                name: "Data creazione account Discord",
                 value: `<t:${Math.round(member.user.createdTimestamp / 1000)}>`,
                 inline: true,
             },
             {
-                name: "Server joined at",
+                name: "Data entrata nel server",
                 value: `<t:${Math.round(member.joinedAt / 1000)}>`,
                 inline: true,
             },
             {
-                name: `Roles [${roles.length}]`,
-                value: `${roles.length ? roles.join(', ') : 'None'}`,
+                name: `Ruoli [${roles.length}]`,
+                value: `${roles.length ? roles.join(', ') : 'Nessuno'}`,
                 inline: false,
             }
         ],
         type: 'editreply'
     }, interaction)
 }
-
-   

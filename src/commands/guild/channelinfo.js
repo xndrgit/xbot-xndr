@@ -4,11 +4,11 @@ module.exports = async (client, interaction, args) => {
     const channel = interaction.options.getChannel('channel');
 
     client.embed({
-        title: `ℹ・Channel information`,
-        desc: `Channel information about: <#${channel.id}>`,
+        title: `ℹ・Informazioni canale`,
+        desc: `Informazioni sul canale: <#${channel.id}>`,
         fields: [
             {
-                name: "Type",
+                name: "Tipo",
                 value: `${channel.type}`,
                 inline: true,
             },
@@ -18,17 +18,17 @@ module.exports = async (client, interaction, args) => {
                 inline: true,
             },
             {
-                name: "Type",
+                name: "Tipo",
                 value: `${channel.type}`,
                 inline: true,
             },
             {
-                name: "Made on",
+                name: "Creato il",
                 value: `${channel.createdAt}`,
                 inline: true,
             },
             {
-                name: "Subject",
+                name: "Argomento",
                 value: `${channel.topic ? channel.topic : 'N/A'}`,
                 inline: true,
             },
@@ -38,13 +38,11 @@ module.exports = async (client, interaction, args) => {
                 inline: true,
             },
             {
-                name: "Parent",
-                value: `${channel.parentID ? channel.parentID : 'N/A'}`,
+                name: "Categoria",
+                value: `${channel.parentID ? `<#${channel.parentID}>` : 'N/A'}`,
                 inline: true,
             },
         ],
         type: 'editreply'
     }, interaction)
 }
-
-   

@@ -3,37 +3,42 @@ const Discord = require('discord.js');
 const Schema = require("../../database/models/reviewChannels");
 
 module.exports = async (client, interaction, args) => {
+    // Ottenere il numero di stelle e il messaggio di recensione dal comando
     const stars = interaction.options.getNumber('stars');
-    const message = interaction.options.getString('message') || 'Not given';
+    const message = interaction.options.getString('message') || 'Non fornito';
 
+    // Verificare che il numero di stelle sia compreso tra 1 e 5
     if (stars < 1 || stars > 5) return client.errNormal({
-        error: `Stars must be a minimum of 1 and a maximum of 5`,
+        error: `le stelle devono essere comprese tra 1 e 5`,
         type: 'editreply'
     }, interaction)
 
+    // Verificare se il canale di recensione è stato impostato nel database
     Schema.findOne({Guild: interaction.guild.id}, async (err, data) => {
         if (data) {
+            // Invio di un messaggio di errore se il canale di recensione non è stato trovato
             const channel = interaction.member.guild.channels.cache.get(data.Channel);
             if (!channel) return client.errNormal({
-                error: `No review channel set! Do \`reviewchannel\``,
+                error: `nessun canale di recensione impostato! usa \`reviewchannel\``,
                 type: 'editreply'
             }, interaction);
 
+            // Creazione di un messaggio di conferma e invio del messaggio di recensione al canale di recensione
             let totalStars = "";
             for (let i = 0; i < stars; i++) {
                 totalStars += ":star:";
             }
 
             client.succNormal({
-                text: "Your review has been successfully submitted",
+                text: "La tua recensione è stata inviata con successo",
                 fields: [
                     {
-                        name: `⭐┇Stars`,
+                        name: `⭐┇Stelle`,
                         value: `${stars}`,
                         inline: true
                     },
                     {
-                        name: `📘┇Channel`,
+                        name: `📘┇Canale`,
                         value: `<#${data.Channel}>`,
                         inline: true
                     }
@@ -42,11 +47,11 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
 
             client.embed({
-                title: `Review・${interaction.user.tag}`,
-                desc: `A new review has been written!`,
+                title: `Recensione・${interaction.user.tag}`,
+                desc: `È stata scritta una nuova recensione!`,
                 fields: [
                     {
-                        name: "Stars",
+                        name: "Stelle",
                         value: `${totalStars}`,
                         inline: true,
                     },
@@ -59,12 +64,11 @@ module.exports = async (client, interaction, args) => {
             }, channel)
 
         } else {
+            // Invio di un messaggio di errore se il canale di recensione non è stato trovato
             client.errNormal({
-                error: `No review channel set! Do \`reviewchannel\``,
+                error: `nessun canale di recensione impostato! usa \`reviewchannel\``,
                 type: 'editreply'
             }, interaction)
         }
     })
 }
-
- 

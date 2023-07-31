@@ -26,11 +26,11 @@ module.exports = async (client, interaction, args) => {
     });
 
     client.embed({
-        title: `😛・Emoji's!`,
-        desc: `${OverallEmojis} Emoji's - ${interaction.guild.name}`,
+        title: `😛・Emoji del server!`,
+        desc: `${OverallEmojis} emoji - ${interaction.guild.name}`,
         fields: [
             {
-                name: `Animated [${Animated}]`,
+                name: `Animati [${Animated}]`,
                 value: EmojisAnimated.substr(0, 1021) + "...",
                 inline: false,
             },
@@ -43,5 +43,3 @@ module.exports = async (client, interaction, args) => {
         type: 'editreply'
     }, interaction)
 }
-
- 

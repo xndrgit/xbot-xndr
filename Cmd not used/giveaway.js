@@ -11,7 +11,7 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('❓')
+                .setDescription('Giveaway help')
         )
         .addSubcommand(subcommand =>
             subcommand
@@ -25,7 +25,7 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('drop')
-                .setDescription('Avvia un giveaway di tipo drop')
+                .setDescription('Avvia un drop giveaway')
                 .addChannelOption(option => option.setName('channel').setDescription('Il canale in cui deve essere creato il giveaway').setRequired(true).addChannelTypes(ChannelType.GuildText, ChannelType.GuildAnnouncement))
                 .addStringOption(option => option.setName('duration').setDescription('Durata del giveaway').setRequired(true))
                 .addNumberOption(option => option.setName('winners').setDescription('Il numero di vincitori del giveaway').setRequired(true))

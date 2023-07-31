@@ -81,7 +81,7 @@ module.exports = async (client, interaction, args) => {
     ];
 
     client.embed({
-        title: `😓・Roast`,
+        title: `😓・Insulta`,
         desc: `${user}, ${roasts[Math.floor(Math.random() * roasts.length)]}`,
         type: 'editreply'
     }, interaction)

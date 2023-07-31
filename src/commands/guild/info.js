@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     let verifLevels = {
-        "0": "None",
-        "1": "Low",
-        "2": "Medium",
+        "0": "Nessuna",
+        "1": "Bassa",
+        "2": "Media",
         "3": "(╯°□°）╯︵  ┻━┻",
         "4": "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"
     }
@@ -28,7 +28,7 @@ module.exports = async (client, interaction, args) => {
     }
 
     let tier = {
-        "0": "None",
+        "0": "Nessuno",
         "1": "TIER 1",
         "2": "TIER 2",
         "3": "**TIER 3**"
@@ -37,104 +37,102 @@ module.exports = async (client, interaction, args) => {
     const members = await interaction.guild.members.fetch();
 
     client.embed({
-        title: `ℹ️・Server Information`,
-        desc: `Information about the server ${interaction.guild.name}`,
+        title: `ℹ️・Informazioni server`,
+        desc: `Informazioni sul server ${interaction.guild.name}`,
         thumbnail: interaction.guild.iconURL({dynamic: true, size: 1024}),
         image: interaction.guild.bannerURL({size: 1024}),
         fields: [
             {
-                name: "Server name:",
+                name: "Nome server:",
                 value: `${interaction.guild.name}`,
                 inline: true,
             },
             {
-                name: "Server id:",
+                name: "ID server:",
                 value: `${interaction.guild.id}`,
                 inline: true,
             },
             {
-                name: "Owner: ",
+                name: "Proprietario:",
                 value: `<@!${interaction.guild.ownerId}>`,
                 inline: true
             },
             {
-                name: "Verify level: ",
+                name: "Livello di verifica:",
                 value: `${verifLevels[interaction.guild.verificationLevel]}`,
                 inline: true
             },
             {
-                name: "Boost tier: ",
+                name: "Livello di boost:",
                 value: `${tier[interaction.guild.premiumTier]}`,
                 inline: true
             },
             {
-                name: "Boost count:",
-                value: `${interaction.guild.premiumSubscriptionCount || '0'} boosts`,
+                name: "Numero di boost:",
+                value: `${interaction.guild.premiumSubscriptionCount || '0'} boost`,
                 inline: true
             },
             {
-                name: "Created on:",
+                name: "Creato il:",
                 value: `<t:${Math.round(interaction.guild.createdTimestamp / 1000)}>`,
                 inline: true
             },
             {
-                name: "Members:",
-                value: `${interaction.guild.memberCount} members!`,
+                name: "Membri:",
+                value: `${interaction.guild.memberCount} membri!`,
                 inline: true
             },
             {
-                name: "Bots:",
-                value: `${members.filter(member => member.user.bot).size} bots!`,
+                name: "Bot:",
+                value: `${members.filter(member => member.user.bot).size} bot!`,
                 inline: true
             },
             {
-                name: "Text Channels: ",
-                value: `${interaction.guild.channels.cache.filter(channel => channel.type === Discord.ChannelType.GuildText).size} channels!`,
+                name: "Canali testuali:",
+                value: `${interaction.guild.channels.cache.filter(channel => channel.type === Discord.ChannelType.GuildText).size} canali!`,
                 inline: true
             },
             {
-                name: "Voice Channels:",
-                value: `${interaction.guild.channels.cache.filter(channel => channel.type === Discord.ChannelType.GuildVoice).size} channels!`,
+                name: "Canali vocali:",
+                value: `${interaction.guild.channels.cache.filter(channel => channel.type === Discord.ChannelType.GuildVoice).size} canali!`,
                 inline: true
             },
             {
-                name: "Stage Channels:",
-                value: `${interaction.guild.channels.cache.filter(channel => channel.type === Discord.ChannelType.GuildStageVoice).size} channels!`,
+                name: "Canali stage:",
+                value: `${interaction.guild.channels.cache.filter(channel => channel.type === Discord.ChannelType.GuildStageVoice).size} canali!`,
                 inline: true
             },
             {
-                name: "News Channels:",
-                value: `${interaction.guild.channels.cache.filter(channel => channel.type === Discord.ChannelType.GuildAnnouncement).size} channels!`,
+                name: "Canali news:",
+                value: `${interaction.guild.channels.cache.filter(channel => channel.type === Discord.ChannelType.GuildAnnouncement).size} canali!`,
                 inline: true
             },
             {
-                name: "Public Threads:",
-                value: `${interaction.guild.channels.cache.filter(channel => channel.type === 'GUILD_PUBLIC_THREAD').size} threads!`,
+                name: "Thread pubblici:",
+                value: `${interaction.guild.channels.cache.filter(channel => channel.type === 'GUILD_PUBLIC_THREAD').size} thread!`,
                 inline: true
             },
             {
-                name: "Private Threads:",
-                value: `${interaction.guild.channels.cache.filter(channel => channel.type === 'GUILD_PRIVATE_THREAD').size} threads!`,
+                name: "Thread privati:",
+                value: `${interaction.guild.channels.cache.filter(channel => channel.type === 'GUILD_PRIVATE_THREAD').size} thread!`,
                 inline: true
             },
             {
-                name: "Roles:",
-                value: `${interaction.guild.roles.cache.size} roles!`,
+                name: "Ruoli:",
+                value: `${interaction.guild.roles.cache.size} ruoli!`,
                 inline: true
             },
             {
-                name: "Emoji count:",
-                value: `${interaction.guild.emojis.cache.size} emoji's`,
+                name: "Numero di emoji:",
+                value: `${interaction.guild.emojis.cache.size} emoji`,
                 inline: true
             },
             {
-                name: "Sticker count:",
-                value: `${interaction.guild.stickers.cache.size} stickers`,
+                name: "Numero di sticker:",
+                value: `${interaction.guild.stickers.cache.size} sticker`,
                 inline: true
             }
         ],
         type: 'editreply'
     }, interaction)
 }
-
-   

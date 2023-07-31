@@ -7,13 +7,13 @@ module.exports = async (client) => {
             value: `\`/activities\``,
             inline: true
         },
+        // {
+        //     name: `🚫┆AFK`,
+        //     value: `\`/afk help\``,
+        //     inline: true
+        // },
         {
-            name: `🚫┆AFK`,
-            value: `\`/afk help\``,
-            inline: true
-        },
-        {
-            name: `📣┆Announcement`,
+            name: `📣┆Annunci`,
             value: `\`/announcement help\``,
             inline: true
         },
@@ -28,7 +28,7 @@ module.exports = async (client) => {
         //     inline: true
         // },
         {
-            name: `🎂┆Birthday`,
+            name: `🎂┆Compleanni`,
             value: `\`/birthdays help\``,
             inline: true
         },
@@ -42,11 +42,11 @@ module.exports = async (client) => {
         //     value: `\`/casino help\``,
         //     inline: true
         // },
-        {
-            name: `⚙┆Configuration`,
-            value: `\`/config help\``,
-            inline: true
-        },
+        // {
+        //     name: `⚙┆Configuration`,
+        //     value: `\`/config help\``,
+        //     inline: true
+        // },
         // {
         //     name: `💻┆Custom commands`,
         //     value: `\`/custom-commands help\``,
@@ -63,52 +63,52 @@ module.exports = async (client) => {
         //     inline: true
         // },
         {
-            name: `👪┆Family`,
+            name: `👪┆Famiglia`,
             value: `\`/family help\``,
             inline: true
         },
         {
-            name: `😂┆Fun`,
+            name: `😂┆Svago`,
             value: `\`/fun help\``,
             inline: true
         },
-        // {
-        //     name: `🎮┆Games`,
-        //     value: `\`/games help\``,
-        //     inline: true
-        // },
         {
-            name: `🥳┆Giveaway`,
-            value: `\`/giveaway help\``,
+            name: `🎮┆Giochi`,
+            value: `\`/games help\``,
             inline: true
         },
+        // {
+        //     name: `🥳┆Giveaway`,
+        //     value: `\`/giveaway help\``,
+        //     inline: true
+        // },
         // {
         //     name: `⚙️┆Guild settings`,
         //     value: `\`/guild help\``,
         //     inline: true
         // },
         {
-            name: `🖼┆Images`,
+            name: `🖼┆Immagini`,
             value: `\`/images help\``,
             inline: true
         },
         {
-            name: `📨┆Invite`,
+            name: `📨┆Invita`,
             value: `\`/invite\``,
             inline: true
         },
         {
-            name: `📨┆Invites`,
+            name: `📨┆Inviti`,
             value: `\`/invites help\``,
             inline: true
         },
+        // {
+        //     name: `🆙┆Leveling`,
+        //     value: `\`/levels help\``,
+        //     inline: true
+        // },
         {
-            name: `🆙┆Leveling`,
-            value: `\`/levels help\``,
-            inline: true
-        },
-        {
-            name: `💬┆Messages`,
+            name: `💬┆Messagi`,
             value: `\`/messages help\``,
             inline: true
         },
@@ -128,27 +128,27 @@ module.exports = async (client) => {
             inline: true
         },
         {
-            name: `👤┆Profile`,
+            name: `👤┆Profilo`,
             value: `\`/profile help\``,
             inline: true
         },
+        // {
+        //     name: `📻┆Radio`,
+        //     value: `\`/radio help\``,
+        //     inline: true
+        // },
+        // {
+        //     name: `😛┆Reaction roles`,
+        //     value: `\`/reactionroles help\``,
+        //     inline: true
+        // },
         {
-            name: `📻┆Radio`,
-            value: `\`/radio help\``,
-            inline: true
-        },
-        {
-            name: `😛┆Reaction roles`,
-            value: `\`/reactionroles help\``,
-            inline: true
-        },
-        {
-            name: `🔍┆Search`,
+            name: `🔍┆Cerca`,
             value: `\`/search help\``,
             inline: true
         },
         {
-            name: `📊┆Server stats`,
+            name: `📊┆Statistiche server`,
             value: `\`/serverstats help\``,
             inline: true
         },
@@ -162,18 +162,18 @@ module.exports = async (client) => {
             value: `\`/soundboard help\``,
             inline: true
         },
+        // {
+        //     name: `🗨️┆Sticky messages`,
+        //     value: `\`/stickymessages help\``,
+        //     inline: true
+        // },
         {
-            name: `🗨️┆Sticky messages`,
-            value: `\`/stickymessages help\``,
-            inline: true
-        },
-        {
-            name: `💡┆Suggestions`,
+            name: `💡┆Suggerimenti`,
             value: `\`/sugestions help\``,
             inline: true
         },
         {
-            name: `🤝┆Thanks`,
+            name: `🤝┆Ringraziamenti`,
             value: `\`/thanks help\``,
             inline: true
         },
@@ -182,16 +182,16 @@ module.exports = async (client) => {
         //     value: `\`/tickets help\``,
         //     inline: true
         // },
-        // {
-        //     name: `⚒️┆Tools`,
-        //     value: `\`/tools help\``,
-        //     inline: true
-        // },
-        // {
-        //     name: `🔊┆Voice`,
-        //     value: `\`/voice help\``,
-        //     inline: true
-        // },
+        {
+            name: `⚒️┆Utile`,
+            value: `\`/tools help\``,
+            inline: true
+        },
+        {
+            name: `🔊┆Vocali`,
+            value: `\`/voice help\``,
+            inline: true
+        },
     ];
 
     client.on(Discord.Events.InteractionCreate, async (interaction) => {
@@ -260,7 +260,7 @@ module.exports = async (client) => {
 
                 client.embed({
                     title: `❓・Pannello`,
-                    desc: `Visualizza tutte le categorie \n\n[Git](https://github.com/XanderWorld) | [Invitami](${client.config.discord.botInvite})`,
+                    desc: `Visualizza tutte le categorie \n\n[Git](https://github.com/XndrWilde) | [Invitami](${client.config.discord.botInvite})`,
                     image: "https://cdn.discordapp.com/attachments/843487478881976381/874694194474668052/Bot_banner_invite.jpg",
                     fields: fields.slice(0, 24),
                     components: [row2, row],
@@ -275,7 +275,7 @@ module.exports = async (client) => {
                             if (page == 1) {
                                 client.embed({
                                     title: `❓・Pannello`,
-                                    desc: `Visualizza tutte le categorie \n\n[Git](https://github.com/XanderWorld) | [Invitami](${client.config.discord.botInvite})`,
+                                    desc: `Visualizza tutte le categorie \n\n[Git](https://github.com/XndrWilde) | [Invitami](${client.config.discord.botInvite})`,
                                     fields: fields.slice(25, 49),
                                     components: [row2, row],
                                     type: 'update'
@@ -286,7 +286,7 @@ module.exports = async (client) => {
                             if (page == 2) {
                                 client.embed({
                                     title: `❓・Pannello`,
-                                    desc: `Visualizza tutte le categorie \n\n[Git](https://github.com/XanderWorld) | [Invitami](${client.config.discord.botInvite})`,
+                                    desc: `Visualizza tutte le categorie \n\n[Git](https://github.com/XndrWilde) | [Invitami](${client.config.discord.botInvite})`,
                                     fields: fields.slice(0, 24),
                                     components: [row2, row],
                                     type: 'update'

@@ -9,7 +9,7 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('❓')
+                .setDescription('Ringraziamenti help')
         )
         .addSubcommand(subcommand =>
             subcommand

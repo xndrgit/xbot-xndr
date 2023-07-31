@@ -94,7 +94,7 @@ module.exports = async (client, interaction, args) => {
         for (let y = 0; y < height; y++) {
             for (let x = 0; x < width; x++) {
                 if (x == apple.x && y == apple.y) {
-                    str += "🍎";
+                    str += "🍫";
                     continue;
                 }
                 let flag = true;
@@ -233,7 +233,7 @@ module.exports = async (client, interaction, args) => {
 
         client.embed({
             title: `🐍・Snake`,
-            desc: `GG, you scored **${score}** points!`,
+            desc: `GG, hai fatto **${score}** punti!`,
             components: [
                 {
                     type: 1,
@@ -287,7 +287,7 @@ module.exports = async (client, interaction, args) => {
         .setCustomId(id6);
 
     client.embed({
-        title: `🐍・Snake`,
+        title: `🐍・Serpe`,
         desc: gameBoardToString(),
         components: [
             {

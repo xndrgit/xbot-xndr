@@ -3,9 +3,11 @@ const sourcebin = require('sourcebin');
 
 module.exports = async (client, interaction, args) => {
 
+    // Ottenere il linguaggio di programmazione e il codice dal comando
     const language = interaction.options.getString('language');
     const code = interaction.options.getString('code');
 
+    // Utilizzare la libreria sourcebin per creare un nuovo bin e caricare il codice
     const bin = await sourcebin.create(
         [
             {
@@ -15,15 +17,16 @@ module.exports = async (client, interaction, args) => {
         ],
         {
             title: '💻・Random Code',
-            description: 'This is code was uploaded via Bot',
+            description: 'This code was uploaded via Bot',
         },
     ).then(value => {
+        // Invio di un messaggio di conferma con il link al bin creato
         client.succNormal({
-            text: `Your code has been posted!`,
+            text: `Il tuo codice è stato pubblicato!`,
             fields: [
                 {
                     name: `🔗┇Link`,
-                    value: `[Click here to see your code](${value.url})`,
+                    value: `[Clicca qui per vedere il tuo codice](${value.url})`,
                     inline: true,
                 }
             ],
@@ -32,5 +35,3 @@ module.exports = async (client, interaction, args) => {
     })
 
 }
-
- 

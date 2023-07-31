@@ -10,22 +10,22 @@ module.exports = async (client, interaction, args) => {
 
     const channel = interaction.member.voice.channel;
     if (!channel) return client.errNormal({
-        error: `You're not in a voice channel!`,
+        error: `non sei in un canale vocale!`,
         type: 'editreply'
     }, interaction);
 
     var checkVoice = await client.checkVoice(interaction.guild, channel);
     if (!checkVoice) {
         return client.errNormal({
-            error: `You cannot edit this channel!`,
+            error: `non puoi modificare questo canale!`,
             type: 'editreply'
         }, interaction);
     } else {
         client.succNormal({
-            text: `The channel was succesfully locked!`,
+            text: `Il canale è stato bloccato con successo!`,
             fields: [
                 {
-                    name: `📘┆Channel`,
+                    name: `📘┆Canale`,
                     value: `${channel} (${channel.name})`
                 }
             ],
@@ -37,4 +37,3 @@ module.exports = async (client, interaction, args) => {
         });
     }
 }
-

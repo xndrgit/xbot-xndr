@@ -9,7 +9,7 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('❓')
+                .setDescription('Statistiche help')
         )
         .addSubcommand(subcommand =>
             subcommand
@@ -19,7 +19,7 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('tier')
-                .setDescription('Tieni traccia del numero di boost di livello')
+                .setDescription('Mostra graduatoria del numero di boost')
         )
         .addSubcommand(subcommand =>
             subcommand

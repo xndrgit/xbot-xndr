@@ -9,7 +9,7 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('❓')
+                .setDescription('Cerca help')
         )
         .addSubcommand(subcommand =>
             subcommand
@@ -35,55 +35,55 @@ module.exports = {
                 .setDescription('Trova qualcosa su YouTube')
                 .addStringOption(option => option.setName('name').setDescription('Il nome da cercare').setRequired(true))
         )
-        .addSubcommand(subcommand =>
-            subcommand
-                .setName('corona')
-                .setDescription('Guarda le statistiche sul coronavirus')
-                .addStringOption(option => option.setName('country').setDescription('Inserisci un paese').setRequired(true))
-        )
-        .addSubcommand(subcommand =>
-            subcommand
-                .setName('crypto')
-                .setDescription('Guarda il valore di una criptovaluta')
-                .addStringOption(option => option.setName('coin').setDescription('Inserisci una criptovaluta').setRequired(true))
-                .addStringOption(option => option.setName('currency').setDescription('Inserisci una valuta').setRequired(true))
-        )
-        .addSubcommand(subcommand =>
-            subcommand
-                .setName('docs')
-                .setDescription('Guarda la documentazione di discord.js')
-                .addStringOption(option => option.setName('name').setDescription('Il nome da cercare').setRequired(true))
-        )
-        .addSubcommand(subcommand =>
-            subcommand
-                .setName('github')
-                .setDescription('Ottieni informazioni su un utente di GitHub semplicemente inserendo il loro nome utente')
-                .addStringOption(option => option.setName('name').setDescription('Inserisci un nome utente di GitHub').setRequired(true))
-        )
-        .addSubcommand(subcommand =>
-            subcommand
-                .setName('hexcolour')
-                .setDescription('Ottieni informazioni da un colore')
-                .addStringOption(option => option.setName('color').setDescription('Inserisci un colore esadecimale').setRequired(true))
-        )
-        .addSubcommand(subcommand =>
-            subcommand
-                .setName('itunes')
-                .setDescription('Cerca su iTunes una canzone qualsiasi')
-                .addStringOption(option => option.setName('song').setDescription('Inserisci il nome di una canzone').setRequired(true))
-        )
-        .addSubcommand(subcommand =>
-            subcommand
-                .setName('npm')
-                .setDescription('Ottieni informazioni su un pacchetto NPM')
-                .addStringOption(option => option.setName('name').setDescription('Inserisci il nome di un pacchetto').setRequired(true))
-        )
-        .addSubcommand(subcommand =>
-            subcommand
-                .setName('steam')
-                .setDescription('Ottieni informazioni su un\'applicazione su Steam')
-                .addStringOption(option => option.setName('name').setDescription('Inserisci il nome di un\'applicazione su Steam').setRequired(true))
-        )
+        // .addSubcommand(subcommand =>
+        //     subcommand
+        //         .setName('corona')
+        //         .setDescription('Guarda le statistiche sul coronavirus')
+        //         .addStringOption(option => option.setName('country').setDescription('Inserisci un paese').setRequired(true))
+        // )
+        // .addSubcommand(subcommand =>
+        //     subcommand
+        //         .setName('crypto')
+        //         .setDescription('Guarda il valore di una criptovaluta')
+        //         .addStringOption(option => option.setName('coin').setDescription('Inserisci una criptovaluta').setRequired(true))
+        //         .addStringOption(option => option.setName('currency').setDescription('Inserisci una valuta').setRequired(true))
+        // )
+        // .addSubcommand(subcommand =>
+        //     subcommand
+        //         .setName('docs')
+        //         .setDescription('Guarda la documentazione di discord.js')
+        //         .addStringOption(option => option.setName('name').setDescription('Il nome da cercare').setRequired(true))
+        // )
+        // .addSubcommand(subcommand =>
+        //     subcommand
+        //         .setName('github')
+        //         .setDescription('Ottieni informazioni su un utente di GitHub semplicemente inserendo il loro nome utente')
+        //         .addStringOption(option => option.setName('name').setDescription('Inserisci un nome utente di GitHub').setRequired(true))
+        // )
+        // .addSubcommand(subcommand =>
+        //     subcommand
+        //         .setName('hexcolour')
+        //         .setDescription('Ottieni informazioni da un colore')
+        //         .addStringOption(option => option.setName('color').setDescription('Inserisci un colore esadecimale').setRequired(true))
+        // )
+        // .addSubcommand(subcommand =>
+        //     subcommand
+        //         .setName('itunes')
+        //         .setDescription('Cerca su iTunes una canzone qualsiasi')
+        //         .addStringOption(option => option.setName('song').setDescription('Inserisci il nome di una canzone').setRequired(true))
+        // )
+        // .addSubcommand(subcommand =>
+        //     subcommand
+        //         .setName('npm')
+        //         .setDescription('Ottieni informazioni su un pacchetto NPM')
+        //         .addStringOption(option => option.setName('name').setDescription('Inserisci il nome di un pacchetto').setRequired(true))
+        // )
+        // .addSubcommand(subcommand =>
+        //     subcommand
+        //         .setName('steam')
+        //         .setDescription('Ottieni informazioni su un\'applicazione su Steam')
+        //         .addStringOption(option => option.setName('name').setDescription('Inserisci il nome di un\'applicazione su Steam').setRequired(true))
+        // )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('translate')

@@ -8,16 +8,16 @@ module.exports = async (client, interaction, args) => {
     const member = Array.from(getMember.values());
 
     client.embed({
-        title: `👴・Oldest member`,
-        desc: `See who is the oldest member in **${interaction.guild.name}**`,
+        title: `👴・Utente più anziano`,
+        desc: `Scopri chi è l'utente più anziano in **${interaction.guild.name}**`,
         fields: [
             {
-                name: `👤┆User`,
+                name: `👤┆Utente`,
                 value: `${member[0]} (${member[0].user.username}#${member[0].user.discriminator})`,
                 inline: true
             },
             {
-                name: `⏰┆Account creation`,
+                name: `⏰┆Creazione account`,
                 value: `<t:${Math.round(member[0].user.createdTimestamp / 1000)}>`,
                 inline: true
             },
@@ -25,5 +25,3 @@ module.exports = async (client, interaction, args) => {
         type: 'editreply'
     }, interaction)
 }
-
-   
