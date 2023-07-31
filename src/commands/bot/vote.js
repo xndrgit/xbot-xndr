@@ -9,26 +9,26 @@ module.exports = async (client, interaction, args) => {
     let row = new Discord.ActionRowBuilder()
         .addComponents(
             new Discord.ButtonBuilder()
-                .setLabel("Vote for me")
-                .setURL("https://top.gg/bot/798144456528363550/vote")
+                .setLabel("[Vote for me]")
+                .setURL("")
                 .setStyle(Discord.ButtonStyle.Link),
         );
 
     dbl.hasVoted(interaction.user.id).then(voted => {
         if (voted) {
             client.embed({
-                title: `📨・Vote`,
-                desc: `You have voted!`,
+                title: `[📨]・Voto`,
+                desc: `[Hai votato!]`,
                 image: `https://cdn.discordapp.com/attachments/843487478881976381/874694192755007509/Bot_banner_vote.jpg`,
-                color: client.config.colors.succes,
+                color: client.config.colors.success,
                 components: [row],
                 type: 'editreply'
             }, interaction)
         }
         if (!voted) {
             client.embed({
-                title: `📨・Vote`,
-                desc: `You have not voted!`,
+                title: `[📨]・Voto`,
+                desc: `[Non hai votato!]`,
                 image: `https://cdn.discordapp.com/attachments/843487478881976381/874694192755007509/Bot_banner_vote.jpg`,
                 color: client.config.colors.error,
                 components: [row],
@@ -36,8 +36,9 @@ module.exports = async (client, interaction, args) => {
             }, interaction)
         }
     }).catch(error => {
-        client.errNormal({text: `There was an error by checking this vote!`, editreply: true}, interaction)
+        client.errNormal({
+            text: `Si è verificato un errore durante il controllo di questo voto!`,
+            editreply: true
+        }, interaction)
     });
 }
-
- 

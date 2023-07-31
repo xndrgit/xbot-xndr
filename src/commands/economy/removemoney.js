@@ -13,12 +13,15 @@ module.exports = async (client, interaction, args) => {
     const user = interaction.options.getUser('user');
     let amount = interaction.options.getNumber('amount');
 
-    if (!user || !amount) return client.errUsage({usage: "addmoney [user] [amount]", type: 'editreply'}, interaction);
+    if (!user || !amount) return client.errUsage({
+        usage: "addmoney [utente] [quantità]",
+        type: 'editreply'
+    }, interaction);
 
-    if (isNaN(amount)) return client.errNormal({error: "Enter a valid number!", type: 'editreply'}, interaction);
+    if (isNaN(amount)) return client.errNormal({error: "Inserisci un numero valido!", type: 'editreply'}, interaction);
 
     if (user.bot) return client.errNormal({
-        error: "You cannot remove money from a bot!",
+        error: "Non puoi rimuovere denaro a un bot!",
         type: 'editreply'
     }, interaction);
 
@@ -29,15 +32,15 @@ module.exports = async (client, interaction, args) => {
             if (data) {
 
                 client.succNormal({
-                    text: `Removed money from a user!`,
+                    text: `Hai rimosso denaro a un utente!`,
                     fields: [
                         {
-                            name: `👤┆User`,
+                            name: `👤┆Utente`,
                             value: `<@!${user.id}>`,
                             inline: true
                         },
                         {
-                            name: `${client.emotes.economy.coins}┆Amount`,
+                            name: `${client.emotes.economy.coins}┆Quantità`,
                             value: `$${amount}`,
                             inline: true
                         }
@@ -45,9 +48,8 @@ module.exports = async (client, interaction, args) => {
                     type: 'editreply'
                 }, interaction);
             } else {
-                client.errNormal({error: `This user doesn't have any money!`, type: 'editreply'}, interaction);
+                client.errNormal({error: `Questo utente non ha denaro!`, type: 'editreply'}, interaction);
             }
         }, 500)
     })
 }
- 

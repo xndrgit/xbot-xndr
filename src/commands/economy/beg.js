@@ -18,10 +18,10 @@ module.exports = async (client, interaction, args) => {
         } else {
 
             client.succNormal({
-                text: `You've begged for some money!`,
+                text: `Hai chiesto l'elemosina!`,
                 fields: [
                     {
-                        name: `${client.emotes.economy.coins}┆Amount`,
+                        name: `${client.emotes.economy.coins}┆Importo`,
                         value: `$${amount}`,
                         inline: true
                     }
@@ -44,5 +44,3 @@ module.exports = async (client, interaction, args) => {
         }
     })
 }
-
- 

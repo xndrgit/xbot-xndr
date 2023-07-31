@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 const Schema = require("../../database/models/customCommandAdvanced");
 
 module.exports = async (client, interaction, args) => {
@@ -10,15 +9,15 @@ module.exports = async (client, interaction, args) => {
                 var commands = await interaction.guild.commands.fetch()
                 var command = await commands.find((cmd => cmd.name == cmdname.toLowerCase()))
                 if (!command) return client.errNormal({
-                    error: "Unable to find this command!",
+                    error: "impossibile trovare questo comando!",
                     type: 'editreply'
                 }, interaction);
                 await interaction.guild.commands.delete(command.id);
 
                 client.succNormal({
-                    text: `The command has been deleted successfully`,
+                    text: `Il comando è stato eliminato con successo`,
                     fields: [{
-                        name: "🔧┆Command",
+                        name: "🔧┆Comando",
                         value: `\`\`\`${cmdname}\`\`\``,
                         inline: true,
                     }],
@@ -26,10 +25,8 @@ module.exports = async (client, interaction, args) => {
                 }, interaction);
             })
         } else {
-            client.errNormal({error: "Unable to find this command!", type: 'editreply'}, interaction);
+            client.errNormal({error: "impossibile trovare questo comando!", type: 'editreply'}, interaction);
         }
     })
 
 }
-
- 

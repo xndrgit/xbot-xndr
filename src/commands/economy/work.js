@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-
 const Schema = require("../../database/models/economy");
 const Schema2 = require("../../database/models/economyTimeout");
 
@@ -15,26 +13,26 @@ module.exports = async (client, interaction, args) => {
                 type: 'editreply'
             }, interaction);
         } else {
-            let replies = ['Programmer', 'Hacker', 'Waiter', 'Busboy', 'Chief', 'Mechanic']
+            let replies = ['Programmatore', 'Hacker', 'Cameriere', 'Aiutante di sala', 'Chef', 'Meccanico']
 
             let result = Math.floor((Math.random() * replies.length));
             let amount = Math.floor(Math.random() * 100) + 1;
 
             client.succNormal({
-                text: `You worked as a ${replies[result]} and earned: **${client.emotes.economy.coins} $${amount}**`,
+                text: `Hai lavorato come ${replies[result]} e hai guadagnato: **${client.emotes.economy.coins} $${amount}**`,
                 type: 'editreply'
             }, interaction);
 
             client.succNormal({
-                text: `You've wokred and earned some money!`,
+                text: `Hai lavorato e hai guadagnato qualche soldo!`,
                 fields: [
                     {
-                        name: `🦹‍♂️┆Crime`,
+                        name: `🦹‍♂️┆Crimine`,
                         value: `${replies[result]}`,
                         inline: true
                     },
                     {
-                        name: `${client.emotes.economy.coins}┆Earned`,
+                        name: `${client.emotes.economy.coins}┆Guadagnato`,
                         value: `$${amount}`,
                         inline: true
                     }
@@ -57,5 +55,3 @@ module.exports = async (client, interaction, args) => {
         }
     })
 }
-
- 

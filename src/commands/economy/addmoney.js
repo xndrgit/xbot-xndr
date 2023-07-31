@@ -15,10 +15,10 @@ module.exports = async (client, interaction, args) => {
 
     if (!user || !amount) return client.errUsage({usage: "addmoney [user] [amount]", type: 'editreply'}, interaction);
 
-    if (isNaN(amount)) return client.errNormal({error: "Enter a valid number!", type: 'editreply'}, interaction);
+    if (isNaN(amount)) return client.errNormal({error: "Inserisci un numero valido!", type: 'editreply'}, interaction);
 
     if (user.bot) return client.errNormal({
-        error: "You cannot add money to a bot!",
+        error: "Non puoi aggiungere denaro a un bot!",
         type: 'editreply'
     }, interaction);
 
@@ -27,17 +27,16 @@ module.exports = async (client, interaction, args) => {
     setTimeout(() => {
         Schema.findOne({Guild: interaction.guild.id, User: user.id}, async (err, data) => {
             if (data) {
-
                 client.succNormal({
-                    text: `Added money to a user!`,
+                    text: `Aggiunto denaro a un utente!`,
                     fields: [
                         {
-                            name: `👤┆User`,
+                            name: `👤┆Utente`,
                             value: `<@!${user.id}>`,
                             inline: true
                         },
                         {
-                            name: `${client.emotes.economy.coins}┆Amount`,
+                            name: `${client.emotes.economy.coins}┆Importo`,
                             value: `$${amount}`,
                             inline: true
                         }
@@ -45,9 +44,8 @@ module.exports = async (client, interaction, args) => {
                     type: 'editreply'
                 }, interaction);
             } else {
-                client.errNormal({error: `This user doesn't have any money!`, type: 'editreply'}, interaction);
+                client.errNormal({error: `Questo utente non ha alcun denaro!`, type: 'editreply'}, interaction);
             }
         }, 500)
     })
 }
- 

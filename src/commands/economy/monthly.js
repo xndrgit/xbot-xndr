@@ -18,10 +18,10 @@ module.exports = async (client, interaction, args) => {
         } else {
 
             client.succNormal({
-                text: `You've collected your monthly reward!`,
+                text: `Hai ottenuto il tuo premio mensile!`,
                 fields: [
                     {
-                        name: `${client.emotes.economy.coins}┆Amount`,
+                        name: `${client.emotes.economy.coins}┆Importo`,
                         value: `$${amount}`,
                         inline: true
                     }

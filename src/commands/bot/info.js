@@ -16,127 +16,125 @@ module.exports = async (client, interaction, args) => {
             const totalChannels = results[2].reduce((acc, channelCount) => acc + channelCount, 0);
             const totalVoice = results[3].reduce((acc, voiceCount) => acc + voiceCount, 0);
 
-            const duration = moment.duration(client.uptime).format("\`D\` [days], \`H\` [hrs], \`m\` [mins], \`s\` [secs]");
+            const duration = moment.duration(client.uptime).format("\`D\` [giorni], \`H\` [ore], \`m\` [minuti], \`s\` [secondi]");
 
             client.embed({
-                title: `ℹ・Bot information`,
-                desc: `____________________________`,
+                title: `[🔗]・Informazioni sul Bot`,
+                desc: `[____________________________]`,
                 thumbnail: client.user.avatarURL({size: 1024}),
                 fields: [
                     {
-                        name: "ℹ️┆Information",
-                        value: `Bot is a bot with which you can run your entire server! With no less than 350+ commands, we have a large bot with many options to improve your server!`,
+                        name: "[ℹ️]┆Informazioni",
+                        value: `[XBot è un bot con cui puoi gestire l'intero server! Con una capacità di 400+ comandi, boost ur server!]`,
                         inline: false,
                     },
                     {
-                        name: "_____ \n\n│General",
+                        name: "_____ \n\n│Generale",
                         value: `_____`,
                         inline: false,
                     },
                     {
-                        name: "🤖┆Bot name",
-                        value: `${client.user.username}`,
+                        name: "[🤖]┆Nome del Bot",
+                        value: `[${client.user.username}]`,
                         inline: true,
                     },
                     {
-                        name: "🆔┆Bot id",
-                        value: `${client.user.id}`,
+                        name: "[🆔]┆ID del Bot",
+                        value: `[${client.user.id}]`,
                         inline: true,
                     },
                     {
-                        name: "💻┆Shards",
-                        value: `\`${client.options.shardCount}\` shards`,
+                        name: "[💻]┆X",
+                        value: `[${client.options.shardCount}] X avviata`,
                         inline: true,
                     },
                     {
-                        name: "🔧┆Bot owner",
-                        value: `<@!755297485328482356> `,
+                        name: "[🔧]┆Proprietario del Bot",
+                        value: `[<@!755297485328482356>]`,
                         inline: true,
                     },
                     {
-                        name: "🔧┆Bot developer",
-                        value: `<@!755297485328482356> <@!884553151666061372>`,
+                        name: "[🔧]┆Sviluppatori del Bot",
+                        value: `[<@!925431204751224943>]`,
                         inline: true,
                     },
                     {
-                        name: "💻┆Commands",
-                        value: `\`${client.commands.size}\` commands`,
+                        name: "[💻]┆Comandi",
+                        value: `[${client.commands.size}] comandi`,
                         inline: true,
                     },
                     {
-                        name: "🌐┆Servers",
-                        value: `\`${totalGuilds}\` servers`,
+                        name: "[🌐]┆Server",
+                        value: `[${totalGuilds}] servers`,
                         inline: true,
                     },
                     {
-                        name: "🌐┆Servers this shard",
-                        value: `\`${client.guilds.cache.size}\` servers`,
+                        name: "[🌐]┆Server in questo Shard",
+                        value: `[${client.guilds.cache.size}] servers`,
                         inline: true,
                     },
                     {
-                        name: "👥┆Members",
-                        value: `\`${totalMembers}\` members`,
+                        name: "[👥]┆Membri",
+                        value: `[${totalMembers}] membri`,
                         inline: true,
                     },
                     {
-                        name: "🔊┆Connected channels",
-                        value: `\`${totalVoice}\` channels`,
+                        name: "[🔊]┆Canali connessi",
+                        value: `[${totalVoice}] canali`,
                         inline: true,
                     },
                     {
-                        name: "📺┆Channels",
-                        value: `\`${totalChannels}\` channels`,
+                        name: "[📺]┆Canali",
+                        value: `[${totalChannels}] canali`,
                         inline: true,
                     },
                     {
-                        name: "📅┆Created",
-                        value: `<t:${Math.round(client.user.createdTimestamp / 1000)}>`,
+                        name: "[📅]┆Creato",
+                        value: `[<t:${Math.round(client.user.createdTimestamp / 1000)}>]`,
                         inline: true,
                     },
 
                     {
-                        name: "_____ \n\n│System",
+                        name: "_____ \n\n│Sistema",
                         value: `_____`,
                         inline: false,
                     },
                     {
-                        name: "🆙┆Uptime",
-                        value: `${duration}`,
+                        name: "[🆙]┆Tempo di attività",
+                        value: `[${duration}]`,
                         inline: true,
                     },
                     {
-                        name: "⌛┆API speed:",
-                        value: `\`${client.ws.ping}\`ms`,
+                        name: "[⌛]┆Velocità API:",
+                        value: `[${client.ws.ping}ms]`,
                         inline: true,
                     },
                     {
-                        name: "🏷┆Bot Version",
-                        value: `\`${require(`${process.cwd()}/package.json`).version}\``,
+                        name: "[🏷]┆Versione del Bot",
+                        value: `[${require(`${process.cwd()}/package.json`).version}]`,
                         inline: true,
                     },
                     {
-                        name: "🏷┆Node.js Version",
-                        value: `\`${process.version}\``,
+                        name: "[🏷]┆Versione Node.js",
+                        value: `[${process.version}]`,
                         inline: true,
                     },
                     {
-                        name: "📂┆Discord.js Version",
-                        value: `\`${Discord.version}\``,
+                        name: "[📂]┆Versione Discord.js",
+                        value: `[${Discord.version}]`,
                         inline: true,
                     },
                     {
-                        name: "💾┆Bot memory",
-                        value: `\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}\` MB`,
+                        name: "[💾]┆Memoria del Bot",
+                        value: `[${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB]`,
                         inline: true,
                     },
                     {
-                        name: "🔗┆Links",
-                        value: `Add me: [[HERE]](${client.config.discord.botInvite}) \nSupport server: [[HERE]](${client.config.discord.serverInvite})`,
+                        name: "[🔗]┆Links",
+                        value: `Aggiungimi: [[QUI]](${client.config.discord.botInvite}) \nServer di supporto: [[QUI]](${client.config.discord.serverInvite})`,
                         inline: false,
                     }],
                 type: 'editreply'
             }, interaction)
         })
 }
-
- 

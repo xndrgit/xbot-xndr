@@ -110,7 +110,7 @@ module.exports = async (client, interaction, args) => {
 
                                             wait(980);
                                             client.succNormal({
-                                                text: `${user} is succesfully hacked. All the user's information was send to your dm`,
+                                                text: `${user} è stato hackerato con successo. Tutte le informazioni dell'utente sono state inviate in dm.`,
                                                 type: 'edit'
                                             }, msg);
                                             client.embed({

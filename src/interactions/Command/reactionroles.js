@@ -10,40 +10,40 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('help')
-                .setDescription('❓')
+                .setDescription('Ruoli reazione help')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('add')
-                .setDescription('Aggiungi un ruolo di reazione')
-                .addStringOption(option => option.setName('category').setDescription('Nome della categoria per il gruppo dei ruoli di reazione').setRequired(true))
+                .setDescription('Aggiungi un ruolo reazione')
+                .addStringOption(option => option.setName('category').setDescription('Categoria nuova/esistente per i ruoli').setRequired(true))
                 .addRoleOption(option => option.setName('role').setDescription('Seleziona un ruolo').setRequired(true))
-                .addStringOption(option => option.setName('emoji').setDescription('Inserisci un emoji').setRequired(true))
+                .addStringOption(option => option.setName('emoji').setDescription('Inserisci un emoji per il ruolo').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('delete')
-                .setDescription('Elimina una categoria di ruoli di reazione')
-                .addStringOption(option => option.setName('category').setDescription('Nome della categoria per il gruppo dei ruoli di reazione').setRequired(true))
+                .setDescription('Elimina una categoria per i ruoli reazione')
+                .addStringOption(option => option.setName('category').setDescription('Nome della categoria da eliminare').setRequired(true))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('list')
-                .setDescription('Mostra tutte le categorie di ruoli di reazione di questo server')
+                .setDescription('Mostra tutte le categorie per i ruoli')
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('button')
-                .setDescription('Mostra tutti i ruoli di reazione con bottoni')
-                .addStringOption(option => option.setName('category').setDescription('Nome della categoria per il gruppo dei ruoli di reazione').setRequired(true))
-                .addChannelOption(option => option.setName('channel').setDescription('Canale in cui appariranno i ruoli di reazione').addChannelTypes(ChannelType.GuildText))
+                .setDescription('Mostra tutti i ruoli reazione con bottoni')
+                .addStringOption(option => option.setName('category').setDescription('Categoria dei ruoli reazione').setRequired(true))
+                .addChannelOption(option => option.setName('channel').setDescription('Canale in cui appariranno i ruoli reazione').addChannelTypes(ChannelType.GuildText))
         )
         .addSubcommand(subcommand =>
             subcommand
                 .setName('menu')
-                .setDescription('Mostra tutti i ruoli di reazione in un menu')
-                .addStringOption(option => option.setName('category').setDescription('Nome della categoria per il gruppo dei ruoli di reazione').setRequired(true))
-                .addChannelOption(option => option.setName('channel').setDescription('Canale in cui appariranno i ruoli di reazione').addChannelTypes(ChannelType.GuildText))
+                .setDescription('Mostra tutti i ruoli reazione in un menu')
+                .addStringOption(option => option.setName('category').setDescription('Nome della categoria per i ruoli reazione').setRequired(true))
+                .addChannelOption(option => option.setName('channel').setDescription('Canale in cui appariranno i ruoli reazione').addChannelTypes(ChannelType.GuildText))
         )
     ,
 

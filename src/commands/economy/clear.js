@@ -26,8 +26,8 @@ module.exports = async (client, interaction, args) => {
         );
 
     client.embed({
-        title: `⏰・Reset economy`,
-        desc: `Are you sure you want to reset the economy?`,
+        title: `⏰・Reset economia`,
+        desc: `Sei sicuro di voler reimpostare l'economia?`,
         components: [row],
         type: 'editreply',
     }, interaction)
@@ -45,7 +45,7 @@ module.exports = async (client, interaction, args) => {
             var remove3 = await store.deleteMany({Guild: interaction.guild.id});
 
             client.succNormal({
-                text: `The economy has been successfully reset in this guild!`,
+                text: `L'economia è stata reimpostata con successo in questo server!`,
                 components: [],
                 type: 'editreply'
             }, interaction);
@@ -53,7 +53,7 @@ module.exports = async (client, interaction, args) => {
 
         if (i.customId == "eco_stop") {
             client.errNormal({
-                error: `The economy reset has been cancelled!`,
+                error: `il reset dell'economia è stato annullato!`,
                 components: [],
                 type: 'editreply'
             }, interaction);
@@ -61,10 +61,8 @@ module.exports = async (client, interaction, args) => {
     })
         .catch(() => {
             client.errNormal({
-                error: "Time's up! Cancelled the economy reset!",
+                error: "tempo scaduto! il reset dell'economia è stato annullato!",
                 type: 'editreply'
             }, interaction);
         });
 }
-
- 

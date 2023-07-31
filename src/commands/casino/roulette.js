@@ -18,64 +18,64 @@ module.exports = async (client, interaction, args) => {
             let random = Math.floor(Math.random() * 37);
 
             if (!colour || !money) return client.errUsage({
-                usage: "roulette [color] [amount]",
+                usage: "roulette [colore] [importo]",
                 type: 'editreply'
             }, interaction);
             colour = colour.toLowerCase()
             if (money > data.Money) return client.errNormal({
-                error: `You are betting more than you have!`,
+                error: `stai scommettendo più di quello che hai!`,
                 type: 'editreply'
             }, interaction);
 
-            if (colour == "b" || colour.includes("black")) colour = 0;
-            else if (colour == "r" || colour.includes("red")) colour = 1;
-            else if (colour == "g" || colour.includes("green")) colour = 2;
-            else return client.errNormal({error: `No correct color specified!`, type: 'editreply'}, interaction);
+            if (colour == "b" || colour.includes("nero")) colour = 0;
+            else if (colour == "r" || colour.includes("rosso")) colour = 1;
+            else if (colour == "g" || colour.includes("verde")) colour = 2;
+            else return client.errNormal({error: `colore non corretto specificato!`, type: 'editreply'}, interaction);
 
-            if (random == 0 && colour == 2) { // Green
+            if (random == 0 && colour == 2) { // Verde
                 money *= 15
 
                 data.Money += money;
                 data.save();
 
                 client.embed({
-                    title: `🎰・Multiplier: 15x`,
-                    desc: `You won **${client.emotes.economy.coins} $${money}**`,
+                    title: `🎰・Moltiplicatore: 15x`,
+                    desc: `Hai vinto **${client.emotes.economy.coins} $${money}**`,
                     type: 'editreply'
                 }, interaction);
-            } else if (isOdd(random) && colour == 1) { // Red
+            } else if (isOdd(random) && colour == 1) { // Rosso
                 money = parseInt(money * 1.5)
                 data.Money += money;
                 data.save();
 
                 client.embed({
-                    title: `🎰・Multiplier: 1.5x`,
-                    desc: `You won **${client.emotes.economy.coins} $${money}**`,
+                    title: `🎰・Moltiplicatore: 1.5x`,
+                    desc: `Hai vinto **${client.emotes.economy.coins} $${money}**`,
                     type: 'editreply'
                 }, interaction);
-            } else if (!isOdd(random) && colour == 0) { // Black
+            } else if (!isOdd(random) && colour == 0) { // Nero
                 money = parseInt(money * 2)
                 data.Money += money;
                 data.save();
 
                 client.embed({
-                    title: `🎰・Multiplier: 2x`,
-                    desc: `You won **${client.emotes.economy.coins} $${money}**`,
+                    title: `🎰・Moltiplicatore: 2x`,
+                    desc: `Hai vinto **${client.emotes.economy.coins} $${money}**`,
                     type: 'editreply'
                 }, interaction);
-            } else { // Wrong
+            } else { // Sbagliato
                 data.Money -= money;
                 data.save();
 
                 client.embed({
-                    title: `🎰・Multiplier: 0x`,
-                    desc: `You lost **${client.emotes.economy.coins} $${money}**`,
+                    title: `🎰・Moltiplicatore: 0x`,
+                    desc: `Hai perso **${client.emotes.economy.coins} $${money}**`,
                     type: 'editreply'
                 }, interaction);
             }
 
         } else {
-            client.errNormal({error: `You has no ${client.emotes.economy.coins}!`, type: 'editreply'}, interaction);
+            client.errNormal({error: `non hai ${client.emotes.economy.coins}!`, type: 'editreply'}, interaction);
         }
     })
 }

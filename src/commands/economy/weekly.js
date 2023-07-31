@@ -5,7 +5,7 @@ const Schema2 = require("../../database/models/economyTimeout");
 
 module.exports = async (client, interaction, args) => {
     let user = interaction.user;
-    let timeout = 604800000;
+    let timeout = 604800000; // 1 settimana in millisecondi
     let amount = 500;
 
     Schema2.findOne({Guild: interaction.guild.id, User: user.id}, async (err, dataTime) => {
@@ -18,10 +18,10 @@ module.exports = async (client, interaction, args) => {
         } else {
 
             client.succNormal({
-                text: `You've collected your weekly reward!`,
+                text: `Hai raccolto la tua ricompensa settimanale!`,
                 fields: [
                     {
-                        name: `${client.emotes.economy.coins}┆Amount`,
+                        name: `${client.emotes.economy.coins}┆Importo`,
                         value: `$${amount}`,
                         inline: true
                     }
@@ -44,5 +44,3 @@ module.exports = async (client, interaction, args) => {
         }
     })
 }
-
- 

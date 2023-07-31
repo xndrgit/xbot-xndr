@@ -1,4 +1,3 @@
-const Discord = require('discord.js');
 const Schema = require("../../database/models/customCommandAdvanced");
 
 module.exports = async (client, interaction, args) => {
@@ -8,7 +7,7 @@ module.exports = async (client, interaction, args) => {
     Schema.findOne({Guild: interaction.guild.id, Name: cmdname.toLowerCase()}, async (err, data) => {
         if (data) {
             client.errNormal({
-                error: "This command name is already added in guild custom commands!",
+                error: "questo nome del comando è già stato aggiunto nei comandi personalizzati del server!",
                 type: 'editreply'
             }, interaction);
         } else {
@@ -16,22 +15,22 @@ module.exports = async (client, interaction, args) => {
                 .addComponents(
                     new Discord.StringSelectMenuBuilder()
                         .setCustomId('customSelect')
-                        .setPlaceholder('❌┆Nothing selected')
+                        .setPlaceholder('❌┆Nessuna opzione selezionata')
                         .addOptions(
                             [
                                 {
                                     label: `Embed`,
-                                    description: `Send a message in an embed`,
+                                    description: `Invia un messaggio in un embed`,
                                     value: "command-embed",
                                 },
                                 {
-                                    label: `Normal`,
-                                    description: `Send a message as normal`,
+                                    label: `Normale`,
+                                    description: `Invia un messaggio normalmente`,
                                     value: "command-normal",
                                 },
                                 {
-                                    label: `Private`,
-                                    description: `Send the message in DM`,
+                                    label: `Privato`,
+                                    description: `Invia il messaggio in DM`,
                                     value: "command-dm",
                                 },
                             ]
@@ -39,7 +38,7 @@ module.exports = async (client, interaction, args) => {
                 );
 
             client.embed({
-                desc: `What action should be attached to this command?`,
+                desc: `A quale azione dovrebbe essere associato questo comando?`,
                 components: [row],
                 type: 'editreply'
             }, interaction)
@@ -58,9 +57,9 @@ module.exports = async (client, interaction, args) => {
                         }).save();
 
                         client.succNormal({
-                            text: `The command has been added successfully`,
+                            text: `Il comando è stato aggiunto con successo`,
                             fields: [{
-                                name: "🔧┆Command",
+                                name: "🔧┆Comando",
                                 value: `\`\`\`${cmdname.toLowerCase()}\`\`\``,
                                 inline: true,
                             }],
@@ -74,13 +73,13 @@ module.exports = async (client, interaction, args) => {
                             Guild: interaction.guild.id,
                             Name: cmdname.toLowerCase(),
                             Responce: cmdresponce,
-                            Action: "Normal"
+                            Action: "Normale"
                         }).save();
 
                         client.succNormal({
-                            text: `The command has been added successfully`,
+                            text: `Il comando è stato aggiunto con successo`,
                             fields: [{
-                                name: "🔧┆Command",
+                                name: "🔧┆Comando",
                                 value: `\`\`\`${cmdname.toLowerCase()}\`\`\``,
                                 inline: true,
                             }],
@@ -98,9 +97,9 @@ module.exports = async (client, interaction, args) => {
                         }).save();
 
                         client.succNormal({
-                            text: `The command has been added successfully`,
+                            text: `Il comando è stato aggiunto con successo`,
                             fields: [{
-                                name: "🔧┆Command",
+                                name: "🔧┆Comando",
                                 value: `\`\`\`${cmdname.toLowerCase()}\`\`\``,
                                 inline: true,
                             }],
@@ -111,7 +110,7 @@ module.exports = async (client, interaction, args) => {
 
                     await interaction.guild.commands.create({
                         name: cmdname,
-                        description: 'Custom server command'
+                        description: 'Comando personalizzato del server'
                     });
                 }
             })
@@ -119,5 +118,3 @@ module.exports = async (client, interaction, args) => {
     })
 
 }
-
- 

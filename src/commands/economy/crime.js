@@ -17,7 +17,7 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         } else {
 
-            let replies = ['Hacking', 'Burglary', 'Roberry', 'Murder', 'Dealing drugs', 'Child abuse', 'Arms trade', 'Street robbery'];
+            let replies = ['Hacking', 'Furto in abitazione', 'Rapina', 'Omicidio', 'Spaccio di droga', 'Abuso di minori', 'Commercio di armi', 'Scippo'];
 
             let result = Math.floor((Math.random() * replies.length));
             let result2 = Math.floor((Math.random() * 10));
@@ -26,15 +26,15 @@ module.exports = async (client, interaction, args) => {
             if (result2 > 7) {
 
                 client.succNormal({
-                    text: `Your crime went successfully!`,
+                    text: `Il tuo crimine è andato a buon fine!`,
                     fields: [
                         {
-                            name: `🦹‍♂️┆Crime`,
+                            name: `🦹‍♂️┆Crimine`,
                             value: `${replies[result]}`,
                             inline: true
                         },
                         {
-                            name: `${client.emotes.economy.coins}┆Earned`,
+                            name: `${client.emotes.economy.coins}┆Guadagnato`,
                             value: `$${amount}`,
                             inline: true
                         }
@@ -56,7 +56,7 @@ module.exports = async (client, interaction, args) => {
                 }
             } else {
                 client.errNormal({
-                    error: `You were caught carrying out the crime ${replies[result]}`,
+                    error: `sei stato sorpreso a compiere il crimine ${replies[result]}`,
                     type: 'editreply'
                 }, interaction);
 
@@ -74,5 +74,3 @@ module.exports = async (client, interaction, args) => {
         }
     })
 }
-
- 

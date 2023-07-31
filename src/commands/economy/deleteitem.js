@@ -12,7 +12,7 @@ module.exports = async (client, interaction, args) => {
 
     const role = interaction.options.getRole('role');
 
-    if (!role) return client.errUsage({usage: "deleteitem [role]", type: 'editreply'}, interaction);
+    if (!role) return client.errUsage({usage: "deleteitem [ruolo]", type: 'editreply'}, interaction);
 
     store.findOne({Guild: interaction.guild.id, Role: role.id}, async (err, storeData) => {
         if (storeData) {
@@ -20,10 +20,10 @@ module.exports = async (client, interaction, args) => {
             var remove = await store.deleteOne({Guild: interaction.guild.id, Role: role.id});
 
             client.succNormal({
-                text: `The role was deleted from the store`,
+                text: `Il ruolo è stato eliminato dal negozio`,
                 fields: [
                     {
-                        name: `🛒┆Role`,
+                        name: `🛒┆Ruolo`,
                         value: `${role}`
                     }
                 ],
@@ -32,11 +32,9 @@ module.exports = async (client, interaction, args) => {
         } else {
 
             client.errNormal({
-                error: `This role is not in the store!`,
+                error: `questo ruolo non è presente nel negozio!`,
                 type: 'editreply'
             }, interaction);
         }
     })
 }
-
- 

@@ -12,9 +12,9 @@ module.exports = async (client, interaction, args) => {
             let money = parseInt(interaction.options.getNumber('amount'));
             let win = false;
 
-            if (!money) return client.errUsage({usage: "slots [amount]", type: 'editreply'}, interaction);
+            if (!money) return client.errUsage({usage: "slots [importo]", type: 'editreply'}, interaction);
             if (money > data.Money) return client.errNormal({
-                error: `You are betting more than you have!`,
+                error: `stai scommettendo più di quello che hai!`,
                 type: 'editreply'
             }, interaction);
 
@@ -51,9 +51,9 @@ module.exports = async (client, interaction, args) => {
             if (win) {
 
                 client.embed({
-                    title: `🎰・Slots`,
-                    desc: `You won **${client.emotes.economy.coins} $${money}**`,
-                    color: client.config.colors.succes,
+                    title: `🎰・Slot`,
+                    desc: `Hai vinto **${client.emotes.economy.coins} $${money}**`,
+                    color: client.config.colors.successo,
                     components: [row],
                     type: 'editreply'
                 }, interaction)
@@ -63,10 +63,10 @@ module.exports = async (client, interaction, args) => {
             } else {
 
                 client.embed({
-                    title: `🎰・Slots`,
-                    desc: `You lost **${client.emotes.economy.coins} $${money}**`,
+                    title: `🎰・Slot`,
+                    desc: `Hai perso **${client.emotes.economy.coins} $${money}**`,
                     components: [row],
-                    color: client.config.colors.error,
+                    color: client.config.colors.errore,
                     type: 'editreply'
                 }, interaction)
 
@@ -74,7 +74,7 @@ module.exports = async (client, interaction, args) => {
                 data.save();
             }
         } else {
-            client.errNormal({error: `You has no ${client.emotes.economy.coins}!`, type: 'editreply'}, interaction);
+            client.errNormal({error: `non hai ${client.emotes.economy.coins}!`, type: 'editreply'}, interaction);
         }
     })
 }

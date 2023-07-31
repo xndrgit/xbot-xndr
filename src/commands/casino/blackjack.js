@@ -11,7 +11,7 @@ module.exports = async (client, interaction, args) => {
 
             if (!money) return client.errUsage({usage: "blackjack [amount]", type: 'editreply'}, interaction);
             if (money > data.Money) return client.errNormal({
-                error: `You are betting more than you have!`,
+                error: `stai scommettendo più di quello che hai!`,
                 type: 'editreply'
             }, interaction);
 
@@ -157,12 +157,12 @@ module.exports = async (client, interaction, args) => {
                         desc: `${f} \n${msg}`,
                         fields: [
                             {
-                                name: `You`,
+                                name: `Tu`,
                                 value: cardsMsg,
                                 inline: true,
                             },
                             {
-                                name: `Bot`,
+                                name: `XBot`,
                                 value: dealerMsg,
                                 inline: true,
                             }
@@ -175,12 +175,12 @@ module.exports = async (client, interaction, args) => {
                         desc: `${f} \n${msg}`,
                         fields: [
                             {
-                                name: `You`,
+                                name: `Tu`,
                                 value: cardsMsg,
                                 inline: true,
                             },
                             {
-                                name: `Bot`,
+                                name: `XBot`,
                                 value: dealerMsg,
                                 inline: true,
                             }
@@ -197,7 +197,7 @@ module.exports = async (client, interaction, args) => {
                     gameOver = true;
                     endMsg(
                         `Win! You got 21!`,
-                        `Bot had ${dealer.score.toString()}`,
+                        `XBot had ${dealer.score.toString()}`,
                         `GREEN`
                     );
                 }
@@ -206,7 +206,7 @@ module.exports = async (client, interaction, args) => {
                     gameOver = true;
                     endMsg(
                         `Lost! You reached over 21!`,
-                        `Bot had ${dealer.score.toString()}`,
+                        `XBot had ${dealer.score.toString()}`,
                         `RED`
                     );
                 }
@@ -215,7 +215,7 @@ module.exports = async (client, interaction, args) => {
                     gameOver = true;
                     endMsg(
                         `Lost! The dealer got 21!`,
-                        `Bot had ${dealer.score.toString()}`,
+                        `XBot had ${dealer.score.toString()}`,
                         `RED`
                     );
                 }
@@ -224,7 +224,7 @@ module.exports = async (client, interaction, args) => {
                     gameOver = true;
                     endMsg(
                         `Win! Bot reached over 21!`,
-                        `Bot had ${dealer.score.toString()}`,
+                        `XBot had ${dealer.score.toString()}`,
                         `GREEN`
                     );
                 }
@@ -237,7 +237,7 @@ module.exports = async (client, interaction, args) => {
                     gameOver = true;
                     endMsg(
                         `Win! You defeated Bot!`,
-                        `Bot had ${dealer.score.toString()}`,
+                        `XBot had ${dealer.score.toString()}`,
                         `GREEN`
                     );
                 }
@@ -250,7 +250,7 @@ module.exports = async (client, interaction, args) => {
                     gameOver = true;
                     endMsg(
                         `Lost! Bot won!`,
-                        `Bot had ${dealer.score.toString()}`,
+                        `XBot had ${dealer.score.toString()}`,
                         `RED`
                     );
                 }
@@ -260,7 +260,7 @@ module.exports = async (client, interaction, args) => {
                     dealer.score < 21
                 ) {
                     gameOver = true;
-                    endMsg(`Tie!`, `Bot had ${dealer.score.toString()}`, `RED`);
+                    endMsg(`Tie!`, `XBot had ${dealer.score.toString()}`, `RED`);
                 }
             }
 
@@ -330,7 +330,7 @@ module.exports = async (client, interaction, args) => {
             await loop();
         } else {
             client.errNormal({
-                error: `You don't have any ${client.emotes.economy.coins}!`,
+                error: `non hai ${client.emotes.economy.coins}!`,
                 type: 'editreply'
             }, interaction);
         }

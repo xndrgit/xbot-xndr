@@ -51,7 +51,7 @@ module.exports = async (client, interaction, args) => {
 
         client.embed({
             title: `${upper}・Ruoli`,
-            desc: `_____ \n\nScegli i tuoi ruoli nel menu! \n\n${map}`,
+            desc: `\nSeleziona i tuoi ruoli dal menu! \n\n${map}`,
             components: [row]
         }, channel).then(async (msg) => {
             if (!msg) {

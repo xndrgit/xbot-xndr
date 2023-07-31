@@ -9,17 +9,17 @@ module.exports = async (client, interaction, args) => {
 
     if (!amount) return client.errUsage({usage: "withdraw [amount]", type: 'editreply'}, interaction);
 
-    if (isNaN(amount)) return client.errNormal({error: "Enter a valid number!", type: 'editreply'}, interaction);
+    if (isNaN(amount)) return client.errNormal({error: "inserisci un numero valido!", type: 'editreply'}, interaction);
 
     if (amount < 0) return client.errNormal({
-        error: `You can't withdraw negative money!`,
+        error: `non puoi prelevare denaro negativo!`,
         type: 'editreply'
     }, interaction);
 
     Schema.findOne({Guild: interaction.guild.id, User: user.id}, async (err, data) => {
         if (data) {
             if (data.Bank === 0) return client.errNormal({
-                error: `You have nothing left in the bank!`,
+                error: `non hai più niente nel conto in banca!`,
                 type: 'editreply'
             }, interaction);
 
@@ -30,10 +30,10 @@ module.exports = async (client, interaction, args) => {
             data.save();
 
             client.succNormal({
-                text: `You've have withdrawn some money from your bank!`,
+                text: `Hai prelevato del denaro dal tuo conto in banca!`,
                 fields: [
                     {
-                        name: `${client.emotes.economy.coins}┆Amount`,
+                        name: `${client.emotes.economy.coins}┆Importo`,
                         value: `$${amount}`,
                         inline: true
                     }
@@ -41,8 +41,7 @@ module.exports = async (client, interaction, args) => {
                 type: 'editreply'
             }, interaction);
         } else {
-            client.errNormal({text: `You don't have any money to withdraw!`, type: 'editreply'}, interaction);
+            client.errNormal({text: `Non hai denaro da prelevare!`, type: 'editreply'}, interaction);
         }
     })
 }
- 

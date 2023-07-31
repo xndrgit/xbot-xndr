@@ -7,11 +7,7 @@ module.exports = async (client) => {
             value: `\`/activities\``,
             inline: true
         },
-        // {
-        //     name: `🚫┆AFK`,
-        //     value: `\`/afk help\``,
-        //     inline: true
-        // },
+
         {
             name: `📣┆Annunci`,
             value: `\`/announcement help\``,
@@ -32,36 +28,36 @@ module.exports = async (client) => {
             value: `\`/birthdays help\``,
             inline: true
         },
-        // {
-        //     name: `🤖┆Bot`,
-        //     value: `\`/bot help\``,
-        //     inline: true
-        // },
-        // {
-        //     name: `🎰┆Casino`,
-        //     value: `\`/casino help\``,
-        //     inline: true
-        // },
+        {
+            name: `🤖┆Bot`,
+            value: `\`/bot help\``,
+            inline: true
+        },
+        {
+            name: `🎰┆Casino`,
+            value: `\`/casino help\``,
+            inline: true
+        },
         // {
         //     name: `⚙┆Configuration`,
         //     value: `\`/config help\``,
         //     inline: true
         // },
-        // {
-        //     name: `💻┆Custom commands`,
-        //     value: `\`/custom-commands help\``,
-        //     inline: true
-        // },
+        {
+            name: `💻┆Custom commands`,
+            value: `\`/custom-commands help\``,
+            inline: true
+        },
         // {
         //     name: `💳┆Dcredits`,
         //     value: `\`/dcredits help\``,
         //     inline: true
         // },
-        // {
-        //     name: `💰┆Economy`,
-        //     value: `\`/economy help\``,
-        //     inline: true
-        // },
+        {
+            name: `💰┆Economia`,
+            value: `\`/economy help\``,
+            inline: true
+        },
         {
             name: `👪┆Famiglia`,
             value: `\`/family help\``,
@@ -77,11 +73,11 @@ module.exports = async (client) => {
             value: `\`/games help\``,
             inline: true
         },
-        // {
-        //     name: `🥳┆Giveaway`,
-        //     value: `\`/giveaway help\``,
-        //     inline: true
-        // },
+        {
+            name: `🥳┆Giveaway`,
+            value: `\`/giveaway help\``,
+            inline: true
+        },
         // {
         //     name: `⚙️┆Guild settings`,
         //     value: `\`/guild help\``,
@@ -102,26 +98,17 @@ module.exports = async (client) => {
             value: `\`/invites help\``,
             inline: true
         },
-        // {
-        //     name: `🆙┆Leveling`,
-        //     value: `\`/levels help\``,
-        //     inline: true
-        // },
+
         {
-            name: `💬┆Messagi`,
+            name: `💬┆Messaggi`,
             value: `\`/messages help\``,
             inline: true
         },
-        // {
-        //     name: `👔┆Moderation`,
-        //     value: `\`/moderation help\``,
-        //     inline: true
-        // },
-        // {
-        //     name: `🎶┆Music`,
-        //     value: `\`/music help\``,
-        //     inline: true
-        // },
+        {
+            name: `👔┆Moderation`,
+            value: `\`/moderation help\``,
+            inline: true
+        },
         {
             name: `📓┆Note`,
             value: `\`/notepad help\``,
@@ -132,26 +119,18 @@ module.exports = async (client) => {
             value: `\`/profile help\``,
             inline: true
         },
-        // {
-        //     name: `📻┆Radio`,
-        //     value: `\`/radio help\``,
-        //     inline: true
-        // },
-        // {
-        //     name: `😛┆Reaction roles`,
-        //     value: `\`/reactionroles help\``,
-        //     inline: true
-        // },
+
+        {
+            name: `😛┆Ruoli reazioni`,
+            value: `\`/reactionroles help\``,
+            inline: true
+        },
         {
             name: `🔍┆Cerca`,
             value: `\`/search help\``,
             inline: true
         },
-        {
-            name: `📊┆Statistiche server`,
-            value: `\`/serverstats help\``,
-            inline: true
-        },
+
         // {
         //     name: `⚙️┆Setup`,
         //     value: `\`/setup help\``,
@@ -162,11 +141,6 @@ module.exports = async (client) => {
             value: `\`/soundboard help\``,
             inline: true
         },
-        // {
-        //     name: `🗨️┆Sticky messages`,
-        //     value: `\`/stickymessages help\``,
-        //     inline: true
-        // },
         {
             name: `💡┆Suggerimenti`,
             value: `\`/sugestions help\``,
@@ -183,7 +157,7 @@ module.exports = async (client) => {
         //     inline: true
         // },
         {
-            name: `⚒️┆Utile`,
+            name: `⚒️┆Strumenti`,
             value: `\`/tools help\``,
             inline: true
         },
@@ -192,6 +166,37 @@ module.exports = async (client) => {
             value: `\`/voice help\``,
             inline: true
         },
+        {
+            name: `📻┆Radio`,
+            value: `\`/radio help\``,
+            inline: true
+        },
+        // {
+        //     name: `🎶┆Music`,
+        //     value: `\`/music help\``,
+        //     inline: true
+        // },
+        // {
+        //     name: `🗨️┆Sticky messages`,
+        //     value: `\`/stickymessages help\``,
+        //     inline: true
+        // },
+        // {
+        //     name: `🚫┆AFK`,
+        //     value: `\`/afk help\``,
+        //     inline: true
+        // },
+        // {
+        //     name: `🆙┆Leveling`,
+        //     value: `\`/levels help\``,
+        //     inline: true
+        // },
+
+        // {
+        //     name: `📊┆Statistiche server`,
+        //     value: `\`/serverstats help\``,
+        //     inline: true
+        // },
     ];
 
     client.on(Discord.Events.InteractionCreate, async (interaction) => {

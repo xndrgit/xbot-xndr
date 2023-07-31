@@ -6,7 +6,7 @@ const items = require("../../database/models/economyItems");
 module.exports = async (client, interaction, args) => {
     const storeData = await store.find({Guild: interaction.guild.id});
     if (storeData.length == 0) return client.errNormal({
-        error: `No shop found in this server`,
+        error: `nessun negozio trovato in questo server`,
         type: 'editreply'
     }, interaction);
 
@@ -23,15 +23,15 @@ module.exports = async (client, interaction, args) => {
         return labels.push(generated);
     });
     labels.push({
-        label: `Fishingrod`,
+        label: `Canna da pesca`,
         value: `fishingrod`,
     })
 
     const select = await client.generateSelect(`economyBuy`, labels);
 
     client.embed({
-        title: `🛒・${interaction.guild.name}'s Store`,
-        desc: `Choose a item from the menu to buy`,
+        title: `🛒・Negozio di ${interaction.guild.name}`,
+        desc: `Scegli un oggetto dal menu per acquistarlo`,
         components: [select],
         type: 'editreply'
     }, interaction)
@@ -52,7 +52,7 @@ module.exports = async (client, interaction, args) => {
         if (i.values[0] == 'fishingrod') {
             console.log(data)
             if (parseInt(100) > parseInt(data.Money)) return client.errNormal({
-                error: `You don't have enough money to buy this!`,
+                error: `Non hai abbastanza soldi per acquistare questo oggetto!`,
                 type: 'update',
                 components: []
             }, i);
@@ -71,11 +71,11 @@ module.exports = async (client, interaction, args) => {
                 }
             })
             return client.succNormal({
-                text: `The purchase has been successfully completed`,
+                text: `L'acquisto è stato completato con successo`,
                 fields: [
                     {
-                        name: `📘┆Item`,
-                        value: `Fishingrod`
+                        name: `📘┆Oggetto`,
+                        value: `Canna da pesca`
                     }
                 ],
                 type: 'update',
@@ -86,7 +86,7 @@ module.exports = async (client, interaction, args) => {
         const checkStore = await store.findOne({Guild: i.guild.id, Role: role});
 
         if (parseInt(checkStore.Amount) > parseInt(data.Money)) return client.errNormal({
-            error: `You don't have enough money to buy this!`,
+            error: `Non hai abbastanza soldi per acquistare questo oggetto!`,
             type: 'update',
             components: []
         }, i);
@@ -96,17 +96,17 @@ module.exports = async (client, interaction, args) => {
             await buyPerson.roles.add(role);
         } catch (e) {
             return client.errNormal({
-                error: `I can't add <@&${role}> to you!`,
+                error: `Non posso aggiungere <@&${role}> a te!`,
                 type: 'update',
                 components: []
             }, i);
         }
 
         client.succNormal({
-            text: `The purchase has been successfully completed`,
+            text: `L'acquisto è stato completato con successo`,
             fields: [
                 {
-                    name: `📘┆Item`,
+                    name: `📘┆Oggetto`,
                     value: `<@&${role}>`
                 }
             ],
@@ -115,4 +115,3 @@ module.exports = async (client, interaction, args) => {
         }, i);
     })
 }
-

@@ -15,19 +15,19 @@ module.exports = async (client, interaction, args) => {
 
     let timeout = 60000;
     let fish =
-        ["Yellow Fish :tropical_fish:",
-            "Fat Fish :blowfish:",
-            "Blue Fish :fish:",
-            "Coconut :coconut:",
-            "Dolphin :dolphin:",
-            "Lobster :lobster:",
-            "Shark :shark:",
-            "Crab :crab:",
-            "Squid :squid:",
-            "Whale :whale2:",
-            "Shrimp :shrimp:",
-            "Octopus :octopus:",
-            "Diamond :gem:"];
+        ["Pesce Giallo :tropical_fish:",
+            "Pesce Grasso :blowfish:",
+            "Pesce Blu :fish:",
+            "Cocco :coconut:",
+            "Delfino :dolphin:",
+            "Aragosta :lobster:",
+            "Squalo :shark:",
+            "Granchio :crab:",
+            "Calamaro :squid:",
+            "Balena :whale2:",
+            "Gambero :shrimp:",
+            "Polpo :octopus:",
+            "Diamante :gem:"];
 
     let randn = rand(0, parseInt(fish.length));
     let randrod = rand(15, 30);
@@ -37,7 +37,7 @@ module.exports = async (client, interaction, args) => {
     const userItems = await itemSchema.findOne({Guild: interaction.guild.id, User: user.id});
 
     if (!userItems || userItems.FishingRod == false) return client.errNormal({
-        error: "You have to buy a fishing rod!",
+        error: "Devi comprare una canna da pesca!",
         type: 'editreply'
     }, interaction);
 
@@ -47,7 +47,7 @@ module.exports = async (client, interaction, args) => {
             userItems.save();
 
             return client.errNormal({
-                error: "Your fishing rod has broken! Go buy a new one!",
+                error: "La tua canna da pesca si è rotta! Comprane una nuova!",
                 type: 'editreply'
             }, interaction);
         }
@@ -59,7 +59,7 @@ module.exports = async (client, interaction, args) => {
 
             return client.errWait({time: time, type: 'editreply'}, interaction);
         } else {
-            client.succNormal({text: `You've fished and gotten a ${fishToWin}`, type: 'editreply'}, interaction);
+            client.succNormal({text: `Hai pescato e hai ottenuto un ${fishToWin}`, type: 'editreply'}, interaction);
 
             if (userItems) {
                 userItems.FishingRodUsage += 1;
@@ -71,7 +71,7 @@ module.exports = async (client, interaction, args) => {
                 dataTime.save();
             } else {
                 new Schema2({
-                    Guild: message.guild.id,
+                    Guild: interaction.guild.id,
                     User: user.id,
                     Fish: Date.now()
                 }).save();
@@ -80,5 +80,3 @@ module.exports = async (client, interaction, args) => {
     })
 
 }
-
- 
